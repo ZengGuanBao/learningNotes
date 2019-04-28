@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var ws = new WebSocket('ws://localhost:4001');
+    ws.onopen = function () {
+      console.log('client: ws connection is open');
+      ws.send('hello');
+    };
+    ws.onmessage = function (e) {
+      console.log('client: received %s', e.data);
+    };
+  </script>
+</body>
+</html>

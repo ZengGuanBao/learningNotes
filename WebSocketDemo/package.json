@@ -1,0 +1,12 @@
+{
+  "name": "ws",
+  "version": "1.0.0",
+  "main": "service.js",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4",
+    "http": "^0.0.0",
+    "nodemon": "^1.18.11",
+    "ws": "^6.2.1"
+  }
+}
