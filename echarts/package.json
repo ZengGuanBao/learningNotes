@@ -1,0 +1,11 @@
+{
+  "name": "echarts",
+  "version": "1.0.0",
+  "description": "学习ECharts API",
+  "main": "index.js",
+  "author": "zengguanbao",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
