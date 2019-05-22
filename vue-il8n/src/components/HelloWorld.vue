@@ -23,11 +23,11 @@ export default {
       //   cancelButtonText: '取消',
       //   type: 'warning'
       // }).then(() => {
-      if (this.lang === 'zh-CN') {
-        this.lang = 'en-US'
+      if (this.lang === 'en-US') {
+        this.lang = 'zh-CN'
         this.$i18n.locale = this.lang
       } else {
-        this.lang = 'zh-CN'
+        this.lang = 'en-US'
         this.$i18n.locale = this.lang
       }
       // }).catch(() => {

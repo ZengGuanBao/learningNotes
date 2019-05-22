@@ -8,6 +8,7 @@ import VueI18n from 'vue-i18n'
 Vue.config.productionTip = false
 Vue.use(VueI18n)
 
+localStorage.setItem('lang', 'zh-CN')
 // 多语言实例
 const i18n = new VueI18n({
   locale: (function () {
