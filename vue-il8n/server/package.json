@@ -1,0 +1,11 @@
+{
+  "name": "dataJson",
+  "version": "1.0.0",
+  "description": "模拟数据传输",
+  "main": "index.js",
+  "author": "ZengGuanBao",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.0"
+  }
+}

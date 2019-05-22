@@ -6,6 +6,7 @@
   "author": "zengguanbao",
   "license": "MIT",
   "dependencies": {
+    "echarts": "^4.2.1",
     "express": "^4.16.4"
   }
 }
