@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <img @click="changeLangEvent" src="../assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <h1>{{$t('m.msg')}}</h1>
     <h2 v-text="$t('m.nav')"></h2>
     <ul>
       <li>{{$t('m.music')}}</li>
@@ -16,11 +16,6 @@
 <script>
 export default {
   name: 'HelloWorld',
-  data () {
-    return {
-      msg: this.$t('m.msg')
-    }
-  },
   methods: {
     changeLangEvent () {
       // this.$confirm('确定切换语言吗?', '提示', {
