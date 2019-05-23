@@ -17,6 +17,12 @@
 export default {
   name: 'HelloWorld',
   methods: {
+    getData () {
+      return this.$http({
+        method: 'get',
+        url: '/api/img'
+      })
+    },
     changeLangEvent () {
       // this.$confirm('确定切换语言吗?', '提示', {
       //   confirmButtonText: '确定',
@@ -30,6 +36,9 @@ export default {
         this.lang = 'en-US'
         this.$i18n.locale = this.lang
       }
+      this.getData().then(function (res) {
+        console.log(res.data)
+      })
       // }).catch(() => {
       //   this.$message({
       //     type: 'info'

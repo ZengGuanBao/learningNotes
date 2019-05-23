@@ -1,9 +1,9 @@
-let express = require('express');
-let app = express();
+let express = require('express')
+let app = express()
 app.use(express.static(__dirname))
-let json = require('./api/data.json');
+let json = require('./api/imgData.json')
 app.get('/api/img', (req, res) => {
   let start = Math.round(Math.random() * (json.length - 20))
   res.json(json.slice(start, start + 20))
 })
-app.listen(3000);
+app.listen(3000)

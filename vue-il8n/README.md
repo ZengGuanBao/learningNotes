@@ -1,6 +1,7 @@
 # vue-il8n
 
 > 关于中英文切换的vue-il8n的使用demo
+> 配置跨域代理的设置
 
 ## Build Setup
 
