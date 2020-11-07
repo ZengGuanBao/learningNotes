@@ -1,0 +1,48 @@
+<!--authentication.wxml-->
+<view class="authentication-container">
+    <view class="authentication-form">
+        <view class="form-block">
+            <view class="form-line">
+                <view class="line-left">
+                    真实姓名
+                </view>
+                <view class="line-right">
+                    <input class="ipt-name" placeholder="请输入您的真实姓名" placeholder-class="placeholder" value="{{form.name}}" bindinput="watchName"/>
+                </view>
+            </view>
+            <view class="form-line">
+                <view class="line-left">
+                    身份证号
+                </view>
+                <view class="line-right">
+                    <input class="ipt-idCard" placeholder="请输入您的真实身份证号" placeholder-class="placeholder" value="{{form.idCard}}" bindinput="watchIdCard"/>
+                </view>
+            </view>
+        </view>
+        <view class="notice">
+            <view class="header">
+                <image class="img-error" src="../../assets/images/common/error.png"></image><text class="title">注意事项</text>
+            </view>
+            <view class="content">
+                <view class="notice-item">
+                    1、单笔提现金额不得小于10元,不得大于10000元;
+                </view>
+                <view class="notice-item">
+                    2、每月最多提现2次;
+                </view>
+                <view class="notice-item">
+                    3、操作提现暂不收取手续费(以后根据政策调整);
+                </view>
+                <view class="notice-item">
+                    4、恶意提现一经发现,平台将对账号进行封号;
+                </view>
+                <view class="notice-item">
+                    5、提现到账后,您会收到微信服务通知提醒，注意查收。
+                </view>
+            </view>
+        </view>
+        <view class="operation">
+            <view class="btn-authentication {{canAuthentication ? '' : 'disabled'}}" bindtap="handleAuthentication">下一步</view>
+        </view>
+    </view>
+</view>

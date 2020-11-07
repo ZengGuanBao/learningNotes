@@ -1,0 +1,120 @@
+<!-- commodityDetail.wxml -->
+<view class="container commodityDetail-container {{isIphoneX ? 'iphonex-con-bottom': ''}}">
+  <view class="commodityDetail-banner">
+    <swiper autoplay="{{autoplay}}" duration="{{duration}}" class="banner-swiper" bindchange="changeCurrent">
+      <block wx:for="{{goodsDetail.images}}" wx:key="index">
+        <swiper-item>
+          <image mode="aspectFit" src="{{item.url}}" class="banner-img" data-index="{{index}}" data-imgarr="{{goodsDetail.images}}" bindtap="previewImg"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="banner-index">
+      <text class="text-index">{{currentIndex+1}}</text>
+      <text class="text-tal">/{{goodsDetail.images.length}}</text>
+    </view>
+  </view>
+  <view class="commodity-con">
+    <view class="commodityDetail-price" wx:if="{{goodsDetail.lowestCouponPrice}}">
+      <view class="text-price">
+        <text class="text-money">￥</text>
+        <text>{{goodsDetail.lowestCouponPrice}}</text>
+      </view>
+      <view class="text-describe" wx:if="{{thirdPlatform!== '2' && hasCoupon === true}}">
+        <text>券后</text>
+      </view>
+      <view class="text-padding" wx:if="{{vipFlag === 1}}">
+        <text class="text-rebate">返利{{goodsDetail.rebateAmount}}元</text>
+      </view>
+      <view class="text-padding" wx:if="{{thirdPlatform === '2' && vipFlag === 0}}">
+        <text class="text-member">送超级会员</text>
+      </view>
+      <view class="text-s">
+        <rich-text nodes="{{'<s>￥' + goodsDetail.price + '</s>'}}"></rich-text>
+      </view>
+      <view class="text-sold" wx:if="{{thirdPlatform!== '2'}}">
+        <text>已售{{goodsDetail.salesTip}}件</text>
+      </view>
+    </view>
+    <view class="text-clip">
+      <text class="text-tip" wx:if="{{thirdPlatform!== '2'}}">{{thirdPlatformName}}</text>
+      <text class="text-title">{{goodsDetail.goodsName}}</text>
+    </view>
+    <view class="text-subtitle" wx:if="{{thirdPlatform=== '2'}}">{{goodsDetail.subtitle}}</view>
+    <view bindtap="openMember" class="to-open-member" wx:if="{{thirdPlatform !== '2' && vipFlag === 0}}">
+      <image class="member-bg" src="{{imgHost+'/genMember/member_bg.png'}}"></image>
+      <view style="display:flex;position: relative;z-index: 1;">
+        <image class="member-icon" src="../../assets/images/pageIcon/member_icon.png"></image>
+        <text>开通超级会员再省{{goodsDetail.rebateAmount}}元</text>
+      </view>
+      <view class="text-guide">
+        <text>去开通</text>
+        <image class="right-icon" src="../../assets/images/pageIcon/right_icon.png"></image>
+      </view>
+    </view>
+
+    <view class="coupon-icon" wx:if="{{thirdPlatform !== '2' && hasCoupon === true}}" bindtap="getCustomerPromotionUrl">
+      <image class="coupon-bg" src="{{imgHost+'/genMember/coupon_bg.png'}}"></image>
+      <view class="coupon-title">{{goodsDetail.couponDiscount}}元优惠券</view>
+      <view class="coupon-time">
+        有效期：{{goodsDetail.couponDiscountStartTime}} 至 {{goodsDetail.couponDiscountEndTime}}
+      </view>
+    </view>
+  </view>
+  <view class="commodity-detail">
+    <view class="title">
+      <text class="line"></text>
+      <text>商品详情</text>
+      <text class="line"></text>
+    </view>
+    <view wx:if="{{thirdPlatform==='2'}}">
+      <rich-text class="commodity-detail-html" nodes="{{goodsDetail.detailHtml}}"></rich-text>
+    </view>
+    <view wx:else>
+      <block wx:for="{{goodsDetail.images}}" wx:key="index">
+        <view>
+          <image class="" src="{{item.url}}" class="banner-img"></image>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="footer">
+    <text class="line"></text>
+    <text>已显示全部内容</text>
+    <text class="line"></text>
+  </view>
+  <view class="commodityDetail-bottom {{isIphoneX ? 'iphonex-bottom': ''}}" wx:if="{{vipFlag === 0}}">
+    <view wx:if="{{thirdPlatform==='2'}}" bindtap="buyMember" class="rebate-type-btn">立即购买</view>
+    <view class="commodityDetail-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===false && hasCoupon === true}}">
+      领券购买省{{goodsDetail.couponDiscount}}元
+    </view>
+    <view class="commodityDetail-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===true  && hasCoupon === true}}">
+      领券开团省{{goodsDetail.couponDiscount}}元
+    </view>
+    <view class="commodityDetail-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===false  && hasCoupon === false}}">
+      立即购买
+    </view>
+    <view class="commodityDetail-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===true && hasCoupon === false}}">
+      立即开团
+    </view>
+  </view>
+  <view class="commodityDetail-bottom {{isIphoneX ? 'iphonex-bottom': ''}}" wx:else>
+    <view bindtap="handelOpenShare" class="{{thirdPlatform==='2'?'rebate-type-btn':'rebate-btn'}}">
+      分享返利{{goodsDetail.rebateAmount}}元
+    </view>
+    <view wx:if="{{thirdPlatform!=='2'}}">
+      <view class="buy-btn" bindtap="getCustomerPromotionUrl" wx:if="{{hasCollage===false && hasCoupon === true}}">
+        领券购买省{{goodsDetail.totalMoney}}元
+      </view>
+      <view class="buy-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===true && hasCoupon === true}}">
+        领券开团省{{goodsDetail.totalMoney}}元
+      </view>
+      <view class="buy-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===false && hasCoupon === false}}">
+        自购返利{{goodsDetail.rebateAmount}}元
+      </view>
+      <view class="buy-btn" bindtap="getCustomerPromotionUrl" wx:elif="{{hasCollage===true && hasCoupon === false}}">
+        开团返利{{goodsDetail.rebateAmount}}元
+      </view>
+    </view>
+  </view>
+</view>
+<commodity-poster id="commodityPoster" goodsDetail="{{goodsDetail}}" hasCoupon="{{hasCoupon}}" miniprogramCode="{{miniprogramCode}}"></commodity-poster>

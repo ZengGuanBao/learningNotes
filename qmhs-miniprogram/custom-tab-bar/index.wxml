@@ -1,0 +1,17 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<view class="tab-content {{isIphoneX ? 'iphonex-bottom': ''}}">
+  <view class="tab-bar-radius tab-bar {{vipFlag === 0 ? '': 'tab-bar-icon'}}"style="background:{{backgroundColor}};">
+    <view class="tab-bar-item"  wx:for="{{list}}" wx:key="index" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab" >
+      <image class="img" src="{{selected !== index ? item.iconPath : item.selectedIconPath}}"></image>
+      <view class="text-con {{selected === index? selected=== 1 ? 'text-golden' : 'text-white' : 'text-gray'}}">
+        {{item.text}}
+      </view>
+    </view>
+  </view>
+  <view class="tab-bar-share tab-bar-radius" wx-if="{{vipFlag=== 1}}" style="background:{{backgroundColor}};" bindtap="openSharePoster">
+    <image class="img" src="{{shareIconUrl}}"></image>
+    <view class="text-con {{selected !== 1 ? 'text-white' : 'text-golden'}}">
+      分享
+    </view>
+  </view>
+</view>

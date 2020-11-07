@@ -1,0 +1,3 @@
+<template name="hasNoData">
+    <view class="show__all" wx:if="{{hasLoadingOver === true}}"><text class="text">已显示全部内容</text></view>
+</template>

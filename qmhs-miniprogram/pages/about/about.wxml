@@ -1,0 +1,80 @@
+<!--about.wxml-->
+<view class="about-container">
+    <view class="company-info">
+        <view class="title">
+            公司介绍
+        </view>
+        <view class="part">
+            全民划算是一个融合了京东、淘宝、拼多多、唯品会等网络购物平台优惠券的社交电商导购平台。全民划算通过“前端社交分享”+“会员”制构建高效的营销体系，连接去中心化的社群分享与传播，加上打通消费者、会员以及商家的共享创业模式，实现“自购省钱，分享赚钱”的理念。
+        </view>
+        <view class="title">产品介绍</view>
+        <view class="part">
+            全民划算坚持以打造“产品精选”、“特卖价格”、“优质服务”为目标，为消费者提供“更省钱、更省心、超预期”的产品及全方位服务。
+        </view>
+        <view class="part">
+            全民划算汇集吃、喝、玩、乐、衣、食、住、行等各大生活消费品类，用户从全民划算领取优惠券，跳转到第三方平台下单购物，可以获得优惠价格和返利，分享人可以获得收益。
+        </view>
+        <view class="title">平台优势</view>
+        <view class="advantage-list">
+            <view class="item">
+                <view class="item-title">
+                    1、为消费者省钱
+                </view>
+                <view class="item-content">
+                    购物先领券，比价购买更划算；
+                </view>
+            </view>
+            <view class="item">
+                <view class="item-title">
+                    2、帮会员创业
+                </view>
+                <view class="item-content">
+                    0门槛、0投资创业，为白领、宝妈、微商、个体等时间空余群体创收，让更多家庭享受生活的乐趣；
+                </view>
+            </view>
+            <view class="item">
+                <view class="item-title">
+                    3、为商家赋能
+                </view>
+                <view class="item-content">
+                    通过社交电商在网络、渠道、销售、推广等方面的固有优势，为商家提供引流卖货平台，大大降低传统电商的营销推广成本。
+                </view>
+            </view>
+        </view>
+        <view class="title">品牌文化</view>
+        <view class="culture">
+            <view class="item">
+                <view class="item-right">
+                    企业使命：
+                </view>
+                <view class="item-left">
+                    让每个家庭享受更多生活的乐趣
+                </view>
+            </view>
+            <view class="item">
+                <view class="item-right">
+                    我们的愿景：
+                </view>
+                <view class="item-left">
+                    成为人人都信赖的社交电商平台
+                </view>
+            </view>
+            <view class="item">
+                <view class="item-right">
+                    价值观：
+                </view>
+                <view class="item-left">
+                    以客户为中心、以奋斗者为本、创新进取、团结协作
+                </view>
+            </view>
+            <view class="item">
+                <view class="item-right">
+                    Slogan：
+                </view>
+                <view class="item-left">
+                    购物先领券，消费还返现
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

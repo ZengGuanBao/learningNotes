@@ -1,0 +1,37 @@
+/**qmUniversity.wxss**/
+.university-item {
+  width: 710rpx;
+  height: 400rpx;
+  border-radius: 8rpx;
+  margin: 0 20rpx 20rpx;
+  position: relative;
+  overflow: hidden;
+}
+
+.university-item:nth-of-type(1) {
+  margin-top: 20rpx;
+}
+
+.play-icon {
+  position: absolute;
+  width: 88rpx;
+  height: 88rpx;
+  top: 0;
+  left: 0;
+  padding: 157rpx 312rpx;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 8rpx;
+}
+
+.myVideo {
+  width: 710rpx;
+  height: 400rpx;
+  border-radius: 8rpx;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.myVideoImg {
+  width: 710rpx;
+  height: 400rpx;
+  border-radius: 8rpx;
+}

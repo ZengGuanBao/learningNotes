@@ -1,0 +1,16 @@
+<!--login.wxml-->
+<view class="login-container">
+    <image class="img-logo" src="{{imgHost+'/common/img-logo.png'}}"></image>
+    <view class="logo-text">购物先领券  消费还返现</view>
+    <view class="login-method">
+        <button class="btn-wx-login" open-type="getUserInfo" bindgetuserinfo="wxLogin">
+            <image class="img-wx" src="../../assets/images/common/icon-wx.png"></image><text>微信登录</text>
+        </button>
+        <button class="btn-sms-login" bindtap="toPhoneLogin"><text>手机号登录</text></button>
+    </view>
+    <view class="register">
+        <button class="btn-wx-register" open-type="getUserInfo" bindgetuserinfo="wxLogin">
+            还未注册？
+        </button>
+    </view>
+</view>

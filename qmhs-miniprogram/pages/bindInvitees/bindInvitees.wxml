@@ -1,0 +1,27 @@
+<!-- bindInvitees.wxml -->
+<view class="bindInvitees-container">
+  <view class="title">绑定邀请人享福利</view>
+  <view class="tips">请输入邀请码，绑定成功后享更多福利</view>
+  <view class="invitees-code">
+    <input class="invitees-input" maxlength="8" placeholder-class="placeholder-input" type="text" value="{{inviteesCode}}" placeholder="请输入邀请码" bindinput="bindKeyInput"/>
+    <view class="delete" wx:if="{{inviteesCode.length > 0}}" bindtap="clearCode">
+      <image class="img-delete" src="../../assets/images/common/icon-delete.png"></image>
+    </view>
+  </view>
+  <view class="no-code">
+    <text bindtap="alertInviteesCode">没有邀请码？</text>
+  </view>
+  <view class="invitees-info">
+    <view class="info-con" wx:if="{{getInvitees===true}}">
+      <view class="invitees-img">
+        <image-loader default-image='../../assets/images/common/img-error.png' original-image='{{inviteesInfo.headImgUrl}}' width="100%" height="100%"/>
+      </view>
+      <view class="invitees-name">{{inviteesInfo.nickName}}</view>
+      <view class="tip">友情提示：请确认您的邀请人，注册后不可更改哦</view>
+    </view>
+  </view>
+  <view class="invitees-btn {{getInvitees===true?'btn-active':''}}" bindtap="submitInvite">注册并登录</view>
+  <view class="agree-protocol">
+    <text>登录即代表您已经阅读并同意</text><text class="protocol" bindtap="toProtocol">《用户协议》</text>
+  </view>
+</view>

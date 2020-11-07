@@ -1,0 +1,29 @@
+<!-- commodityList.wxml -->
+<view class="classify" catchtouchmove="true">
+  <view class="classify-view">
+    <scroll-view class="classify-block" scroll-x="true" scroll-into-view="{{intoindex}}" scroll-with-animation>
+      <block wx:for="{{recommendClassifyList}}" wx:key="index">
+        <view id="text{{index}}" class="block-item {{classifyIndex===index+''?'block-active':''}}" data-curindex="{{index+''}}" data-themeid="{{item.themeId}}" data-id="{{item.id}}" bindtap="changeClassifyIndex">
+          {{item.themeCateName}}
+        </view>
+      </block>
+    </scroll-view>
+    <view class="block-img" wx:if="{{recommendClassifyList.length>4}}" bindtap="easeIn">
+      <image class="img" src="../../assets/images/pageIcon/down_more_icon.png"></image>
+    </view>
+  </view>
+  <view class="classify-mask-block  {{maskNone===true?'mask-none':''}}" animation="{{animationData}}" style="top:-{{height}}px;">
+    <view class="classify-title">
+      <text class="">全部分类</text>
+      <image class="close" src="../../assets/images/pageIcon/close_icon.png" bindtap="easeOut"></image>
+    </view>
+    <view class="classify-tabar">
+      <block wx:for="{{recommendClassifyList}}" wx:key="index">
+        <view class="tabar-item {{classifyIndex===index+''?'tabar-active':''}}" data-curindex="{{index+''}}" data-themeid="{{item.themeId}}" data-id="{{item.id}}" bindtap="changeClassifyIndex">
+          {{item.themeCateName}}
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="classify-mask {{maskNone===true?'mask-none':''}}" bindtap="easeOut"></view>
+</view>

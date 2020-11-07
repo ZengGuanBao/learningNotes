@@ -1,0 +1,53 @@
+/**incomeStatement.wxss**/
+.income-statement-container{
+    height: 100vh;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background: #F7F8FC;
+    overflow: auto;
+}
+.explain-block{
+    padding: 40rpx 20rpx 30rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    color: #666;
+    font-size: 24rpx;
+}
+.explain-block+.explain-block{
+    margin-top: 20rpx;
+}
+.explain-block .title{
+    color: #333;
+    font-size: 32rpx;
+    margin-bottom: 40rpx;
+    font-weight:600;
+    text-align: center;
+}
+.sub-title{
+    font-weight: 600;
+    color: #333;
+    font-size: 32rpx;
+    margin-bottom: 16rpx;
+}
+.bold-part{
+    font-weight: 600;
+    color: #333;
+    font-size: 26rpx;
+    margin: 30rpx 0 16rpx;
+}
+.red{
+    color: #FD4073;
+    vertical-align: top;
+}
+.example{
+    padding: 16rpx 20rpx;
+    margin-top: 16rpx;
+    background: rgba(247,248,252,1);
+    border-radius: 8rpx;
+    line-height: 36rpx;
+    box-sizing: border-box;
+}
+.content-part{
+    line-height: 36rpx;
+}
+

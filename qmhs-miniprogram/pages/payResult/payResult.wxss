@@ -1,0 +1,67 @@
+/**payResult.wxss**/
+.pay-result-container{
+    height: 100vh;
+    background: #F7F8FC;
+    padding: 50rpx;
+    box-sizing: border-box;
+}
+.pay-header{
+    padding-top: 100rpx;
+    text-align: center;
+}
+.img-status{
+    width: 136rpx;
+    height: 136rpx;
+}
+.pay-text{
+    color: #333;
+    font-size: 32rpx;
+    margin: 30rpx 0 24rpx 0;
+    font-weight: 600;
+}
+.pay-tip{
+    margin: 0 auto;
+    color: #999;
+    font-size: 26rpx;
+    line-height: 40rpx;
+}
+.pay-content{
+    margin-top: 100rpx;
+}
+.pay-content .btn{
+    width: 100%;
+    height: 88rpx;
+    line-height: 88rpx;
+    border-radius: 44rpx;
+    border:1px solid rgba(153,153,153,1);
+    color: #999;
+    font-size: 32rpx;
+    font-weight:500;
+    text-align: center;
+}
+.pay-content .btn-red{
+    background: linear-gradient(90deg,rgba(253,64,115,1) 0%,rgba(255,59,96,1) 100%);
+    border: none;
+    color: #fff;
+    margin-bottom: 40rpx;
+}
+.pay-footer{
+    margin-top: 60rpx;
+}
+.img-error{
+    width: 22rpx;
+    height: 22rpx;
+    vertical-align: middle;
+}
+.pay-footer .text{
+    display: inline-block;
+    margin-left: 10rpx;
+    color: #333;
+    font-size: 26rpx;
+}
+.pay-footer .content{
+    margin-top: 18rpx;
+    font-size: 24rpx;
+    color: #999;
+    line-height: 36rpx;
+}

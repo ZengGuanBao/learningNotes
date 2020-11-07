@@ -1,0 +1,95 @@
+<!-- index.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container index-container {{isIphoneX ? 'iphonex-con-bottom': ''}}" style="z-index: {{levelIndex}};">
+  <view class="background-block">
+    <view class="search-bar" bindtap="searchView">
+      <image class="search-icon" src="../../assets/images/pageIcon/search_icon.png"></image>
+      <text class="search-text">粘贴宝贝标题，先领券再购买</text>
+      <text class="search-btn">搜券</text>
+    </view>
+    <!-- S banner广告位 -->
+    <view class="index-banner" wx:if="{{bannerImage.length !== 0}}">
+      <swiper class="banner-theme" autoplay="{{autoplay}}" circular="{{true}}" duration="{{duration}}" bindchange="changeCurrent">
+        <block wx:for="{{bannerImage}}" wx:key="index">
+          <swiper-item wx:if="{{item.positionId===1}}" data-jumpurl="{{item.jumpUrl}}" data-jumptype="{{item.jumpType}}" data-jumpid="{{item.jumpId}}" data-themename="{{item.themeName}}" bindtap="jumpRecommendList">
+            <image mode="scaleToFill" src="{{item.imgUrl}}" class="banner-img"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="banner-dots">
+        <block wx:for="{{bannerImage}}" wx:key="index">
+          <view wx:if="{{item.positionId===1}}" class="dot {{index === currentIndex ? ' active' : ''}}"></view>
+        </block>
+      </view>
+    </view>
+    <!-- E banner广告位 -->
+    <view class="service-grids">
+      <view class="grids-item">
+        <image class="item-img" src="../../assets/images/pageIcon/guarantee_icon.png"></image>
+        <text>正品保障</text>
+      </view>
+      <view class="grids-item">
+        <image class="item-img" src="../../assets/images/pageIcon/free_icon.png"></image>
+        <text>全场包邮</text>
+      </view>
+      <view class="grids-item">
+        <image class="item-img" src="../../assets/images/pageIcon/day_icon.png"></image>
+        <text>7天无理由</text>
+      </view>
+      <view class="grids-item">
+        <image class="item-img" src="../../assets/images/pageIcon/rebate_icon.png"></image>
+        <text>平台返利</text>
+      </view>
+    </view>
+    <!-- E icon主题 -->
+    <view class="recommend-grids">
+      <block wx:for="{{homeThemeList}}" wx:key="index">
+        <view class="recommend-item" data-jumpurl="{{item.jumpUrl}}" data-jumptype="{{item.jumpType}}" data-jumpid="{{item.jumpId}}" data-themename="{{item.name}}" bindtap="jumpRecommendList" wx:if="{{item.showFlag===1}}">
+          <image class="recommend-img" src="{{item.imgUrl}}"></image>
+          <view class="recommend-title">{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+    <!-- E icon主题 -->
+    <!-- S 广告位 -->
+    <block wx:for="{{advertsListOne}}" wx:key="index">
+      <view class="ad-banner" data-jumpurl="{{item.jumpUrl}}" data-jumptype="{{item.jumpType}}" data-jumpid="{{item.jumpId}}" data-themename="{{item.themeName}}" bindtap="jumpRecommendList">
+        <image class="ad-banner-img" src="{{item.imgUrl}}"></image>
+      </view>
+    </block>
+    <view class="recommend-ad">
+      <block wx:for="{{advertsListTwo}}" wx:key="index">
+        <view class="ad-item" data-jumpurl="{{item.jumpUrl}}" data-jumptype="{{item.jumpType}}" data-jumpid="{{item.jumpId}}" data-themename="{{item.themeName}}" bindtap="jumpRecommendList">
+          <image class="ad-img" src="{{item.imgUrl}}"></image>
+        </view>
+      </block>
+      <block wx:for="{{advertsListThree}}" wx:key="index">
+        <view class="ad-item" data-jumpurl="{{item.jumpUrl}}" data-jumptype="{{item.jumpType}}" data-jumpid="{{item.jumpId}}" data-themename="{{item.themeName}}" bindtap="jumpRecommendList">
+          <image class="ad-img" src="{{item.imgUrl}}"></image>
+        </view>
+      </block>
+    </view>
+    <!-- E 广告位 -->
+  </view>
+  <!-- S 分类 -->
+  <mp-sticky bindscroll="categoryScroll">
+    <view class="{{isFixed ? 'category-fixed' : 'category'}}">
+      <scroll-view class="category-scroll" scroll-x="true">
+        <block wx:for="{{homeClassifyList}}" wx:key="index">
+          <view class="category-type {{tabIndex===index+''?'category-active':''}}" data-curindex="{{index+''}}" data-themeid="{{item.themeId}}" data-id="{{item.id}}" bindtap="changeCurrentIndex">
+            {{item.themeCateName}}
+            <view class="tab-line" wx:if="{{tabIndex===index+''}}"></view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </mp-sticky>
+  <!-- E 分类 -->
+  <view class="commodity-contain" wx:if="{{currentThemeId}}">
+    <commodity id="commodity" commodityDatas="{{commodityDatas}}" goodsSource="{{goodsSource}}" vipFlag="{{vipFlag}}"></commodity>
+    <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+    <template is="loadingMore" data="{{isLoading}}"></template>
+  </view>
+  <poster id="poster"></poster>
+</view>

@@ -1,0 +1,23 @@
+<view class="bind-phone-container">
+    <view class="title">关联手机号</view>
+    <view class="bind-form">
+        <view class="input-form">
+            <view class="form-item">
+                <input class="ipt-phone" maxlength="11" type="number" placeholder="请输入您的手机号" bindinput="watchPhone" placeholder-class="placeholder" value="{{phone}}"/>
+                <view class="delete" wx:if="{{phone.length > 0}}" bindtap="clearPhone">
+                    <image class="img-delete" src="../../assets/images/common/icon-delete.png"></image>
+                </view>
+            </view>
+            <view class="form-item">
+                <input class="ipt-sms" type="number" maxlength="6" placeholder="请输入验证码" placeholder-class="placeholder" bindinput="watchSmsCode" value="{{smsCode}}"/>
+                <text class="btn-sms" bindtap="sendSms">{{smsText}}</text>
+            </view>
+        </view>
+        <view class="submit-form">
+            <view class="btn-bind {{canBind? '': 'disabled'}}" bindtap="handleBind">注册并登录</view>
+        </view>
+    </view>
+    <view class="agree-protocol">
+        <text>登录即代表您已经阅读并同意</text><text class="protocol" bindtap="toProtocol">《用户协议》</text>
+    </view>
+</view>

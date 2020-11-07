@@ -1,0 +1,25 @@
+<!--payResult.wxml-->
+<view class="pay-result-container" wx:if="{{hasLoadData}}">
+    <view class="pay-header">
+        <image class="img-status" src="../../assets/images/pay/success.png" wx:if="{{isPaySuccess}}"></image>
+        <image class="img-status" src="../../assets/images/pay/fail.png" wx:if="{{!isPaySuccess}}"></image>
+        <view class="pay-text">{{isPaySuccess ? '订单支付成功' : '订单支付失败'}}</view>
+        <view class="pay-tip" wx:if="{{isPaySuccess}}">实付金额¥{{goodsPrice}}，详细信息请进入我的订单查看</view>
+        <view class="pay-tip" wx:if="{{!isPaySuccess}}">订单支付失败，如确认已经支付请联系客服， 给您带来不便，敬请谅解。</view>
+    </view>
+    <view class="pay-content">
+        <view class="btn btn-red" bindtap="toHome" wx:if="{{isPaySuccess}}">返回首页</view>
+        <view class="btn" bindtap="toOrderDetail" wx:if="{{isPaySuccess}}">订单详情</view>
+        <view class="btn btn-red" bindtap="callCustomerServer" wx:if="{{!isPaySuccess}}" bindtap="phoneCall">联系客服</view>
+        <view class="btn" bindtap="toHome" wx:if="{{!isPaySuccess}}">返回首页</view>
+    </view>
+    <view class="pay-footer">
+        <view class="title">
+            <image class="img-error" src="../../assets/images/common/error.png"></image>
+            <text class="text">安全提示</text>
+        </view>
+        <view class="content">
+            全民划算平台不会以订单异常、系统升级等理由、通过任何方式给您发送退款链接。请您谨防钓鱼链接或诈骗电话！
+        </view>
+    </view>
+</view>

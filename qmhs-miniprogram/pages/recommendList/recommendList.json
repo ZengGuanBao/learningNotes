@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "commodity": "../../components/commodity/commodity",
+    "classify": "../../components/classify/classify"
+  }
+}

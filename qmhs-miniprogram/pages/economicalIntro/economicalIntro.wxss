@@ -1,0 +1,160 @@
+/**economicalIntro.wxss**/
+.economicalIntro-container {
+  background: #F7F8FC
+}
+
+.tc {
+  text-align: center;
+}
+
+.title {
+  height: 336rpx;
+  background: linear-gradient(90deg, rgba(253, 64, 115, 1) 0%, rgba(255, 59, 96, 1) 100%);
+  text-align: center;
+}
+
+.search-tit {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 1);
+  line-height: 40rpx;
+  padding: 60rpx 0 20rpx;
+}
+
+.tips {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 26rpx;
+}
+
+.search-bar {
+  width: 690rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: #fff;
+  border-radius: 8rpx;
+  display: flex;
+  margin: 40rpx 30rpx 30rpx;
+}
+
+.search-icon {
+  width: 28rpx;
+  height: 28rpx;
+  margin: 16rpx 14rpx 16rpx 30rpx;
+}
+
+.search-text {
+  flex: 1;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 60rpx;
+  text-align: left;
+}
+
+.search-btn {
+  float: right;
+  background: #FD4073;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #fff;
+  line-height: 24rpx;
+  padding: 8rpx 10rpx;
+  margin: 10rpx;
+}
+
+.step {
+  font-size: 20rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 20rpx;
+  opacity: 0.84;
+}
+
+.navbar {
+  display: flex;
+  height: 88rpx;
+  position: relative;
+  background-color: white;
+}
+
+.nav-item {
+  position: relative;
+  display: block;
+  flex: 1;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 88rpx;
+  text-align: center;
+}
+
+.tab-line {
+  position: absolute;
+  top: 70rpx;
+  left: 106rpx;
+  width: 28rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, rgba(253, 64, 115, 1) 0%, rgba(255, 59, 96, 1) 100%);
+  border-radius: 2rpx;
+}
+
+.nav-active {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+}
+
+.econ-swiper {
+  width: 710rpx;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 1);
+  margin: 20rpx 20rpx 0;
+}
+
+.econ-intro {
+  padding: 0 20rpx;
+}
+
+.econ-tit {
+  margin: 40rpx 0;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: rgba(51, 51, 51, 1);
+  line-height: 32rpx;
+  text-align: center;
+}
+
+.intro-tit {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 26rpx;
+  margin-bottom: 30rpx;
+}
+
+.intro-img {
+  width: 500rpx;
+  height: 450rpx;
+  margin-bottom: 80rpx;
+}
+
+.footer {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #ccc;
+  text-align: center;
+}
+
+.line {
+  display: inline-block;
+  width: 20rpx;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  top: -5rpx;
+  margin: 0 10rpx;
+}

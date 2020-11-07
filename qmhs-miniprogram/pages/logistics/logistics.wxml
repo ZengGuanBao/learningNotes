@@ -1,0 +1,31 @@
+<!--logistics.wxml-->
+<view class="logistics-container">
+    <view class="logistics-header">
+        <image class="img-bg" src="{{imgHost+'/order/delivery-bg.png'}}"></image>
+        <view class="delivery-no">
+            <text class="text">快递单号</text>
+            <text class="value">{{deliverySn}}</text>
+        </view>
+        <view class="delivery-company">
+            <text class="text">快递公司</text>
+            <text class="value">{{deliveryCompany}}</text>
+        </view>
+    </view>
+    <view class="logistics-content">
+        <view class="logistics-list">
+            <block wx:for="{{deliveryList}}" wx:key="index">
+                <view class="logistics-item">
+                    <view class="logistics-info {{index === 0 ? 'black' : ''}}">
+                        {{item.context}}
+                    </view>
+                    <view class="logistics-time">
+                        {{item.time}}
+                    </view>
+                    <image class="img-status" wx:if="{{index === 0}}" src="../../assets/images/order/delivery-checked.png"></image>
+                    <image class="img-status" wx:if="{{index !== 0}}" src="../../assets/images/order/delivery-disabled.png"></image>
+                    <view class="line"></view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

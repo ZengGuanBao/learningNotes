@@ -1,0 +1,38 @@
+<!--poster.wxml-->
+<view class="poster" wx:if="{{showMiniprogramPopup}}">
+    <view class="popup-mask"></view>
+    <view class="share-container">
+        <view class="share-banner">
+            <swiper class="share-swiper" style="{{swiperStyle}}" autoplay="{{autoplay}}" duration="{{duration}}" bindchange="changeCurrent" previous-margin="125rpx" next-margin="75rpx">
+                <block wx:for="{{shareImgUrl}}" wx:key="index">
+                    <swiper-item class="swiper-item {{currentIndex===index?'swiper-active':''}}">
+                        <image mode="scaleToFill" style="{{currentIndex===index?swiperActiveItemStyle:swiperItemStyle}}" src="{{item}}" class="{{currentIndex===index?'swiper-item-active':'share-imgUrl'}}"></image>
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class="share-dots" style="{{shareDotStyle}}">
+                <block wx:for="{{shareImgUrl}}" wx:key="index">
+                    <view class="share-dot {{index === currentIndex ? 'share-active' : ''}}"></view>
+                </block>
+            </view>
+        </view>
+        <view class="share-icon {{isIphoneX ? 'iphonex-bottom': ''}}">
+            <view style="display:flex;">
+                <button class="item-type" open-type="share">
+                    <view class="">
+                        <image class="item-icon" src="../../assets/images/pageIcon/share_weixin_icon.png"></image>
+                    </view>
+                    <view>微信好友</view>
+                </button>
+                <view class="item-type" bindtap="saveAlbum">
+                    <view class="">
+                        <image class="item-icon" src="../../assets/images/pageIcon/share_album_icon.png"></image>
+                    </view>
+                    <view>保存到相册</view>
+                </view>
+            </view>
+            <view class="cancel-btn" bindtap="cancelShare">取消</view>
+        </view>
+    </view>
+</view>
+<canvas id='canvas' type="2d" style="width: 750px;height: 1334px;position: fixed;top: 0;left: -750px;z-index:-1;"></canvas>

@@ -1,0 +1,104 @@
+<!--myPollen.wxml-->
+<import src ="../../templates/loadingMore.wxml"/>
+<import src ="../../templates/hasNoData.wxml"/>
+<view class="my-pollen-container">
+    <scroll-view scroll-y="true" class="my-pollen-wrapper" bindscrolltolower="getFensList">
+        <view class="pollen-header">
+            <view class="total-num">{{tabIndex === 0 ? directPollenNum : directMemberNum}}</view>
+            <view class="total-text">总人数(人)</view>
+            <view class="new-pollen">
+                <view class="item">
+                    <view class="num">{{tabIndex === 0 ? directPollenNumYesterday : directMemberNumYesterday}}</view>
+                    <view class="name">昨日新增</view>
+                </view>
+                <view class="item">
+                    <view class="num">{{tabIndex === 0 ? directPollenNumToday : directMemberNumToday}}</view>
+                    <view class="name">今日新增</view>
+                </view>
+                <view class="item">
+                    <view class="num">{{tabIndex === 0 ? directPollenNumMonth : directMemberNumMonth}}</view>
+                    <view class="name">本月新增</view>
+                </view>
+            </view>
+        </view>
+        <view class="pollen-content">
+            <mp-sticky>
+                <view class="pollen-tab">
+                    <view class="tab-item {{tabIndex === 0 ? 'active': ''}}" data-current="0" bindtap="switchTab">
+                        我的花粉
+                    </view>
+                    <view class="tab-item {{tabIndex === 1 ? 'active': ''}}" data-current="1" bindtap="switchTab">
+                        我的会员
+                    </view>
+                </view>
+            </mp-sticky>
+            <view class="tab-content">
+                <view class="tab-list-content {{tabIndex === 0 ? 'show': ''}}">
+                    <block wx:for="{{fensTabInfo[0].fensList}}" wx:key="index">
+                        <view class="pollen-item">
+                            <view class="pollen-item-left">
+                                <image-loader default-image='../../assets/images/common/img-error.png' original-image='{{item.headImgUrl}}' width="100%" height="100%"/>
+                            </view>
+                            <view class="pollen-item-right">
+                                <text class="pollen-name">{{item.customerName}}</text><image class="img-member-type" src="../../assets/images/common/member.png" wx:if="{{item.vipFlag === 0}}"></image><image class="img-member-type" src="../../assets/images/common/super-member.png" wx:if="{{item.vipFlag === 1}}"></image>
+                                <view class="time">
+                                    注册时间：{{item.createTime}}
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="personal-empty" wx:if="{{fensTabInfo[0].pageTotal === 0}}">
+                        <image class="img-empty" src="../../assets/images/common/personnel-empty.png"></image>
+                        <view class="empty-text">暂无相关用户，快去逛逛吧</view>
+                    </view>
+                    <template is="hasNoData" data="{{...fensTabInfo[0]}}"></template>
+                    <template is="loadingMore" data="{{...fensTabInfo[0]}}"></template>
+                </view>
+                <view class="tab-list-content {{tabIndex === 1 ? 'show': ''}}">
+                    <block wx:for="{{fensTabInfo[1].fensList}}" wx:key="index">
+                        <view class="member-item">
+                            <view class="member-header">
+                                <view class="header-left">
+                                    <image-loader default-image='../../assets/images/common/img-error.png' original-image='{{item.headImgUrl}}' width="100%" height="100%"/>
+                                </view>
+                                <view class="header-right">
+                                    <text class="member-name">{{item.customerName}}</text><image class="img-member-type" src="../../assets/images/common/member.png" wx:if="{{item.vipFlag === 0}}"></image><image class="img-member-type" src="../../assets/images/common/super-member.png" wx:if="{{item.vipFlag === 1}}"></image>
+                                    <view class="time">
+                                        注册时间：{{item.createTime}}
+                                    </view>
+                                </view>
+                            </view>
+                            <view class="member-content">
+                                <view class="title">个人收入</view>
+                                <view class="income">
+                                    <view class="income-item">
+                                        <view class="income-money">{{item.todayIncome}}</view>
+                                        <view class="type-name">今日收入</view>
+                                    </view>
+                                    <view class="income-item">
+                                        <view class="income-money">{{item.monthIncome}}</view>
+                                        <view class="type-name">本月收入</view>
+                                    </view>
+                                    <view class="income-item">
+                                        <view class="income-money">{{item.prevMonthIncome}}</view>
+                                        <view class="type-name">上月收入</view>
+                                    </view>
+                                    <view class="income-item">
+                                        <view class="income-money">{{item.totalIncome}}</view>
+                                        <view class="type-name">累计收入</view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="personal-empty" wx:if="{{fensTabInfo[1].pageTotal === 0}}">
+                        <image class="img-empty" src="../../assets/images/common/personnel-empty.png"></image>
+                        <view class="empty-text">暂无相关用户，快去逛逛吧</view>
+                    </view>
+                    <template is="hasNoData" data="{{...fensTabInfo[1]}}"></template>
+                    <template is="loadingMore" data="{{...fensTabInfo[1]}}"></template>
+                </view>
+            </view>
+        </view>
+    </scroll-view>
+</view>

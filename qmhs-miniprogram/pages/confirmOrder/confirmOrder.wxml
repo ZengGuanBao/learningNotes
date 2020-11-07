@@ -1,0 +1,82 @@
+<!--confirmOrder.wxml-->
+<view class="confirm-order-container" wx:if="{{hasLoadData}}">
+    <view class="order-content">
+        <view class="address-box" bindtap="toAddress">
+            <image class="img-address" src="../../assets/images/order/icon-address.png"></image>
+            <view class="user-address" wx:if="{{addressInfo.id}}">
+                <view>
+                    <text class="user-name ellipsis">{{addressInfo.consigneeName}}</text>
+                    <text class="user-phone">{{addressInfo.consigneeNumber}}</text>
+                </view>
+                <view class="detail-address ellipsis">
+                    {{addressInfo.provinceName+' '+addressInfo.cityName+' '+addressInfo.areaName+' '+addressInfo.deliveryAddress}}
+                </view>
+            </view>
+            <view class="address-empty" wx:if="{{!addressInfo.id}}">
+                请选择收货地址
+            </view>
+            <image class="icon-arrow" src="../../assets/images/common/arrow-right.png"></image>
+            <image class="bottom-line" src="../../assets/images/order/address-line.png"></image>
+        </view>
+        <view class="goods-box">
+            <view class="goods-left">
+                <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{goodsInfo.defaultImgUrl}}' width="180rpx" height="180rpx"/>
+            </view>
+            <view class="goods-right">
+                <view class="goods-detail">
+                    {{goodsInfo.goodsName}}
+                </view>
+                <view class="goods-price">
+                    <view class="price">{{goodsInfo.salePrice}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="detail-box">
+            <view class="line">
+                <view class="line-left">
+                    商品总额
+                </view>
+                <view class="line-right">
+                    ￥{{goodsInfo.salePrice}}
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    运费合计
+                </view>
+                <view class="line-right">
+                    包邮
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    支付方式
+                </view>
+                <view class="line-right">
+                    在线支付
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    还需支付
+                </view>
+                <view class="line-right price">
+                    ￥{{goodsInfo.salePrice}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order-footer {{isIphoneX ? 'iphonex-bottom': ''}}">
+        <view class="wrapper">
+            <view class="protocol">
+                <view class="protocol-line" bindtap="toggleAgreeProtocol">
+                    <image class="img-agree" src="../../assets/images/order/icon-radio.png" wx:if="{{!isAgreeProtocol}}"></image><image class="img-agree" src="../../assets/images/order/icon-radio-checked.png" wx:if="{{isAgreeProtocol}}"></image><text class="agree-text">已阅读并同意</text>
+                </view>
+                <view class="protocol-line">
+                    <view class="member-protocol-name" bindtap="toProtocol">《全民划算会员服务协议》</view>
+                </view>
+            </view>
+            <view class="btn btn-confirm" bindtap="payOrder">立即支付 ￥{{goodsInfo.salePrice}}</view>
+        </view>
+    </view>
+</view>

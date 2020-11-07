@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "全民划算",
+  "usingComponents": {
+    "poster": "../../components/poster/poster",
+    "commodity": "../../components/commodity/commodity",
+    "mp-sticky": "../../components/sticky/index"
+  }
+}

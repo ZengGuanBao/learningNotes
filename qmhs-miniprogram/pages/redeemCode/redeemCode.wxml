@@ -1,0 +1,12 @@
+<!--redeemCode.wxml-->
+<view class="redeemCode-container">
+  <view class="title">填写兑换码升级超级会员</view>
+  <view class="invitees-code">
+    <input class="invitees-input" placeholder-class="placeholder-input" type="text" value="{{redeemCode}}" focus="true" placeholder="请输入兑换码" bindconfirm="getRedeemCode" bindinput="bindKeyInput"/>
+    <view wx:if="{{delIcon === true}}" class="del-x-icon" bindtap="delRedeemCode">
+      <image class="img" src="../../assets/images/pageIcon/del_x_icon.png"></image>
+    </view>
+  </view>
+  <view class="input-tip" bindtap="getTips">什么是兑换码？</view>
+  <view class="invitees-btn {{hasRedeemCode===true?'btn-active':''}}" bindtap="submitRedeemCode">确认</view>
+</view>

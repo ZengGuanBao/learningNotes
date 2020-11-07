@@ -1,0 +1,116 @@
+/**withdrawal.wxss**/
+.withdrawal-container{
+    height: 100vh;
+    padding: 20rpx;
+    box-sizing: border-box;
+    background: #F7F8FC;
+}
+.form-block{
+    padding: 0 40rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    margin-bottom: 20rpx;
+}
+.cash{
+    position: relative;
+    border-bottom: 1rpx solid #eee;
+}
+.cash .ipt-cash{
+    height: 146rpx;
+    line-height: 146rpx;
+    font-size: 80rpx;
+    color: #333;
+    padding-left: 50rpx;
+}
+.ipt-placeholder{
+    color: #999;
+    font-size: 40rpx;
+}
+.cash .yuan{
+    position:absolute;
+    top: 50%;
+    left: 2rpx;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 40rpx;
+}
+.cash .yuan.active{
+    color: #333;
+}
+.form-block .limit{
+    display: flex;
+    height: 88rpx;
+    font-size: 26rpx;
+    align-items: center;
+    color: #666;
+}
+.form-block .limit .money{
+    flex: 1;
+}
+.form-block .limit .all{
+    color: #FD4073;
+}
+.form-block .form-line{
+    display: flex;
+    height: 88rpx;
+    align-items: center;
+    color: #999;
+    font-size: 26rpx;
+}
+.form-block .form-line+.form-line{
+    border-top: 1rpx solid #eee;
+}
+.form-block .form-line .line-left{
+    flex: 1;
+}
+.form-block .form-line .ipt-sms{
+    height: 88rpx;
+    line-height: 88rpx;
+    font-size: 26rpx;
+    color: #333;
+}
+.btn-sms{
+    color: #FD4073;
+}
+.btn-sms.disabled{
+    color: #999;
+}
+.notice{
+    padding: 0 30rpx;
+    margin-top: 75rpx;
+}
+.notice .header .img-error{
+    width: 26rpx;
+    height: 26rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+.notice .header{
+    color: #333;
+    font-size: 26rpx;
+    margin-bottom: 24rpx;
+}
+.notice .title{
+    display: inline-block;
+}
+.notice-item{
+    margin-top: 17rpx;
+    color: #999;
+    font-size: 24rpx;
+}
+.operation{
+    padding: 120rpx 30rpx 0;
+}
+.btn-withdrawal{
+    height: 88rpx;
+    line-height: 88rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 32rpx;
+    font-weight: 600;
+    background:linear-gradient(90deg,rgba(253,64,115,1) 0%,rgba(255,59,96,1) 100%);
+    border-radius: 44rpx;
+}
+.btn-withdrawal.disabled{
+    opacity:0.49;
+}

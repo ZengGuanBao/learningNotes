@@ -1,0 +1,11 @@
+<!--wxAuthorize.wxml-->
+<view class="wx-authorize-container">
+    <image class="img-logo" src="{{imgHost+'/common/img-logo.png'}}"></image>
+    <view class="logo-text">购物先领券  消费还返现</view>
+    <view class="authorize">
+        <button class="btn-authorize" open-type="getUserInfo" bindgetuserinfo="wxAuthorize">
+            <text>授权微信用户信息</text>
+        </button>
+        <view class="tip">请完成微信授权以继续使用</view>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "订单",
+  "navigationBarBackgroundColor": "#FD4073",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "image-loader": "../../components/imageLoader/imageLoader"
+  }
+}

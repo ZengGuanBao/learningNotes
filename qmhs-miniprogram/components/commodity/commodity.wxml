@@ -1,0 +1,46 @@
+<!-- commodity.wxml -->
+<view class="commodity-list">
+  <block wx:for="{{commodityDatas}}" wx:for-item="commodityData" wx:key="commodityId">
+    <view class="commodity">
+      <view class="flex-wrp" data-goodsid="{{commodityData.goodsId}}" data-thirdplatform="{{goodsSource}}" catchtap="toCommodityDetail">
+        <view class="commodity-img">
+          <view style="border-radius:8rpx;overflow:hidden;">
+            <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{commodityData.images[0].url}}' width="256rpx" height="256rpx"></image-loader>
+            <!-- <image class="commodity-img" mode="aspectFit" lazy-load="true" src="{{commodityData.images[0].url}}"></image> -->
+          </view>
+        </view>
+        <view class="flex-item">
+          <view class="text-clip">
+            <text class="text-tip">{{goodsSource === '0'?'京东':'拼多多'}}</text>
+            <text class="text-title">{{commodityData.goodsName}}</text>
+          </view>
+          <view class="text-dis">
+            <view class="text-coupon" wx:if="{{commodityData.couponDiscount > 0}}">
+              <text class="text-point left"></text>
+              <text>{{commodityData.couponDiscount}}元券</text>
+              <text class="text-point right"></text>
+            </view>
+            <view class="text-guide text-padding" wx:if="{{vipFlag===0}}" catchtap="openMember">
+              <text>开通会员再省{{commodityData.rebateAmount}}元</text>
+              <image class="right-icon" src="../../assets/images/pageIcon/right_icon.png"></image>
+            </view>
+            <view class="text-guide text-rebate" wx:else>
+              <text>返利{{commodityData.rebateAmount}}元</text>
+            </view>
+          </view>
+          <view class="product-share-icon" wx:if="{{vipFlag===1}}" data-goodsid="{{commodityData.goodsId}}" data-thirdplatform="{{goodsSource}}" catchtap="openShare">
+            <image class="share-icon" mode="aspectFit" src="../../assets/images/pageIcon/product_share_icon.png"></image>
+          </view>
+          <view style="display:flex;height:26rpx;">
+            <text class="text-price">{{commodityData.lowestCouponPrice}}</text>
+            <text class="text-describe" wx:if="{{commodityData.couponDiscount > 0}}">券后</text>
+          </view>
+          <view class="text-int">
+            <rich-text class="text-s" nodes="{{'<s>￥' + commodityData.price + '</s>'}}"></rich-text>
+            <text class="text-volume">已售{{commodityData.salesTip}}件</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

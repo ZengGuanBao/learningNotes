@@ -1,0 +1,35 @@
+/**memberProtocol.wxss**/
+.member-protocol-container{
+    background: #F7F8FC;
+    padding: 20rpx 20rpx 30rpx;
+    line-height: 1;
+}
+.protocol-wrapper{
+    background: #fff;
+    padding: 0 20rpx 50rpx;
+    border-radius: 8rpx;
+}
+.title{
+    font-size: 36rpx;
+    font-weight: 600;
+    color: #333;
+    padding: 50rpx 0;
+    text-align: center;
+}
+.protocol-date{
+    color: #333;
+    font-size: 24rpx;
+    font-weight: 600;
+}
+.sub-title{
+    font-size: 30rpx;
+    color: #333;
+    font-weight: 600;
+    margin-top: 50rpx;
+}
+.part{
+    color: #666;
+    font-size: 24rpx;
+    margin-top: 20rpx;
+    line-height: 36rpx;
+}

@@ -1,0 +1,17 @@
+<!--taskDescription.wxml-->
+<view class="task-description-container">
+    <view class="desc">
+        <view class="title">会员活跃任务玩法规则</view>
+        <view class="decs-content">
+            本月最后一天23:59:59前，同时完成所有活跃任务，本月的订单才可享受平台奖励。如果存在1项任务没完成，则无法享受。活跃任务包含两项：一，商品销售单数；二，花粉活跃比例。
+        </view>
+        <view class="note">注：刚升级超级会员的用户，首月默认为活跃用户，从第二个月开始按本规则计算活跃。</view>
+        <view class="title">各项任务解释说明</view>
+        <view class="sub-title">任务一：商品销售单数</view>
+        <view class="decs-content">本人每月需产生1次以上有效订单，须是自购订单。</view>
+        <view class="note">注：订单状态为已完成，则计算为有效订单</view>
+        <view class="sub-title">任务二：活跃人数比例</view>
+        <view class="decs-content">每个月直推须有20%的人活跃，即均产生过一次以上的有效订单（有效活跃人数≥1，向上取整。例如本人有10个用户，那么每个月须有2个以上的用户产生过有效订单）*订单状态为已完成，为有效订单</view>
+        <view class="note">以上任务完成进度更新会略有延迟，约为1个小时左右。</view>
+    </view>
+</view>

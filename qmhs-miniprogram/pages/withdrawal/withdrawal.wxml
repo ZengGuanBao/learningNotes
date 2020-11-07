@@ -1,0 +1,60 @@
+<!--withdrawal.wxml-->
+<view class="withdrawal-container">
+    <view class="withdrawal-form">
+        <view class="form-block">
+            <view class="cash">
+                <text class="yuan {{withdrawalPrice.length > 0? 'active': ''}}">￥</text>
+                <input class="ipt-cash" type="digit" placeholder="请输入提现金额" placeholder-class="ipt-placeholder" value="{{withdrawalPrice}}" bindinput="watchAmount"/>
+            </view>
+            <view class="limit">
+                <view class="money">
+                    <text class="text">可提现金额{{canWithdrawPrice}}元,</text>
+                    <text class="all" bindtap="handleAllWithdrawal">全部提现</text>
+                </view>
+                <view class="times-limit">
+                    本月可提现{{withdrawRemainNum}}次
+                </view>
+            </view>
+        </view>
+        <view class="form-block">
+            <view class="form-line">
+                <view class="line-left">
+                    手机号
+                </view>
+                <view class="line-right">
+                    {{phone}}
+                </view>
+            </view>
+            <view class="form-line">
+                <view class="line-left">
+                    <input class="ipt-sms" type="number" maxlength="6" placeholder="请输入验证码" placeholder-class="ipt-placeholder" bindinput="watchSmsCode"/>
+                </view>
+                <view class="line-right">
+                    <text class="btn-sms {{withdrawRemainNum > 0? '' : 'disabled'}}" bindtap="sendSms">{{smsText}}</text>
+                </view>
+            </view>
+        </view>
+        <view class="notice">
+            <view class="header">
+                <image class="img-error" src="../../assets/images/common/error.png"></image><text class="title">注意事项</text>
+            </view>
+            <view class="content">
+                <view class="notice-item">
+                    1、单笔提现金额不得小于{{minAmount}}元,不得大于{{maxAmount}}元;
+                </view>
+                <view class="notice-item">
+                    2、每月最多提现2次;
+                </view>
+                <view class="notice-item">
+                    3、操作提现暂不收取手续费(以后根据政策调整);
+                </view>
+                <view class="notice-item">
+                    4、恶意提现一经发现平台将对账号进行封号;
+                </view>
+            </view>
+        </view>
+        <view class="operation">
+            <view class="btn-withdrawal {{canWithdrawal ? '' : 'disabled'}}" bindtap="handleWithdrawal">申请提现</view>
+        </view>
+    </view>
+</view>

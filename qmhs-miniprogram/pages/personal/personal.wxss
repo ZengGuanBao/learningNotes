@@ -1,0 +1,168 @@
+.personal-container{
+    position: relative;
+    height: 100vh;
+    background: #F7F8FC;
+    box-sizing: border-box;
+}
+.personal-header{
+    position: relative;
+    height: 253rpx;
+    padding-left: 42rpx;
+}
+.personal-header .img-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 0;
+}
+.personal-header .user-line{
+    position: relative;
+    display: flex;
+    height: 96rpx;
+    align-items: center;
+    padding-top: 11rpx;
+    z-index: 1;
+}
+.personal-header .avatar{
+    position: relative;
+    width: 100rpx;
+    height: 100rpx;
+    padding: 2rpx;
+    border-radius: 999rpx;
+    box-sizing: border-box;
+    background: #fff;
+    z-index: 2;
+    overflow: hidden;
+}
+.personal-header .avatar-wrapper{
+    position: absolute;
+    border-radius: 48rpx;
+    width: 96rpx;
+    height: 96rpx;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.no-login{
+    margin-left: 20rpx;
+    color: #fff;
+    font-size: 32rpx;
+}
+.personal-header .info{
+    margin-left: 22rpx;
+    padding-bottom: 4rpx;
+}
+.personal-header .user-name{
+    display: inline-block;
+    max-width: 350rpx;
+    margin-right: 10rpx;
+    font-size: 32rpx;
+    color: #fff;
+}
+.personal-header .img-member{
+    width: 124rpx;
+    height: 32rpx;
+}
+.invite{
+    margin-top: 12rpx;
+    line-height: 32rpx;
+    margin-bottom: 1rpx;
+}
+.invite .invite-code{
+    padding: 0 8rpx;
+    color: #fff;
+    font-size: 20rpx;
+    border: 1rpx solid #fff;
+    border-right: none;
+    border-radius: 4rpx 0 0 4rpx;
+}
+.invite .invite-copy{
+    padding: 0 5rpx;
+    color: #FF3C63;
+    font-size: 20rpx;
+    border: 1rpx solid #fff;
+    background: #fff;
+    border-radius: 0 4rpx 4rpx 0;
+}
+.personal-content{
+    margin-top: -113rpx;
+    padding: 0 20rpx;
+}
+.order-content{
+    position: relative;
+    padding: 0 30rpx;
+    border-radius:8rpx;
+    background: #fff;
+    z-index: 1;
+}
+.order-content .title{
+    display: flex;
+    height: 92rpx;
+    align-items: center;
+    border-bottom: 1rpx solid #EEEEEE;
+}
+.order-content .title .title-name{
+    flex: 1;
+    color: #333;
+    font-size: 32rpx;
+}
+.order-content .title .more{
+    color: #999;
+    font-size: 20rpx;
+}
+.order-content .title .icon-arrow{
+    width: 24rpx;
+    height: 24rpx;
+}
+.order-type{
+    display: flex;
+    height: 104rpx;
+    align-items: center;
+}
+.order-type .type-item{
+    flex: 1;
+    text-align: center;
+}
+.order-type .type-item .img-type{
+    width: 44rpx;
+    height: 44rpx;
+    margin-right: 16rpx;
+    vertical-align: middle;
+}
+.order-type .type-item .type-name{
+    display: inline-block;
+    color: #666;
+    font-size: 26rpx;
+    vertical-align: middle;
+}
+.operation-list{
+    margin-top: 20rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    padding: 0 30rpx;
+}
+.operation-list .item{
+    display: flex;
+    height: 92rpx;
+    align-items: center;
+}
+.operation-list .item .img-operation{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 6rpx;
+}
+.operation-list .item .title{
+    flex: 1;
+    font-size: 26rpx;
+    color: #666;
+}
+.operation-list .item .icon-arrow{
+    width: 24rpx;
+    height: 24rpx;
+}
+.operation-list .item:not(:last-child){
+    border-bottom: 1rpx solid #eee;
+}

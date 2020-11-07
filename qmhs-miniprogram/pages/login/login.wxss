@@ -1,0 +1,66 @@
+/**login.wxss**/
+.login-container{
+    height: 100vh;
+    padding: 140rpx 50rpx 0;
+    box-sizing: border-box;
+    text-align: center;
+    background: #fff;
+}
+.img-logo{
+    width: 180rpx;
+    height: 180rpx;
+}
+.logo-text{
+    margin-top: 30rpx;
+    font-size: 30rpx;
+    color: #999;
+}
+.login-method{
+    margin-top: 250rpx;
+}
+.btn-wx-login{
+    display: block;
+    width: 650rpx!important;
+    line-height: 88rpx;
+    border-radius: 44rpx;
+    padding: 0;
+    margin: 0!important;
+    background: #4CD362;
+}
+.btn-wx-login .img-wx{
+    width: 64rpx;
+    height: 64rpx;
+    margin-right: 16rpx;
+}
+.btn-wx-login text{
+    font-size: 32rpx;
+    color: #fff;
+}
+.btn-sms-login{
+    display: block;
+    width: 650rpx!important;
+    line-height: 88rpx;
+    padding: 0;
+    margin: 40rpx 0 0!important;
+    background: #fff;
+    border-radius: 44rpx;
+    border: 1rpx solid rgba(204,204,204,1);
+}
+.btn-sms-login text{
+    font-size: 32rpx;
+    color: #999999;
+}
+.register{
+    text-align: right;
+    margin-top: 40rpx;
+}
+.btn-wx-register{
+    display: inline-block;
+    width: unset!important;
+    height: auto;
+    line-height: unset;
+    color: #FD4073;
+    font-size: 26rpx;
+    padding: 0!important;
+    background: transparent;
+}

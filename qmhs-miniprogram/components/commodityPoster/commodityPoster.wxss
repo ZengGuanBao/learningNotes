@@ -1,0 +1,68 @@
+.popup-show {
+    display: none;
+}
+
+.popup-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 3;
+    background: rgba(0, 0, 0, 0.7);
+    background-position: top, bottom;
+    background-size: 100% 92px;
+    background-repeat: no-repeat;
+    transform: translateZ(0);
+}
+
+.share-img {
+    position: fixed;
+    top: 88rpx;
+    left: 125rpx;
+    width: 470rpx;
+    height: 802.1rpx;
+    z-index: 4;
+}
+
+.share-icon {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16rpx 16rpx 0px 0px;
+}
+
+.item-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 35rpx 0 16rpx;
+}
+
+.item-type {
+    padding: 0;
+    flex: 1;
+    text-align: center;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: rgba(51, 51, 51, 1);
+    line-height: 24rpx;
+    height: 200rpx;
+    background-color: #fff;
+}
+
+.cancel-btn {
+    text-align: center;
+    height: 80rpx;
+    font-size: 26rpx;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 80rpx;
+    border-top: 1px solid #eee;
+}
+
+.iphonex-bottom {
+    padding-bottom: 68rpx;
+}

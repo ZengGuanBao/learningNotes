@@ -1,0 +1,25 @@
+<!--commodityPoster.wxml-->
+<view class="commodity-share" hidden="{{isShowCommodityPopup}}">
+    <view class="popup-mask"></view>
+    <view class="share-container">
+        <image class="share-img" src="{{shareImgUrl}}"></image>
+        <view class="share-icon {{isIphoneX ? 'iphonex-bottom': ''}}">
+            <view style="display:flex;">
+                <button class="item-type" open-type="share">
+                    <view class="">
+                        <image class="item-icon" src="../../assets/images/pageIcon/share_weixin_icon.png"></image>
+                    </view>
+                    <view class="">微信好友</view>
+                </button>
+                <view class="item-type" bindtap="saveAlbum">
+                    <view class="">
+                        <image class="item-icon" src="../../assets/images/pageIcon/share_album_icon.png"></image>
+                    </view>
+                    <view class="">保存到相册</view>
+                </view>
+            </view>
+            <view class="cancel-btn" bindtap="cancelShare">取消</view>
+        </view>
+    </view>
+</view>
+<canvas id='canvas' type="2d"  style="width: 750px;height: 1280px;position: fixed;top: 0;left: -750px;z-index:-1;"></canvas>

@@ -1,0 +1,130 @@
+<!--withdrawalCenter.wxml-->
+<import src ="../../templates/loadingMore.wxml"/>
+<import src ="../../templates/hasNoData.wxml"/>
+<view class="withdrawal-center-container">
+    <view class="withdrawal-card">
+        <view class="wrapper">
+            <image class="img-bg" src="{{imgHost+'/withdrawal/withdrawal-card-bg.png'}}"></image>
+            <view class="explain" bindtap="toIncomeStatement">
+                <text>收入提现说明</text><image class="icon-question" src="../../assets/images/withdrawal/icon-question.png"></image>
+            </view>
+            <view class="money">
+                {{canWithdrawPrice}}
+            </view>
+            <view class="money-text">
+                可提现余额(元)
+            </view>
+            <view class="apply-withdrawal" bindtap="toBank">申请提现</view>
+        </view>
+    </view>
+    <view class="record">
+        <view class="record-title">收入提现记录</view>
+        <view class="record-type-tab">
+            <view class="tab-item {{tabIndex === 0 ? 'active': ''}}" data-current="0" bindtap="switchTab">
+                推广收入记录
+            </view>
+            <view class="tab-item {{tabIndex === 1 ? 'active': ''}}" data-current="1" bindtap="switchTab">
+                平台奖励记录
+            </view>
+            <view class="tab-item {{tabIndex === 2 ? 'active': ''}}" data-current="2" bindtap="switchTab">
+                提现记录
+            </view>
+        </view>
+        <view class="record-content">
+            <scroll-view scroll-y="true" class="tab-list-content" wx:if="{{tabIndex === 0}}" bindscrolltolower="scrollBottom">
+                <block wx:for="{{recordTabInfo[0].recordList}}" wx:key="index">
+                    <view class="record-item" >
+                        <view class="item-left">
+                            <view class="type yellow" wx:if="{{item.bonusType === 1}}">
+                                巨划算商品销售奖励
+                            </view>
+                            <view class="type green" wx:if="{{item.bonusType === 3 && item.selfBuyFlag === 1}}">
+                                普通商品自购返利
+                            </view>
+
+                            <view class="type red" wx:if="{{item.bonusType === 3 && item.selfBuyFlag === 0}}">
+                                普通商品推广返利
+                            </view>
+                            <view class="amount">
+                                订单金额: ￥{{item.orderAmount}}
+                            </view>
+                            <view class="no">
+                                订单编号: {{item.orderSn}}
+                            </view>
+                            <view class="time">{{item.createTime}}</view>
+                        </view>
+                        <view class="item-right">
+                            <view class="reward">+{{item.bonusAmountYuan}}</view>
+                        </view>
+                    </view>
+                </block>
+                <view class="record-empty" wx:if="{{recordTabInfo[0].pageTotal === 0}}">
+                    <image class="img-empty" src="../../assets/images/common/order-empty.png"></image>
+                    <view class="empty-text">暂无相关记录，快去逛逛吧</view>
+                </view>
+                <template is="hasNoData" data="{{...recordTabInfo[0]}}"></template>
+                <template is="loadingMore" data="{{...recordTabInfo[0]}}"></template>
+            </scroll-view>
+            <scroll-view scroll-y="true" class="tab-list-content" wx:if="{{tabIndex === 1}}" bindscrolltolower="scrollBottom">
+                <block wx:for="{{recordTabInfo[1].recordList}}" wx:key="index">
+                    <view class="record-item" >
+                        <view class="item-left">
+                            <view class="type yellow" wx:if="{{item.bonusType === 2}}">
+                                巨划算商品销售平台奖励
+                            </view>
+                            <view class="type red" wx:if="{{item.bonusType === 4}}">
+                                普通商品销售平台奖励
+                            </view>
+                            <view class="amount">
+                                订单金额: ￥{{item.orderAmount}}
+                            </view>
+                            <view class="no">
+                                订单编号: {{item.orderSn}}
+                            </view>
+                            <view class="time">{{item.createTime}}</view>
+                        </view>
+                        <view class="item-right">
+                            <view class="reward">+{{item.bonusAmountYuan}}</view>
+                        </view>
+                    </view>
+                </block>
+                <view class="record-empty" wx:if="{{recordTabInfo[1].pageTotal === 0}}">
+                    <image class="img-empty" src="../../assets/images/common/order-empty.png"></image>
+                    <view class="empty-text">暂无相关记录，快去逛逛吧</view>
+                </view>
+                <template is="hasNoData" data="{{...recordTabInfo[1]}}"></template>
+                <template is="loadingMore" data="{{...recordTabInfo[1]}}"></template>
+            </scroll-view>
+            <scroll-view scroll-y="true" class="tab-list-content" wx:if="{{tabIndex === 2}}" bindscrolltolower="scrollBottom">
+                <block wx:for="{{recordTabInfo[2].recordList}}" wx:key="index">
+                    <view class="withdrawal record-item" >
+                        <view class="item-left">
+                            <view class="type pink" wx:if="{{item.withdrawStatus === 0}}">
+                                提现中
+                            </view>
+                            <view class="type green" wx:if="{{item.withdrawStatus === 1}}">
+                                提现成功
+                            </view>
+                            <view class="type gray" wx:if="{{item.withdrawStatus === 2}}">
+                                提现失败
+                            </view>
+                            <view class="type gray" wx:if="{{item.withdrawStatus === 3}}">
+                                退还
+                            </view>
+                            <view class="time">{{item.createTime}}</view>
+                        </view>
+                        <view class="item-right">
+                            <view class="reward">{{item.withdrawStatus === 3 ? '+' : '-'}}{{item.withdrawPrice}}</view>
+                        </view>
+                    </view>
+                </block>
+                <view class="record-empty" wx:if="{{recordTabInfo[2].pageTotal === 0}}">
+                    <image class="img-empty" src="../../assets/images/common/order-empty.png"></image>
+                    <view class="empty-text">暂无相关记录，快去逛逛吧</view>
+                </view>
+                <template is="hasNoData" data="{{...recordTabInfo[2]}}"></template>
+                <template is="loadingMore" data="{{...recordTabInfo[2]}}"></template>
+            </scroll-view>
+        </view>
+    </view>
+</view>

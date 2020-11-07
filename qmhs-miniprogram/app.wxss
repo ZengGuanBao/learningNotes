@@ -1,0 +1,2 @@
+/**app.wxss**/
+@import "./assets/wxss/main.wxss";

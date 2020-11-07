@@ -1,0 +1,64 @@
+/**about.wxss**/
+.about-container{
+    padding: 20rpx 20rpx 100rpx 20rpx;
+    background: #F7F8FC;
+}
+.company-info{
+    padding: 41rpx 20rpx 17rpx 20rpx;
+    background: #fff;
+    border-radius: 8rpx;
+}
+.company-info>.title{
+    color: #333;
+    font-size: 36rpx;
+    margin-top: 60rpx;
+    text-align: center;
+    font-weight: 600;
+}
+.company-info>.title:first-child{
+    margin-top: 0;
+}
+.company-info>.part{
+    color: #666;
+    font-size:26rpx;
+    line-height:40rpx;
+    text-indent: 45rpx;
+    margin-top: 30rpx;
+}
+.advantage-list{
+    margin-top: 30rpx;
+}
+.advantage-list .item-title{
+    font-size:26rpx;
+    color: #333;
+    font-weight: 600;
+}
+.advantage-list .item-content{
+    font-size:26rpx;
+    line-height:40rpx;
+    margin: 24rpx 0 30rpx;
+    text-indent: 45rpx;
+    color: #666;
+}
+.advantage-list .item:last-child .item-content{
+    margin-bottom: 0;
+}
+.culture{
+    margin-top: 30rpx;
+}
+.culture .item{
+    display: flex;
+    margin-top: 24;
+}
+.culture .item .item-right{
+    color: #333;
+    font-size: 26rpx;
+    line-height: 40rpx;
+    font-weight: 600;
+}
+.culture .item .item-left{
+    flex: 1;
+    color: #666;
+    font-size: 26rpx;
+    line-height: 40rpx;
+}

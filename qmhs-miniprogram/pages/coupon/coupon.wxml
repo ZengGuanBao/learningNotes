@@ -1,0 +1,27 @@
+<!-- coupon.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container coupon-container">
+  <block wx:for="{{couponList}}" wx:key="index">
+    <view class="coupon-item">
+      <view class="coupon-img">
+        <view style="border-radius:8rpx;overflow:hidden;">
+          <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{item.url}}' width="320rpx" height="180rpx"></image-loader>
+        </view>
+        <!-- <image class="coupon-img" src="{{item.url}}"></image> -->
+        <view class="coupon-time">{{item.createTime}}</view>
+      </view>
+      <view style="flex:1">
+        <view class="title">{{item.title}}</view>
+        <view class="tips">{{item.subtitle}}</view>
+        <view class="coupon-btn">
+          <view class="btn" data-id="{{item.id}}" data-copywrite="{{item.copyWrite}}" bindtap="getCouponDetail">
+            获取链接
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+</view>

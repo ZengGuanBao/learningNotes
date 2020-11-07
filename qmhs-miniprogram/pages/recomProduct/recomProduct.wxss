@@ -1,0 +1,160 @@
+/**recomProduct.wxss**/
+.recomProduct-container {
+  padding-top: 100rpx;
+}
+
+.category-scroll {
+  white-space: nowrap;
+  display: flex;
+  background-color: white;
+  position: fixed;
+  top: 0;
+}
+
+.category-type {
+  display: inline-block;
+  position: relative;
+  height: 100rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 100rpx;
+  text-align: center;
+  padding: 0 26rpx;
+}
+
+.category-active {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.tab-line {
+  position: absolute;
+  top: 76rpx;
+  width: 28rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, rgba(253, 64, 115, 1) 0%, rgba(255, 59, 96, 1) 100%);
+  border-radius: 2rpx;
+}
+
+.tab-line-first {
+  left: 44rpx;
+}
+
+.recom-item {
+  padding: 30rpx 30rpx 0;
+  background-color: #fff;
+  border-radius: 8rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 40rpx;
+  margin: 0 20rpx 20rpx;
+}
+
+.recom-item:nth-of-type(1) {
+  margin-top: 20rpx;
+}
+
+.title {
+  display: flex;
+  margin-bottom: 28rpx;
+}
+
+.title-icon {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 88rpx;
+  margin-right: 20rpx;
+}
+
+.title-editor {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: rgba(51, 51, 51, 1);
+  line-height: 32rpx;
+  padding-top: 10rpx;
+}
+
+.title-time {
+  padding-top: 16rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: rgba(153, 153, 153, 1);
+  line-height: 20rpx;
+}
+
+.text-hr {
+  margin-top: 30rpx;
+  height: 1px;
+  background: rgba(238, 238, 238, 1);
+}
+
+.link-con {
+  margin-top: 30rpx;
+}
+
+.share-img {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.img-item {
+  margin-right: 25rpx;
+}
+
+.img-item:nth-of-type(3) {
+  margin-right: 0;
+}
+
+.img {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+
+.share-oper {
+  margin: 17rpx 0;
+  overflow: hidden;
+}
+
+.recom-price {
+  float: left;
+  width: 216rpx;
+  height: 54rpx;
+  background: rgba(255, 238, 216, 1);
+  border-radius: 27rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(131, 76, 15, 1);
+  line-height: 54rpx;
+  text-align: center;
+}
+
+.recom-copy {
+  float: right;
+  width: 136rpx;
+  height: 54rpx;
+  border-radius: 54rpx;
+  border: 1px solid rgba(253, 64, 115, 1);
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(253, 64, 115, 1);
+  line-height: 54rpx;
+  text-align: center;
+  margin-right: 20rpx;
+}
+
+.recom-save {
+  float: right;
+  width: 136rpx;
+  height: 54rpx;
+  background: linear-gradient(90deg, rgba(253, 64, 115, 1) 0%, rgba(255, 59, 96, 1) 100%);
+  border-radius: 27rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 54rpx;
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+<!-- qmUniversity.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container qmUniversity-container">
+  <block wx:for="{{videoList}}" wx:key="index">
+    <view class="university-item">
+      <video wx:if="{{index===indexCurrent}}" autoplay="{{true}}" class="myVideo" id="myVideo{{index}}" src="{{item.videoUrl}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" show-center-play-btn="{{false}}" show-play-btn="{{true}}" controls picture-in-picture-mode="{{['push', 'pop']}}" poster="{{item.coverUrl}}" custom-cache="{{false}}" auto-pause-if-navigate="{{false}}"></video>
+      <image wx:if="{{index!=indexCurrent}}" class="myVideoImg" src="{{item.coverUrl}}"></image>
+      <image wx:if="{{index!=indexCurrent}}" data-index="{{index}}" class="play-icon" src="../../assets/images/pageIcon/play_icon.png" bindtap="playVideo"></image>
+    </view>
+  </block>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+</view>

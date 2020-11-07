@@ -1,0 +1,116 @@
+/**poster.wxss**/
+.popup-show {
+    display: none;
+}
+.popup-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    z-index: 999;
+    background: rgba(0, 0, 0, 0.7);
+    background-position: top, bottom;
+    background-size: 100% 92px;
+    background-repeat: no-repeat;
+    transform: translateZ(0);
+}
+.share-icon {
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 16rpx 16rpx 0px 0px;
+}
+.item-icon {
+    width: 80rpx;
+    height: 80rpx;
+    margin: 35rpx 0 11rpx;
+}
+.item-type {
+    padding: 0;
+    flex: 1;
+    text-align: center;
+    font-size: 24rpx;
+    font-weight: 400;
+    color: #333;
+    line-height: 24rpx;
+    height: 200rpx;
+    background-color: #fff;
+}
+
+.item-type .btn-text {
+    color: #333 !important;
+}
+
+.cancel-btn {
+    text-align: center;
+    height: 80rpx;
+    font-size: 26rpx;
+    font-weight: 400;
+    color: rgba(153, 153, 153, 1);
+    line-height: 80rpx;
+    border-top: 1px solid #eee;
+}
+.share-banner {
+    position: relative;
+}
+.share-swiper {
+    position: fixed;
+    top: 88rpx;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    height: var(--bigShareImgHeight);
+}
+.swiper-item {
+    margin-top: 44rpx;
+    width: var(--smallShareImgWidth);
+    height: var(--smallShareImgHeight);
+}
+.share-imgUrl {
+    width: var(--smallShareImgWidth);
+    height: var(--smallShareImgHeight);
+}
+.swiper-active {
+    margin-top: 0;
+    width: var(--bigShareImgWidth);
+    height: var(--bigShareImgHeight);
+}
+.swiper-item-active {
+    width: var(--bigShareImgWidth);
+    height: var(--bigShareImgHeight);
+    transition: all .6s;
+}
+.share-dots {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:  var(--shareDotTop);
+    display: flex;
+    z-index: 1000;
+    justify-content: center;
+}
+.share-dot {
+    width: 16rpx;
+    height: 16rpx;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 8rpx;
+    margin: 0 8rpx;
+    transition: all .6s;
+}
+.share-active {
+    background: rgba(255, 255, 255, 0.8);
+}
+.iphonex-bottom {
+    padding-bottom: 68rpx !important;
+}
+.clearBtn {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+}

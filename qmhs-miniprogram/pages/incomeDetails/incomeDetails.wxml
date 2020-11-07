@@ -1,0 +1,277 @@
+<!--incomeDetails.wxml-->
+<import src ="../../templates/loadingMore.wxml"/>
+<import src ="../../templates/hasNoData.wxml"/>
+<scroll-view scroll-y="true" class="income-details-container" bindscrolltolower="getIncomeList">
+    <view class="income-type-tab">
+        <view class="tab-item {{rewardTabIndex === 0 ? 'active' : ''}}" data-current="0" bindtap="switchRewardTab">推广收入</view>
+        <view class="tab-item {{rewardTabIndex === 1 ? 'active' : ''}}" data-current="1" bindtap="switchRewardTab">平台奖励</view>
+        <view class="info" bindtap="toStatement">
+            <text class="text">说明</text><image class="icon-question" src="../../assets/images/income/icon-question.png"></image>
+        </view>
+    </view>
+    <view class="tab-content">
+        <view class="tab-content-item" wx:if="{{rewardTabIndex === 0}}">
+            <view class="income-origin">
+                <view class="time-tab">
+                    <view class="tab-item {{popularizeTabIndex === 0 ? 'active' : ''}}" data-current="0" bindtap="switchPopularizeTab">
+                        今日
+                    </view>
+                    <view class="tab-item {{popularizeTabIndex === 1 ? 'active' : ''}}" data-current="1" bindtap="switchPopularizeTab">
+                        本月
+                    </view>
+                    <view class="tab-item {{popularizeTabIndex === 2 ? 'active' : ''}}" data-current="2" bindtap="switchPopularizeTab">
+                        上月
+                    </view>
+                    <view class="tab-item {{popularizeTabIndex === 3 ? 'active' : ''}}" data-current="3" bindtap="switchPopularizeTab">
+                        累计
+                    </view>
+                </view>
+                <view class="income-table">
+                    <view class="table-header">
+                        <view class="tr">
+                            <view class="td">渠道</view>
+                            <view class="td">预估收入</view>
+                            <view class="td">预估收入笔数</view>
+                        </view>
+                    </view>
+                    <view class="table-body">
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-report.png"></image><text>总计</text>
+                            </view>
+                            <view class="td">
+                                ￥{{popularizeList[popularizeTabIndex].totalIncome}}
+                            </view>
+                            <view class="td">
+                                {{popularizeList[popularizeTabIndex].totalIncomeNum}}笔
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jfs.png"></image><text>巨划算</text>
+                            </view>
+                            <view class="td">
+                                ￥{{popularizeList[popularizeTabIndex].jhsIncome}}
+                            </view>
+                            <view class="td">
+                                {{popularizeList[popularizeTabIndex].jhsIncomeNum}}笔
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jd.png"></image><text>京东</text>
+                            </view>
+                            <view class="td">
+                                ￥{{popularizeList[popularizeTabIndex].jdIncome}}
+                            </view>
+                            <view class="td">
+                                {{popularizeList[popularizeTabIndex].jdIncomeNum}}笔
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-pdd.png"></image><text>拼多多</text>
+                            </view>
+                            <view class="td">
+                                ￥{{popularizeList[popularizeTabIndex].pddIncome}}
+                            </view>
+                            <view class="td">
+                                {{popularizeList[popularizeTabIndex].pddIncomeNum}}笔
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="tab-content-item" wx:if="{{rewardTabIndex === 1}}">
+            <view class="income-origin">
+                <view class="filter-time-tab">
+                    <view class="tab-item {{incomeTabIndex === 0 ? 'active' : ''}}" data-current="0" bindtap="switchIncomeTab">
+                        <picker bindchange="bindIncomeTabPickerChange" data-current="0" disabled="{{incomeTabIndex !== 0}}" value="{{settleDateIndex}}" range="{{settleDateList}}" range-key="name">
+                            <text class="text">{{settleDateList.length && settleDateList[settleDateIndex].id}}月份已结算收入</text><image class="icon-arrow" src="../../assets/images/income/dropdown.png"></image>
+                        </picker>
+                    </view>
+                    <view class="tab-item {{incomeTabIndex === 1 ? 'active' : ''}}" data-current="1" bindtap="switchIncomeTab">
+                        <picker bindchange="bindIncomeTabPickerChange" data-current="1" disabled="{{incomeTabIndex !== 1}}" value="{{saleDateIndex}}" range="{{saleDateList}}" range-key="name">
+                            <text class="text">{{saleDateList.length && saleDateList[saleDateIndex].id}}月份销售数据</text><image class="icon-arrow" src="../../assets/images/income/dropdown-gray.png"></image>
+                        </picker>
+                    </view>
+                </view>
+                <view class="income-table" wx:if="{{incomeTabIndex === 0}}">
+                    <view class="table-header">
+                        <view class="tr">
+                            <view class="td">购买渠道</view>
+                            <view class="td">奖励订单数</view>
+                            <view class="td">结算金额</view>
+                        </view>
+                    </view>
+                    <view class="table-body">
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-report.png"></image><text>总计</text>
+                            </view>
+                            <view class="td">
+                                {{monthSettleData.totalIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSettleData.totalIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jfs.png"></image><text>巨划算</text>
+                            </view>
+                            <view class="td">
+                                {{monthSettleData.jhsIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSettleData.jhsIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jd.png"></image><text>京东</text>
+                            </view>
+                            <view class="td">
+                                {{monthSettleData.jdIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSettleData.jdIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-pdd.png"></image><text>拼多多</text>
+                            </view>
+                            <view class="td">
+                                {{monthSettleData.pddIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSettleData.pddIncome}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="income-table" wx:if="{{incomeTabIndex === 1}}">
+                    <view class="table-header">
+                        <view class="tr">
+                            <view class="td">购买渠道</view>
+                            <view class="td">付款订单数</view>
+                            <view class="td">销售金额</view>
+                        </view>
+                    </view>
+                    <view class="table-body">
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-report.png"></image><text>总计</text>
+                            </view>
+                            <view class="td">
+                                {{monthSaleData.totalIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSaleData.totalIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jfs.png"></image><text>巨划算</text>
+                            </view>
+                            <view class="td">
+                                {{monthSaleData.jhsIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSaleData.jhsIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-jd.png"></image><text>京东</text>
+                            </view>
+                            <view class="td">
+                                {{monthSaleData.jdIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSaleData.jdIncome}}
+                            </view>
+                        </view>
+                        <view class="tr">
+                            <view class="td">
+                                <image class="img-report" src="../../assets/images/common/img-pdd.png"></image><text>拼多多</text>
+                            </view>
+                            <view class="td">
+                                {{monthSaleData.pddIncomeNum}}笔
+                            </view>
+                            <view class="td">
+                                ￥{{monthSaleData.pddIncome}}
+                            </view>
+                        </view>
+                    </view>
+                </view>
+                <view class="note" wx:if="{{incomeTabIndex === 0}}">注：{{settleDateList[settleDateIndex].id}}月25号结算到账的收入数据</view>
+                <view class="note" wx:if="{{incomeTabIndex === 1}}">注：订单付款时间在{{saleDateList[saleDateIndex].id}}月份的销售数据</view>
+            </view>
+        </view>
+        <view class="income-detail">
+            <view class="title">
+                收入明细
+            </view>
+            <view class="income-filter-tab">
+                <view class="tab-item">
+                    <picker bindchange="bindPickerChange" data-current="0" value="{{filterSettleStatusIndex}}" range="{{filterSettleStatus}}" range-key="name">
+                        <text class="text">结算状态</text><image class="icon-arrow" src="../../assets/images/income/dropdown.png"></image>
+                    </picker>
+                </view>
+                <view class="tab-item">
+                    <picker bindchange="bindPickerChange" data-current="1" value="{{filterOrderChannelIndex}}" range="{{filterOrderChannel}}" range-key="name">
+                        <text class="text">订单渠道</text><image class="icon-arrow" src="../../assets/images/income/dropdown.png"></image>
+                    </picker>
+                </view>
+                <view class="tab-item">
+                    <picker bindchange="bindPickerChange" data-current="2" value="{{filterIncomeTypeIndex}}" range="{{filterIncomeType}}" range-key="name">
+                        <text class="text">收入类型</text><image class="icon-arrow" src="../../assets/images/income/dropdown.png"></image>
+                    </picker>
+                </view>
+            </view>
+            <view class="filter-list">
+                <block wx:for="{{incomeList}}" wx:key="index">
+                    <view class="order-item">
+                        <view class="order-header">
+                            <image class="img-type" src="../../assets/images/common/img-jfs.png" wx:if="{{item.channel === 1}}"></image><image class="img-type" src="../../assets/images/common/img-jd.png" wx:if="{{item.channel === 2}}"></image><image class="img-type" src="../../assets/images/common/img-pdd.png" wx:if="{{item.channel === 3}}"></image><view class="order-no"><text>订单编号: {{item.orderSn}}</text><text class="copy" data-sn="{{item.orderSn}}" catchtap="copySn">复制</text></view>
+                        </view>
+                        <view class="order-content">
+                            <view class="order-left">
+                                <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{item.goodsImgUrl}}' width="180rpx" height="180rpx"/>
+                            </view>
+                            <view class="order-right">
+                                <view class="goods-detail two-ellipsis">
+                                    {{item.goodsName}}
+                                </view>
+                                <view class="order-time">{{item.createTime}}</view>
+                                <view class="order-money">实付金额：￥{{item.orderAmount}}</view>
+                            </view>
+                        </view>
+                        <view class="order-footer">
+                            <view class="cash-back-text">预估返利:</view>
+                            <view class="cash-back">￥{{item.bonusAmountYuan}}</view>
+                            <view class="cash-back-type" wx:if="{{item.bonusType === 1}}">销售奖励</view>
+                            <view class="cash-back-type" wx:if="{{item.bonusType === 3 && item.selfBuyFlag === 1}}">自购返利</view>
+                            <view class="cash-back-type" wx:if="{{item.bonusType === 3 && item.selfBuyFlag === 0}}">推广返利</view>
+                            <view class="cash-back-type" wx:if="{{item.bonusType === 2}}">巨划算奖励</view>
+                            <view class="cash-back-type" wx:if="{{item.bonusType === 4}}">商品奖励</view>
+                            <view class="order-status" wx:if="{{item.settlementStatus === 1}}">待预估</view>
+                            <view class="order-status" wx:if="{{item.settlementStatus === 2}}">未结算</view>
+                            <view class="order-status" wx:if="{{item.settlementStatus === 3}}">已结算</view>
+                            <view class="order-status" wx:if="{{item.settlementStatus === 4}}">已失效</view>
+                        </view>
+                    </view>
+                </block>
+                <view class="order-empty" wx:if="{{pageTotal === 0}}">
+                    <image class="img-empty" src="../../assets/images/common/order-empty.png"></image>
+                    <view class="empty-text">暂无相关订单，快去逛逛吧</view>
+                </view>
+                <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+                <template is="loadingMore" data="{{isLoading}}"></template>
+            </view>
+        </view>
+    </view>
+</scroll-view>

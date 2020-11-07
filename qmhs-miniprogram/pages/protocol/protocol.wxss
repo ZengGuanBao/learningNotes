@@ -1,0 +1,132 @@
+/**protocol.wxss**/
+.protocol-container{
+    background: #F7F8FC;
+    padding: 20rpx 20rpx 28rpx;
+    overflow: auto;
+}
+.protocol-content{
+    position: relative;
+    padding: 0 20rpx 90rpx 20rpx;
+    background: #fff;
+    border-radius: 8rpx;
+    font-size: 24rpx;
+    color: #666;
+    line-height: 36rpx;
+}
+.title{
+    text-align: center;
+    font-size: 36rpx;
+    padding-top: 50rpx;
+    margin-bottom: 50rpx;
+    font-weight: 600;
+    color: #333;
+}
+.tip{
+    color: #333;
+    font-size: 30rpx;
+    font-weight: 500;
+}
+.underline{
+    text-decoration: underline;
+    color: #333;
+    vertical-align: top;
+}
+.protocol{
+    margin-top: 50rpx;
+    font-weight:500;
+    color: #333;
+    line-height: 36rpx;
+}
+.sub-title{
+    margin-top: 50rpx;
+    color: #333;
+    font-size: 30rpx;
+    font-weight:500;
+}
+.part{
+    margin-top: 20rpx;
+}
+.part .part-line:first-child{
+    margin-top: 12rpx;
+}
+.part .part-line{
+    padding-left: 20rpx;
+    box-sizing: border-box;
+}
+.protocol-date view{
+    color: #333;
+    font-weight:500;
+}
+.date .text{
+    display: inline-block;
+    margin-right: 3rpx;
+    color: #333;
+    line-height: 10rpx;
+}
+.three-title, .fourth-title, .five-title{
+    color: #333;
+    font-weight: 500;
+    margin: 20rpx 0;
+}
+.bold{
+    color: #333;
+}
+.img-seal{
+    position: absolute;
+    width: 120rpx;
+    height: 120rpx;
+    right: 30rpx;
+    bottom: 40rpx;
+}
+.deal-table{
+    margin-top: 25rpx;
+    border: 1rpx solid #979797;
+}
+.table-body .tr{
+    border-top: 1rpx solid #979797;
+}
+.table-header .tr, .table-body .tr{
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+.table-header .tr .td{
+    font-weight:500;
+    color: #333;
+    line-height: 46rpx;
+}
+.table-body .tr .td{
+    box-sizing: border-box;
+    line-height: 28rpx;
+}
+.table-body .tr:nth-child(2n){
+    box-sizing: border-box;
+}
+.table-header .tr .td:nth-child(1), .table-body .tr .td:nth-child(1){
+    width: 160rpx;
+}
+.table-body .tr .td:nth-child(1){
+    padding: 0 19rpx;
+    text-align: left;
+}
+.table-header .tr .td:nth-child(2), .table-body .tr .td:nth-child(2){
+    flex: 1;
+    border-right: 1rpx solid #979797;
+    border-left: 1rpx solid #979797;
+}
+.table-body .tr .td:nth-child(2){
+    text-align: left;
+}
+.table-header .tr .td:nth-child(3), .table-body .tr .td:nth-child(3){
+    width: 150rpx;
+}
+.table-body .tr .col{
+    padding: 18rpx 30rpx;
+    line-height: 28rpx;
+}
+.table-body .tr .col:not(:last-child){
+    border-bottom: 1rpx solid #979797;
+}
+.red{
+    color: #FD4073;
+}

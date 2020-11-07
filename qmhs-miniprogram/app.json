@@ -1,0 +1,82 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/member/member",
+    "pages/login/login",
+    "pages/phoneLogin/phoneLogin",
+    "pages/bindPhone/bindPhone",
+    "pages/wxAuthorize/wxAuthorize",
+    "pages/commodityDetail/commodityDetail",
+    "pages/searchBar/searchBar",
+    "pages/bindInvitees/bindInvitees",
+    "pages/economicalIntro/economicalIntro",
+    "pages/coupon/coupon",
+    "pages/qmUniversity/qmUniversity",
+    "pages/recomProduct/recomProduct",
+    "pages/recommendList/recommendList",
+    "pages/webViewPage/webViewPage",
+    "pages/redeemCode/redeemCode",
+    "pages/resultViewPage/resultViewPage",
+    "pages/personal/personal",
+    "pages/about/about",
+    "pages/faq/faq",
+    "pages/order/order",
+    "pages/logistics/logistics",
+    "pages/orderDetail/orderDetail",
+    "pages/protocol/protocol",
+    "pages/bank/bank",
+    "pages/memberProtocol/memberProtocol",
+    "pages/payResult/payResult",
+    "pages/confirmOrder/confirmOrder",
+    "pages/editAddress/editAddress",
+    "pages/withdrawal/withdrawal",
+    "pages/incomeStatement/incomeStatement",
+    "pages/withdrawalCenter/withdrawalCenter",
+    "pages/authentication/authentication",
+    "pages/myPollen/myPollen",
+    "pages/incomeDetails/incomeDetails",
+    "pages/taskDescription/taskDescription",
+    "pages/superMemberCenter/superMemberCenter"
+
+  ],
+  "tabBar": {
+    "custom": true,
+    "color": "#dddddd",
+    "selectedColor": "#666666",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/assets/images/tabBar/home_no_icon.png",
+        "selectedIconPath": "/assets/images/tabBar/home_icon.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/member/member",
+        "iconPath": "/assets/images/tabBar/member_no_icon.png",
+        "selectedIconPath": "/assets/images/tabBar/member_on_icon.png",
+        "text": "会员"
+      },
+      {
+        "pagePath": "pages/superMemberCenter/superMemberCenter",
+        "iconPath": "/assets/images/tabBar/member_no_icon.png",
+        "selectedIconPath": "/assets/images/tabBar/member_on_icon.png",
+        "text": "会员"
+      },
+      {
+        "pagePath": "pages/personal/personal",
+        "iconPath": "/assets/images/tabBar/my_no_icon.png",
+        "selectedIconPath": "/assets/images/tabBar/my_icon.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

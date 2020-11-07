@@ -1,0 +1,25 @@
+<!--editAddress.wxml-->
+<view class="edit-address-container">
+    <view class="address-form">
+        <view class="input-form">
+            <view class="form-item">
+                <input class="ipt-name" maxlength="10" placeholder="请输入收件人姓名" data-name="name" bindinput="watchInput" placeholder-class="placeholder" value="{{form.name}}"/>
+            </view>
+            <view class="form-item">
+                <input class="ipt-phone" maxlength="11" type="number" placeholder="请输入收件人手机号码"  data-name="phone" bindinput="watchInput" placeholder-class="placeholder" value="{{form.phone}}"/>
+            </view>
+            <view class="form-item" placeholder-class="placeholder">
+                <picker mode="region" bindchange="bindRegionChange" value="{{form.area.code}}">
+                    <input class="ipt-area" placeholder="请选择所在区域" disabled placeholder-class="placeholder" value="{{form.area.value.length ? form.area.value[0]+' '+form.area.value[1] + ' ' + form.area.value[2]:''}}"/>
+                </picker>
+                <image class="icon-arrow" src="../../assets/images/common/arrow-right.png" placeholder-class="placeholder"></image>
+            </view>
+            <view class="form-item">
+                <textarea class="ipt-detail" maxlength="100" placeholder="请输入街道、小区门牌等详细信息"  data-name="areaDetail"  bindinput="watchInput" placeholder-class="placeholder" value="{{form.areaDetail}}"/>
+            </view>
+        </view>
+        <view class="submit-form">
+            <view class="btn-save {{canSave? '': 'disabled'}}" bindtap="handleSave">保存</view>
+        </view>
+    </view>
+</view>

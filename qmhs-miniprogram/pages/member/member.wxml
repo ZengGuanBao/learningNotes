@@ -1,0 +1,49 @@
+<!-- member.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container member-container {{isIphoneX? 'iphonex-con-bottom': ''}}">
+  <view class="member-step">
+    <image class="step-img" src="{{imgHost+'/genMember/member_con_icon.png'}}"></image>
+    <view class="click-view" bindtap="easeIn"></view>
+  </view>
+  <view class="member-mask-block" animation="{{animationData}}">
+    <image class="calc-img" src="{{imgHost+'/genMember/member_cal_icon.png'}}"></image>
+    <image class="calc-close-img" src="../../assets/images/pageIcon/member_close_icon.png" bindtap="easeOut"></image>
+    <view class="click-open-view" bindtap="easeOut"></view>
+  </view>
+  <view class="member-mask {{maskNone===true?'mask-none':''}}" bindtap="easeOut"></view>
+  <view class="member-con">
+    <view class="title">
+      <text class="line"></text>
+      <text>如何开通超级会员</text>
+      <text class="line right-line"></text>
+    </view>
+    <view class="tips">购买以下任意一款巨划算商品，送超级会员</view>
+    <block wx:for="{{memberCommodityList}}" wx:key="index">
+      <view wx:if="{{item.goodsStatus!==1}}" class="flex-wrp" data-goodsid="{{item.id}}" bindtap="toMemberCommodityDetail">
+        <view style="padding-top: 10rpx;" class="commodity-img">
+          <view style="border-radius:8rpx;overflow:hidden;">
+            <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{item.defaultImgUrl}}' width="256rpx" height="256rpx"></image-loader>
+          </view>
+          <!-- <image class="commodity-img" mode="aspectFit" lazy-load="true" src="{{item.defaultImgUrl}}"></image> -->
+        </view>
+        <view class="flex-con">
+          <view class="text-clip">
+            <text class="text-title">{{item.goodsName}}</text>
+          </view>
+          <view class="give-member">送超级会员</view>
+          <view>
+            <text class="text-price">{{item.salePrice}}</text>
+          </view>
+          <view class="text-int" wx:if="{{item.isHideLine===0}}">
+            <rich-text class="text-s" nodes="{{'<s>￥' + item.linePrice + '</s>'}}"></rich-text>
+          </view>
+          <view class="open-member" data-id="{{item.id}}" catchtap="openMember">立即开通</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+  <poster id="poster"></poster>
+</view>

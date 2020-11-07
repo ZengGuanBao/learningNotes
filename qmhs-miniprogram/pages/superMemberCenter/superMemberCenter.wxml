@@ -1,0 +1,189 @@
+<!-- memberCenter.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="member-center-container" style="padding-bottom:{{isIphoneX ? '168rpx;': '100rpx;'}} z-index: {{levelIndex}};">
+  <scroll-view scroll-y="true" class="wrapper" bindscrolltolower="scrollBottom">
+    <view class="withdrawal-box">
+      <image class="img-member" src="{{imgHost+'/member/member-bg.png'}}"></image>
+      <view class="withdrawal-money">{{canWithdrawPrice}}</view>
+      <view class="withdrawal-text">可提现(元)</view>
+      <view class="btn-apply-withdrawal" bindtap="toWithdrawalCenter">申请提现</view>
+    </view>
+    <view class="income-box">
+      <view class="title">
+        <view class="title-left">
+          <text class="yellow-block"></text>
+          <text class="title-name">预估收益</text>
+          <image class="img-show" src="../../assets/images/member/eye-open.png" wx:if="{{showIncome}}" bindtap="toggleIncome"></image>
+          <image class="img-show" src="../../assets/images/member/eye-close.png" wx:if="{{!showIncome}}" bindtap="toggleIncome"></image>
+        </view>
+        <view class="title-right" bindtap="toIncomeDetails">
+          <text class="more-text">更多</text>
+          <image class="img-arrow" src="../../assets/images/member/icon-arrow.png"></image>
+        </view>
+      </view>
+      <view class="income-list">
+        <view class="income-list-item">
+          <view class="money">{{showIncome? todayPopularizeReward: hideText}}</view>
+          <view>今日推广收益</view>
+        </view>
+        <view class="income-list-item">
+          <view class="money">{{showIncome? todayPlatformReward: hideText}}</view>
+          <view>今日平台奖励</view>
+        </view>
+        <view class="income-list-item">
+          <view class="money">{{showIncome? monthReward: hideText}}</view>
+          <view>本月全部收益</view>
+        </view>
+      </view>
+      <view class="order-info">
+        <view class="order-title">推广订单</view>
+        <view class="order-content">
+          <view class="order-num-item">
+            <view class="num">{{showIncome? todayPopularizeOrderNum: hideText}}</view>
+            <view>今日推广订单量</view>
+          </view>
+          <view class="order-num-item">
+            <view class="num">{{showIncome? todayPopularizeJhsOrderNum: hideText}}</view>
+            <view>今日推广巨划算订单量</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 广告位 S -->
+    <view class="ad-box" wx:if="{{adListImage.length !== 0}}">
+      <swiper class="ad-swiper" autoplay="{{autoplay}}" circular="{{true}}" interval="{{interval}}" bindchange="changeCurrent">
+        <block wx:for="{{adListImage}}" wx:key="index">
+          <swiper-item data-jumpurl="{{item.jumpUrl}}" bindtap="jumpAdwebView">
+            <image mode="scaleToFill" src="{{item.image}}" class="ad-img"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view class="banner-dots">
+        <block wx:for="{{adListImage}}" wx:key="index">
+          <view class="dot {{index === currentIndex ? ' active' : ''}}"></view>
+        </block>
+      </view>
+    </view>
+    <!-- 广告位 E -->
+    <view class="fens-box">
+      <view class="title">
+        <view class="title-left">
+          <text class="yellow-block"></text>
+          <text class="title-name">我的花粉</text>
+          <image class="img-show" src="../../assets/images/member/eye-open.png" wx:if="{{showFens}}" bindtap="toggleFens"></image>
+          <image class="img-show" src="../../assets/images/member/eye-close.png" wx:if="{{!showFens}}" bindtap="toggleFens"></image>
+        </view>
+        <view class="title-right" bindtap="toMyPollen">
+          <text class="more-text">更多</text>
+          <image class="img-arrow" src="../../assets/images/member/icon-arrow.png"></image>
+        </view>
+      </view>
+      <view class="fens-list">
+        <view class="fens-list-item">
+          <view class="fens-num">{{showFens? directPollenNum: hideText}}</view>
+          <view class="fens-text">我的花粉</view>
+          <view class="fens-new">今日新增{{showFens? directPollenNumToday: hideText1}}</view>
+        </view>
+        <view class="fens-list-item">
+          <view class="fens-num">{{showFens? directMemberNum: hideText}}</view>
+          <view class="fens-text">我的会员</view>
+          <view class="fens-new">今日新增{{showFens? directMemberNumToday: hideText1}}</view>
+        </view>
+        <view class="fens-list-item">
+          <view class="fens-num">{{showFens? allPollenNum: hideText}}</view>
+          <view class="fens-text">全部花粉</view>
+          <view class="fens-new">今日新增{{showFens? allPollenNumToday: hideText1}}</view>
+        </view>
+        <view class="fens-list-item">
+          <view class="fens-num">{{showFens? allMember: hideText}}</view>
+          <view class="fens-text">全部会员</view>
+          <view class="fens-new">今日新增{{showFens? allMemberToday: hideText1}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="activity-box">
+      <view class="title">
+        <view class="title-left">
+          <text class="yellow-block"></text>
+          <text class="title-name">活跃任务</text>
+        </view>
+        <view class="title-right" bindtap="toTaskDescription">
+          <text class="more-text">说明</text>
+          <image class="img-arrow" src="../../assets/images/member/icon-arrow.png"></image>
+        </view>
+      </view>
+      <view class="target">
+        <view class="target-month-title">{{monthActivity}}月会员活跃任务</view>
+        <view class="target-month">
+          您之前有未到账
+          <text class="yellow">{{platformReward}}元平台奖励</text>
+          ，月底前完成全部任务，平台奖励才可以提现哦~
+        </view>
+      </view>
+      <view class="task">
+        <view class="task-title">
+          <text class="task-title-name">商品购买任务</text>
+          <image class="img-question" src="../../assets/images/member/icon-question.png" bindtap="toTaskDescription"></image>
+        </view>
+        <view class="task-content">
+          <view class="task-progress-bar">
+            <view class="progress-num" style="width:{{taskBuyPer}}">
+              <view class="progress-text">{{selfBuyNum}}单</view>
+              <image class="img-target" src="../../assets/images/member/progress-target.png"></image>
+            </view>
+            <view class="status">
+              <text class="status-text" wx:if="{{selfBuyTargetNum > selfBuyNum}}">还差{{selfBuyTargetNum-selfBuyNum}}单完成任务</text>
+              <text class="status-text" wx:if="{{selfBuyTargetNum <= selfBuyNum}}">已完成</text>
+              <text class="target">目标{{selfBuyTargetNum}}单</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="task">
+        <view class="task-title">
+          <text class="task-title-name">活跃任务</text>
+          <image class="img-question" src="../../assets/images/member/icon-question.png" bindtap="toTaskDescription"></image>
+        </view>
+        <view class="task-content">
+          <view class="task-progress-bar">
+            <view class="progress-num" style="width:{{activeTwoCompletePer+'%'}}">
+              <view class="progress-text">{{activeTwoCompletePer}}%</view>
+              <image class="img-target" src="../../assets/images/member/progress-target.png"></image>
+            </view>
+            <view class="status">
+              <text class="status-text" wx:if="{{activeTwoCompletePer < 100}}">还差{{100 - activeTwoCompletePer}}%完成任务</text>
+              <text class="status-text" wx:if="{{activeTwoCompletePer === 100}}">已完成</text>
+              <text class="target">目标活跃人数{{activePercentage}}%</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="goods-box">
+      <view class="goods-title">
+        <text class="title-name">推广巨划算商品</text>
+        <view class="sub-title-name">推广成功获得高额返利</view>
+      </view>
+      <view class="goods-content">
+        <block wx:for="{{goodsList}}" wx:key="index">
+          <view class="goods-item" data-id="{{item.id}}" data-share="0" bindtap="toGoodsDetail">
+            <view class="goods-left">
+              <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{item.defaultImgUrl}}' width="256rpx" height="256rpx"/>
+            </view>
+            <view class="goods-right">
+              <view class="goods-detail two-ellipsis">{{item.goodsName}}</view>
+              <view class="cash-back">返利{{item.rewardPrice}}元</view>
+              <view class="goods-price">{{item.salePrice}}</view>
+              <view class="goods-origin-price">￥{{item.linePrice}}</view>
+              <image class="img-share" src="../../assets/images/member/icon-share.png" data-id="{{item.id}}" data-share="1" catchtap="toGoodsDetail"></image>
+            </view>
+          </view>
+        </block>
+        <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+        <template is="loadingMore" data="{{isLoading}}"></template>
+      </view>
+    </view>
+  </scroll-view>
+  <poster id="poster"></poster>
+</view>

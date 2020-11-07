@@ -1,0 +1,5 @@
+<template name="loadingMore">
+    <view class="loading__content" wx:if="{{isLoading === true}}">
+        <image class="img__loading" src="../../assets/images/common/loading.png"></image>
+    </view>
+</template>

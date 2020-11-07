@@ -1,0 +1,7 @@
+{
+  "navigationBarBackgroundColor": "#322A3D",
+  "usingComponents": {
+    "poster": "../../components/poster/poster",
+    "image-loader": "../../components/imageLoader/imageLoader"
+  }
+}

@@ -1,0 +1,161 @@
+<!--faq.wxml-->
+<view class="faq-container">
+    <view class="faq-list">
+        <view class="item {{list[0] ? 'open' : ''}}" data-index="0" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">1、</view>
+                <view class="title-name">
+                    优惠券只能一个号领一次吗？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    优惠券数量有限，一般情况下一个账号仅能领用一次，具体要看商家的活动设置哦。
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[1] ? 'open' : ''}}" data-index="1" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">2、</view>
+                <view class="title-name">
+                    部分商品发货较慢的原因是什么？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    如果您担心发货速度问题，可以联系商家或对应平台客服进行咨询。在大促活动期间，商家的订单比较多，会按照下单顺序发货，请耐心等待哦。
+                </view>
+                <view class="answer">
+                    如需咨询订单进度可以联系平台客服热线：
+                </view>
+                <view class="answer">
+                    京东客服热线：950618
+                </view>
+                <view class="answer">
+                    拼多多客服热线：021-53395288
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[2] ? 'open' : ''}}" data-index="2" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">3、</view>
+                <view class="title-name">
+                    如何申请售后服务？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    您可以参考下申请售后常用的流程：
+                </view>
+                <view class="answer">
+                    京东：在京东APP-我的-客户服务中申请售后；
+                </view>
+                <view class="answer">
+                    拼多多：在拼多多APP-我的-对应订单中申请售后。
+
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[3] ? 'open' : ''}}" data-index="3" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">4、</view>
+                <view class="title-name">
+                    对收到的产品不满意？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    请您按照购买平台的售后政策联系对应平台申请售后即可。
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[4] ? 'open' : ''}}" data-index="4" bindtap="handleOpen">
+            <view class="title" style="height:140rpx;">
+                <view class="faq-num">5、</view>
+                <view class="title-name">
+                    为什么通过全民划算链接下单的商品售后问 题需要联系其他平台处理？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    全民划算只提供相关商品链接，帮您寻找商品优惠等信息，并不提供下单购买等服务，您实际下单仍是在对应平台内完成，商品也是由对应平台提供，所以如果产生售后问题，需要您联系商品寄出方平台协商处理哦～
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[5] ? 'open' : ''}}" data-index="5" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">6、</view>
+                <view class="title-name">
+                    如何查看订单的物流信息?
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer-dot">
+                    在微信查看的3个途径。
+                </view>
+                <view class="answer-dot">
+                    在京东APP订单界面查看，京东APP-我的页面查看。
+                </view>
+                <view class="answer-dot">
+                    在拼多多APP订单界面查看，拼多多app-个人中心- 我的订单查看。
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[6] ? 'open' : ''}}" data-index="6" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">7、</view>
+                <view class="title-name">
+                    如何查看我的收益？
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    您可登录全民划算，点击【会员】，在页面直接查看您的实时待结算收益哦~
+                </view>
+            </view>
+        </view>
+        <view class="item {{list[7] ? 'open' : ''}}" data-index="7" bindtap="handleOpen">
+            <view class="title">
+                <view class="faq-num">8、</view>
+                <view class="title-name">
+                    我的收益有哪几种类型?
+                </view>
+                <image class="arrow" src="../../assets/images/common/arrow-down.png"></image>
+            </view>
+            <view class="content">
+                <view class="answer">
+                    收益分为2种，推广收益和平台奖励（超级会员专属）。
+                </view>
+                <view class="answer-dot">
+                    推广收益：
+                </view>
+                <view class="answer">
+                    1、您以及您的花粉在小程序自购商品，或者您分享的商品促成别人购买所得到的收益;
+                </view>
+                <view class="answer">
+                    2、推广巨划算商品所得到的收益。
+                </view>
+                <view class="answer-dot">
+                    平台奖励（超级会员专属权益）：
+                </view>
+                <view class="answer">
+                    1、商品奖励：您的所有花粉自购或推广商品，您所分配得到的奖励收益;
+                </view>
+                <view class="answer">
+                    2、巨划算商品奖励：您的花粉推广巨划算商品，您所分配得到的奖励收益。
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="customer" bindtap="phoneCall">
+        <image class="img-customer" src="../../assets/images/common/img-customer.png"></image>
+        <view class="text">联系客服</view>
+    </view>
+</view>

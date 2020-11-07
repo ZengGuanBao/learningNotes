@@ -1,0 +1,52 @@
+<!-- recomProduct.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container recomProduct-container">
+  <scroll-view class="category-scroll" scroll-x="true">
+    <block wx:for="{{sendMaterialList}}" wx:key="index">
+      <view class="category-type {{tabIndex===index+''?'category-active':''}}" data-curindex="{{index+''}}" data-id="{{item.id}}" bindtap="changeCurrentIndex">
+        {{item.name}}
+        <view class="tab-line tab-line-first" wx:if="{{tabIndex===index+''}}" style="left:{{item.width}}px"></view>
+      </view>
+    </block>
+  </scroll-view>
+  <block wx:for="{{sendMustPushVOPage}}" wx:key="index">
+    <view class="recom-item">
+      <view class="title">
+        <view class="">
+          <image class="title-icon" src="{{sendEditorVO.editorUrl}}"></image>
+        </view>
+        <view>
+          <view class="title-editor">{{sendEditorVO.editor}}</view>
+          <view class="title-time">{{item.timeInterval}}</view>
+        </view>
+      </view>
+      <view>
+        <text>{{item.shareCopyWriter}}</text>
+      </view>
+      <view class="share-img">
+        <block wx:for="{{item.images}}" wx:for-item="img" wx:key="index">
+          <view class="img-item" wx:if="{{index===0}}">
+            <image class="img" src="{{img.url}}" data-index="{{index}}" data-imgarr="{{item.images}}" bindtap="previewImg"></image>
+          </view>
+          <view class="img-item" wx:if="{{index===1}}">
+            <image class="img" src="{{img.url}}" data-index="{{index}}" data-imgarr="{{item.images}}" bindtap="previewImg"></image>
+          </view>
+          <view class="img-item" wx:if="{{index===2}}">
+            <image class="img" src="{{img.url}}" data-index="{{index}}" data-imgarr="{{item.images}}" bindtap="previewImg"></image>
+          </view>
+        </block>
+      </view>
+      <view class="text-hr"></view>
+      <view class="share-oper">
+        <view class="recom-price">推广收益{{item.rebateAmount}}元</view>
+        <view class="recom-save" data-imgarr="{{item.images}}" bindtap="saveImage">保存图片</view>
+        <view class="recom-copy" data-sharewriter="{{item.shareCopyWriter}}" data-couponurl="{{item.couponUrl}}" data-materialurl="{{item.materialUrl}}" data-goodsid="{{item.goodsId}}" data-thirdplatform="{{item.thirdPlatform}}" bindtap="getCustomerPromotionUrl">
+          复制文字
+        </view>
+      </view>
+    </view>
+  </block>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+</view>

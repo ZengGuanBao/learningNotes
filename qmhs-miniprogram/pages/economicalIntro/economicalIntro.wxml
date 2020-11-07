@@ -1,0 +1,97 @@
+<!-- economicalIntro.wxml -->
+<view class="economicalIntro-container">
+  <view class="title">
+    <view class="search-tit">搜索京东/拼多多商品</view>
+    <view class="tips">购物先领券，消费还返现</view>
+    <view class="search-bar" bindtap="searchView">
+      <image class="search-icon" src="../../assets/images/pageIcon/search_icon.png"></image>
+      <text class="search-text">粘贴宝贝标题，先领券再购买</text>
+      <text class="search-btn">搜券</text>
+    </view>
+    <view class="step">
+      <text>省钱三步：①打开购物软件</text>
+      <text style="margin-left:45rpx">②复制商品名称或链接</text>
+      <text style="margin-left:45rpx">③打开全民划算</text>
+    </view>
+  </view>
+  <view class="navbar">
+    <view class="nav-item {{currentIndex===0?'nav-active':''}}" data-curindex="0" bindtap="changeCurrentIndex">
+      京东
+      <view class="tab-line" wx:if="{{currentIndex===0}}"></view>
+    </view>
+    <view class="nav-item {{currentIndex===1?'nav-active':''}}" data-curindex="1" bindtap="changeCurrentIndex">
+      拼多多
+      <view class="tab-line" wx:if="{{currentIndex===1}}"></view>
+    </view>
+    <view class="nav-item {{currentIndex===2?'nav-active':''}}" data-curindex="2" bindtap="changeCurrentIndex">
+      微信
+      <view class="tab-line" wx:if="{{currentIndex===2}}"></view>
+    </view>
+  </view>
+  <swiper class="econ-swiper" current="{{currentIndex}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeCurrent" style="height:{{height}}rpx;">
+    <swiper-item>
+      <view class="econ-intro">
+        <view class="econ-tit">京东省钱步骤说明</view>
+        <view class="intro-tit">01 在京东商品中点击“分享”</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/jd-01.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">02 点击“复制链接”</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/jd-02.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">03 打开“全民划算”小程序</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/jd-03.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">04 领优惠券，下单还返现金</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/jd-04.png'}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="econ-intro">
+        <view class="econ-tit">拼多多省钱步骤说明</view>
+        <view class="intro-tit">01 在拼多多商品中点击“分享”</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/pdd-01.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">02 点击“复制链接”</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/pdd-02.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">03 打开“全民划算”小程序</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/pdd-03.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">04 领优惠券，下单还返现金</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/pdd-04.png'}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="econ-intro">
+        <view class="econ-tit">微信省钱步骤说明</view>
+        <view class="intro-tit">01 复制口令</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/wx-01.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">02 打开“全民划算”小程序</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/wx-02.png'}}" mode="aspectFill"></image>
+        </view>
+        <view class="intro-tit">03 领优惠券，下单还返现金</view>
+        <view class="tc">
+          <image class="intro-img" src="{{imgHost+'/introduction/wx-03.png'}}" mode="aspectFill"></image>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class="footer">
+    <text class="line"></text>
+    <text>已显示全部内容</text>
+    <text class="line"></text>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的花粉",
+  "navigationBarBackgroundColor": "#FD4073",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "image-loader": "../../components/imageLoader/imageLoader",
+    "mp-sticky": "../../components/sticky/index"
+  }
+}

@@ -1,0 +1,71 @@
+<!--incomeStatement.wxml-->
+<view class="income-statement-container">
+    <view class="explain-block">
+        <view class="title">
+            收入与提现说明
+        </view>
+        <view class="sub-title">
+            1、推广收入
+        </view>
+        <view class="content-part">
+            推广收入预估分为2种
+        </view>
+        <view class="bold-part">
+            商品推广返利
+        </view>
+        <view class="content-part">
+            指您自购商品或者分享好友购买，所产生的收入。<text class="red">每月25号</text>结算上个月<text class="red">确认收货</text>的订单，结算后可直接提现。
+        </view>
+        <view class="example">
+            例如：你1月份在京东下单且1月份就确认收货，则在2月25号结算后可直接提现。如果你在2月份才确认收货，则需3月25号结算后才能提现。
+        </view>
+        <view class="bold-part">
+            巨划算商品推广返利
+        </view>
+        <view class="content-part">
+            指您推广巨划算商品后，所产生的收入，此收入<text class="red">实时结算</text>，结算后可直接提现。
+        </view>
+        <view class="sub-title" style="margin-top: 35rpx;">
+            2、平台奖励
+        </view>
+        <view class="content-part">
+            平台奖励分为2种，<text class="red">是超级会员的专属权益</text>
+        </view>
+        <view class="bold-part">
+            商品奖励
+        </view>
+        <view class="content-part">指你所有的花粉，自购或推广京东拼多多等平台商品后，你所分配到的奖励收入。</view>
+        <view class="bold-part">
+            巨划算商品奖励
+        </view>
+        <view class="content-part">指你所有的花粉，推广巨划算商品后，你所分配到的奖励收入。</view>
+        <view class="example">
+            <view>
+                1、商品奖励将在订单<text class="red">确认收货后次月25号</text>结算到账，结算后可提现。
+            </view>
+            <view>
+                2、巨划算商品奖励奖将在订单付款后次月25号结算到账，结算后可提现。
+            </view>
+        </view>
+    </view>
+    <view class="explain-block">
+        <view class="title">
+            订单说明
+        </view>
+        <view class="sub-title">
+            1、失效订单
+        </view>
+        <view class="content-part">
+            订单被取消后就成为了失效订单。失效订单无佣金。如果发现你的预估总收入减少，可能是订单发生售后变为无效订单。<text class="red">（订单未取消，但是产生售后部份退款，也会导致您的预估收入变小）</text>
+        </view>
+        <view class="sub-title" style="margin-top: 35rpx;">
+            2、各平台无返利订单说明
+        </view>
+        <view class="content-part">
+            <text style="color: #333">京东</text>到家的订单，使用特殊优惠的订单，京东集团员工订单、企业用户、经销商、高校代理、京东乡村推广员及其发展的用户、京东家电专卖店的订单，京东帮等特殊情况无返佣。被京东判定为违规订单的无将视为无效订单。
+        </view>
+        <view class="content-part" style="margin-top: 30rpx;">
+            所有订单数据及订单状态均以京东、拼多多等官方平台返回数据为准。
+        </view>
+    </view>
+</view>

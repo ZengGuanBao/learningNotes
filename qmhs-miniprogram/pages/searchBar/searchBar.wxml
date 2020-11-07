@@ -1,0 +1,79 @@
+<!-- searchBar.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container">
+  <view class="search-fixed">
+    <view class="search-bar">
+      <view class="search-view" style="width:{{widthInput}};">
+        <image class="search-icon" src="../../assets/images/pageIcon/search_icon.png"></image>
+        <input class="search-input" type="text" value="{{seachval}}" focus="true" confirm-type="search" placeholder="粘贴宝贝标题，先领券再购买" bindconfirm="search" bindinput="bindKeyInput" bindblur="bindBlurInput" />
+        <image wx:if="{{changeIcon === true}}" class="del-x-icon" src="../../assets/images/pageIcon/del_x_icon.png" bindtap="delSeachval"></image>
+      </view>
+      <text wx:if="{{changeIcon === false}}" class="search-btn" bindtap="toBack">取消</text>
+    </view>
+    <view class="navbar">
+      <view class="nav-item {{currentIndex==='0'?'nav-active':''}}" data-curindex="0" bindtap="changeCurrentIndex">
+        京东
+        <view class="tab-line" wx:if="{{currentIndex==='0'}}"></view>
+      </view>
+      <view class="nav-item {{currentIndex==='1'?'nav-active':''}}" data-curindex="1" bindtap="changeCurrentIndex">
+        拼多多
+        <view class="tab-line" wx:if="{{currentIndex==='1'}}"></view>
+      </view>
+    </view>
+    <view class="search-history" wx:if="{{hasSearch === false && historyDatas.length!==0}}">
+      <view class="search-title">
+        <text class="text-title">搜索历史</text>
+        <image bindtap="delHistory" class="del-icon" src="../../assets/images/pageIcon/del_icon.png"></image>
+      </view>
+      <view class="item-history">
+        <block wx:for="{{historyDatas}}" wx:key="index">
+          <text class="text-history" data-itemval="{{item}}" bindtap="searchHistory">{{item}}</text>
+        </block>
+      </view>
+    </view>
+    <view class="navbar" wx:if="{{hasSearch === true}}">
+      <view class="nav-item item-size-26 {{selectType==='综合'?'type-active':''}}" data-selecttype="综合" bindtap="getSelectType">
+        综合
+      </view>
+      <view class="nav-item item-size-26 {{selectType==='销量'?'type-active':''}}" data-selecttype="销量" bindtap="getSelectType">
+        <view style="display:flex;">
+          <view class="nav-con">销量</view>
+          <view>
+            <view class="up-tri {{sortUp===true&&selectType==='销量'?'active-up':''}}"></view>
+            <view class="down-tri {{sortUp===false&&selectType==='销量'?'active-down':''}}"></view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-item item-size-26 {{selectType==='价格'?'type-active':''}}" data-selecttype="价格" bindtap="getSelectType">
+        <view style="display:flex;">
+          <view class="nav-con">价格</view>
+          <view>
+            <view class="up-tri {{sortUp===true&&selectType==='价格'?'active-up':''}}"></view>
+            <view class="down-tri {{sortUp===false&&selectType==='价格'?'active-down':''}}"></view>
+          </view>
+        </view>
+      </view>
+      <view class="nav-item item-size-26 {{isCoupon===1?'type-active':''}}" bindtap="getHasCoupon">
+        <text class="select-coupon">只看有券</text>
+        <image class="has-coupop" wx:if="{{isCoupon===1}}" src="../../assets/images/pageIcon/has_coupop.png"></image>
+        <image class="has-coupop" wx:else src="../../assets/images/pageIcon/nohas_coupop.png"></image>
+      </view>
+    </view>
+  </view>
+  <commodity id="commodity" commodityDatas="{{commodityDatas}}" wx:if="{{commodityDatas.length !== 0}}" goodsSource="{{goodsSource}}"></commodity>
+  <view class="no-list" wx:if="{{hasCommodityDatas ===false}}">
+    <image class="no-list-img" src="../../assets/images/pageIcon/no_list.png"></image>
+    <view>暂无相关商品</view>
+  </view>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+  <!-- <view class="footer-loading" wx:if="{{hasLoading === true}}">
+    <image class="loading-more" src="{{imgHost+'/common/loading.gif'}}"></image>
+  </view>
+  <view class="footer" wx:if="{{hasLoadingOver === true}}">
+    <text class="line"></text>
+    <text>已显示全部内容</text>
+    <text class="line"></text>
+  </view> -->
+</view>

@@ -1,0 +1,75 @@
+<view class="personal-container" style="padding-bottom:{{isIphoneX ? '168rpx;': '100rpx;'}} z-index: {{levelIndex}};">
+  <view class="personal-header">
+    <image class="img-bg" src="../../assets/images/personal/personal-bg.png"></image>
+    <view class="user-line">
+      <view class="avatar" bindtap="navigateToLogin">
+        <view class="avatar-wrapper">
+          <image-loader default-image='../../assets/images/common/img-error.png' original-image='{{headImgUrl}}' width="100%" height="100%"/>
+        </view>
+      </view>
+      <view class="info" wx:if="{{isLogin}}">
+        <text class="user-name ellipsis">{{nickName}}</text>
+        <image class="img-member" src="../../assets/images/common/member.png" wx:if="{{customerLevelId === 1}}"></image>
+        <image class="img-member" src="../../assets/images/common/super-member.png" wx:elif="{{customerLevelId > 1 && customerLevelId < 5}}"></image>
+        <image class="img-member" src="../../assets/images/common/colonel.png" wx:elif="{{customerLevelId >= 5}}"></image>
+        <view class="invite" wx:if="{{vipFlag === 1}}">
+          <text class="invite-code">邀请码：{{inviteCode}}</text>
+          <text class="invite-copy" bindtap="copyInviteCode">复制</text>
+        </view>
+      </view>
+      <view class="no-login" bindtap="navigateToLogin" wx:if="{{!isLogin}}">注册/登录</view>
+    </view>
+  </view>
+  <view class="personal-content">
+    <view class="order-content">
+      <view class="title" bindtap="navigateToMoreOrder">
+        <view class="title-name">我的订单</view>
+        <view class="more">更多</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view class="order-type">
+        <view class="type-item" bindtap="navigateToJd">
+          <image class="img-type" src="../../assets/images/personal/icon-jd.png"></image>
+          <view class="type-name">京东订单</view>
+        </view>
+        <view class="type-item" bindtap="navigateToPdd">
+          <image class="img-type" src="../../assets/images/personal/icon-pdd.png"></image>
+          <view class="type-name">拼多多订单</view>
+        </view>
+      </view>
+    </view>
+    <view class="operation-list">
+      <view class="item" bindtap="navigateToUniversity">
+        <image class="img-operation" src="../../assets/images/personal/icon-school.png"></image>
+        <view class="title">全民大学</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view class="item" bindtap="navigateToProtocol">
+        <image class="img-operation" src="../../assets/images/personal/icon-book.png"></image>
+        <view class="title">用户协议</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view class="item" bindtap="phoneCall">
+        <image class="img-operation" src="../../assets/images/personal/icon-customer.png"></image>
+        <view class="title">联系客服</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view class="item" bindtap="navigateToFaq">
+        <image class="img-operation" src="../../assets/images/personal/icon-question.png"></image>
+        <view class="title">常见问题</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view class="item" bindtap="navigateToAbout">
+        <image class="img-operation" src="../../assets/images/personal/icon-about.png"></image>
+        <view class="title">关于我们</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+      <view wx:if="{{vipFlag === 0 && isLogin===true}}" class="item" bindtap="navigateToRedeemCode">
+        <image class="img-operation" src="../../assets/images/personal/icon-redeemCode.png"></image>
+        <view class="title">兑换码</view>
+        <image class="icon-arrow" src="../../assets/images/personal/icon-more.png"></image>
+      </view>
+    </view>
+  </view>
+  <poster id="poster"></poster>
+</view>

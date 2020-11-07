@@ -1,0 +1,178 @@
+/**commodity.wxss**/
+.commodity-list {
+  margin-top: 20rpx;
+}
+
+.commodity {
+  padding: 30rpx 20rpx 0;
+  margin: 0 20rpx;
+  background-color: #fff;
+}
+
+.flex-wrp {
+  display: flex;
+}
+
+.commodity-img {
+  padding-top: 10rpx;
+  margin-right: 20rpx;
+}
+
+.flex-item {
+  flex: 1;
+  position: relative;
+  padding-bottom: 30rpx;
+  border-bottom: 1px solid #EEE;
+}
+
+.commodity:last-child .flex-item {
+  border-bottom-color: transparent;
+}
+
+.text-tip {
+  position: relative;
+  top: 1rpx;
+  height: 24rpx;
+  font-size: 18rpx;
+  line-height: 24rpx;
+  color: #FFF;
+  background: #FD4073;
+  border-radius: 4rpx;
+  padding: 0 4rpx;
+  margin-right: 8rpx;
+}
+
+.text-clip {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  margin-bottom: 20rpx;
+}
+
+.text-title {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 40rpx;
+}
+
+.text-dis {
+  display: flex;
+  height: 30rpx;
+  margin-bottom: 67rpx;
+}
+
+.text-coupon {
+  display: flex;
+  height: 30rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FFF;
+  line-height: 30rpx;
+  padding: 0 10rpx;
+  background-color: #FD4073;
+  border-radius: 4rpx;
+  position: relative;
+  margin-right: 16rpx;
+}
+
+.text-point {
+  position: absolute;
+  top: 9rpx;
+  padding: 6rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+.left {
+  left: -6rpx;
+}
+
+.right {
+  right: -6rpx;
+}
+
+.text-guide {
+  display: flex;
+  position: relative;
+  height: 30rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #834C0F;
+  line-height: 30rpx;
+  padding: 0 10rpx;
+  background-color: #FFEED8;
+  border-radius: 4rpx;
+}
+
+.text-rebate {
+  background-color: #FFD298;
+  color: #834B03;
+}
+
+.text-padding {
+  padding-right: 30rpx;
+}
+
+.right-icon {
+  position: absolute;
+  top: 5rpx;
+  right: 13rpx;
+  width: 20rpx;
+  height: 20rpx;
+  line-height: 30rpx;
+}
+
+.product-share-icon {
+  position: absolute;
+  width: 88rpx;
+  height: 88rpx;
+  bottom: 60rpx;
+  right: 0;
+}
+
+.share-icon {
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.text-price {
+  font-size: 34rpx;
+  font-weight: 400;
+  color: #FD4073;
+  line-height: 34rpx;
+  margin-right: 4rpx;
+}
+
+.text-price::before {
+  content: "￥";
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #FD4073;
+}
+
+.text-int {
+  display: flex;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #999;
+  line-height: 20rpx;
+  margin-top: 17rpx;
+}
+
+.text-describe {
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #FD4073;
+  line-height: 34rpx;
+}
+
+.text-s {
+  flex: 1;
+}
+
+.text-volume {
+  text-align: right;
+}

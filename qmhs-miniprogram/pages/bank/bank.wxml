@@ -1,0 +1,47 @@
+<!--bank.wxml-->
+<view class="bank-container">
+    <view class="bank-form">
+        <view class="form-block">
+            <view class="form-line">
+                <view class="line-left">
+                    真实姓名
+                </view>
+                <view class="line-right">
+                    <input class="ipt-name" placeholder="请输入您的真实姓名" placeholder-class="placeholder" value="{{form.name}}" bindinput="watchName"/>
+                </view>
+            </view>
+            <view class="form-line">
+                <view class="line-left">
+                    银行卡号
+                </view>
+                <view class="line-right">
+                    <input class="ipt-bank-number" type="number" placeholder="请输入您的银行卡号" placeholder-class="placeholder" value="{{form.bankNumber}}" bindinput="watchBankNumber" bindblur="getBankInfoByNo"/>
+                </view>
+            </view>
+            <view class="form-line">
+                <view class="line-left">
+                    开户银行
+                </view>
+                <view class="line-right">
+                    <input class="ipt-bank-name" disabled placeholder-class="placeholder" value="{{form.bankName}}" bindinput="watchBankName"/>
+                </view>
+            </view>
+        </view>
+        <view class="notice">
+            <view class="header">
+                <image class="img-error" src="../../assets/images/common/error.png"></image><text class="title">注意事项</text>
+            </view>
+            <view class="content">
+                <view class="notice-item">
+                    1、请确保以上信息真实无误;
+                </view>
+                <view class="notice-item">
+                    2、如果未能自动检测到开户银行，建议更换银行卡号。
+                </view>
+            </view>
+        </view>
+        <view class="operation">
+            <view class="btn-bank {{canSubmit ? '' : 'disabled'}}" bindtap="handleSubmit">下一步</view>
+        </view>
+    </view>
+</view>

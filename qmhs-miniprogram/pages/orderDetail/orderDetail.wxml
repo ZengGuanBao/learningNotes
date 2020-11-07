@@ -1,0 +1,93 @@
+<!--orderDetail.wxml-->
+<view class="orderDetail-container" wx:if="{{hasLoadData}}">
+    <view class="order-header">
+        <image class="img-bg" src="{{imgHost+'/order/delivery-finish-bg.png'}}" wx:if="{{orderDetail.status === 4 }}"></image>
+        <image class="img-bg" src="{{imgHost+'/order/delivery-bg.png'}}" wx:elif="{{orderDetail.status === 1 || orderDetail.status === 2 || orderDetail.status === 3}}"></image>
+        <view class="order-status">{{orderStatus[orderDetail.status]}}</view>
+    </view>
+    <view class="order-content" style="padding-bottom:{{isIphoneX ? '168rpx': '100rpx'}}">
+        <view class="logistics-box">
+            <view class="status">
+                <view class="line ellipsis">
+                    <image class="icon-car" src="../../assets/images/order/icon-car.png"></image>
+                    <text class="logistics-status ellipsis">{{orderDetail.status === 2 ? '您的订单已提交，请等待发货' : deliveryStatus.context}}</text>
+                </view>
+                <view class="line">
+                    <text class="logistics-time">{{orderDetail.status === 2 ? orderDetail.createTime : deliveryStatus.time}}</text>
+                </view>
+                <image class="icon-arrow" src="../../assets/images/common/arrow-right.png" bindtap="toLogistics" wx:if="{{orderDetail.status === 3 || orderDetail.status === 4}}"></image>
+            </view>
+            <view class="user-info">
+                <view class="line">
+                    <image class="icon-location" src="../../assets/images/order/icon-location.png"></image>
+                    <text class="user-name">{{customerDeliveryAddress.consigneeName}}</text>
+                    <text class="user-phone">{{customerDeliveryAddress.consigneeNumber}}</text>
+                </view>
+                <view class="line">
+                    <view class="user-location ellipsis"> {{customerDeliveryAddress.provinceName+' '+customerDeliveryAddress.cityName+' '+customerDeliveryAddress.areaName+' '+customerDeliveryAddress.deliveryAddress}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="goods-box">
+            <view class="goods-left">
+                <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{orderDetail.goodsImgUrl}}' width="180rpx" height="180rpx"/>
+            </view>
+            <view class="goods-right">
+                <view class="goods-detail">
+                    {{orderDetail.goodsName}}
+                </view>
+                <view class="goods-price">
+                    <view class="price">{{orderDetail.payAmount}}</view>
+                </view>
+            </view>
+        </view>
+        <view class="detail-box">
+            <view class="line">
+                <view class="line-left">
+                    订单编号
+                </view>
+                <view class="line-right">
+                    {{orderDetail.orderSn}}
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    创建时间
+                </view>
+                <view class="line-right">
+                    {{orderDetail.createTime}}
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    商品总额
+                </view>
+                <view class="line-right">
+                    ￥{{orderDetail.payAmount}}
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    运费合计
+                </view>
+                <view class="line-right">
+                    包邮
+                </view>
+            </view>
+            <view class="line">
+                <view class="line-left">
+                    实际支付
+                </view>
+                <view class="line-right price">
+                    ￥{{orderDetail.payAmount}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order-footer {{isIphoneX ? 'iphonex-bottom': ''}}" wx:if="{{orderDetail.status === 3 || orderDetail.status === 4}}">
+        <view class="wrapper">
+            <view class="btn btn-logistics" bindtap="toLogistics">查看物流信息</view>
+            <view class="btn btn-receipt" bindtap="confirmOrder" wx:if="{{orderDetail.status === 3}}">确认收货</view>
+        </view>
+    </view>
+</view>

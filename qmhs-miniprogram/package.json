@@ -1,0 +1,26 @@
+{
+  "scripts": {
+    "tep": "node ./script/template.js",
+    "com": "node ./script/component.js",
+    "lint": "eslint --fix app.js store/store.js pages utils"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "fs": "0.0.1-security"
+  },
+  "name": "qmhs-miniprogram",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "http://git.gz-hzed.com/web/qmhs-miniprogram.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

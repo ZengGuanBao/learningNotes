@@ -1,0 +1,19 @@
+<!-- recommendList.wxml -->
+<import src="../../templates/loadingMore.wxml" />
+<import src="../../templates/hasNoData.wxml" />
+<view class="container recommendList-container">
+  <view wx:if="{{themeImgUrl!==''}}" style="display: flex;">
+    <image class="theme-img" src="{{themeImgUrl}}" bindload="getClassifyTop"></image>
+  </view>
+  <classify wx:if="{{recommendClassifyList.length!==0}}" recommendClassifyList="{{recommendClassifyList}}" bindgetClassifyIndex="getClassifyIndex" class="{{scrollTop>classifyTop?'classify':'normalClassify'}}"></classify>
+  <view class="jd-search" wx:if="{{themName === '京东专区' || themName === '拼多多专区'}}">
+    <view class="search-bar" bindtap="searchView">
+      <image class="search-icon" src="../../assets/images/pageIcon/search_icon.png"></image>
+      <text class="search-text">粘贴宝贝标题，先领券再购买</text>
+      <text class="search-btn">搜券</text>
+    </view>
+  </view>
+  <commodity id="commodity" commodityDatas="{{commodityDatas}}" wx:if="{{commodityDatas.length !== 0}}" goodsSource="{{goodsSource}}" hasCollage="{{hasCollage}}"></commodity>
+  <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+  <template is="loadingMore" data="{{isLoading}}"></template>
+</view>

@@ -1,0 +1,11 @@
+<!--resultViewPage.wxml-->
+<view class="resultViewPage-container">
+    <!-- 兑换码成功结果页 -->
+    <view wx:if="{{resultType === 'redeemCode'}}" class="redeemCode-result">
+        <view class="img-view"><image class="img" src="../../assets/images/pay/success.png"></image></view>
+        <view class="title">恭喜您！兑换成功</view>
+        <view class="tip">0.01元 升级超级会员</view>
+        <view class="btn" bindtap="toMemberPage">购买升级</view>
+        <view class="btn-home" bindtap="toIndexPage">返回首页</view>
+    </view>
+</view>

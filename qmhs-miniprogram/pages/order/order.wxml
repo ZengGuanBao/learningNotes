@@ -1,0 +1,74 @@
+<!--order.wxml-->
+<import src ="../../templates/loadingMore.wxml"/>
+<import src ="../../templates/hasNoData.wxml"/>
+<view class="order-container">
+    <view class="channel-tab">
+        <view class="tab-item {{channelIndex === 0 ? 'active' : ''}}" data-current="0" bindtap="switchChannel">
+            京东订单
+        </view>
+        <view class="tab-item {{channelIndex === 1 ? 'active' : ''}}" data-current="1" bindtap="switchChannel">
+            拼多多订单
+        </view>
+        <view class="tab-item {{channelIndex === 2 ? 'active' : ''}}" data-current="2" bindtap="switchChannel">
+            巨划算订单
+        </view>
+    </view>
+    <view class="order-type-tab">
+        <view class="tab-item {{orderTypeIndex === 0 ? 'active' : ''}}" data-current="0" bindtap="switchOrder">
+            全部
+        </view>
+        <view class="tab-item {{orderTypeIndex === 1 ? 'active' : ''}}" data-current="1" bindtap="switchOrder">
+            {{channelIndex === 2 ? '待发货' : '待付款'}}
+        </view>
+        <view class="tab-item {{orderTypeIndex === 2 ? 'active' : ''}}" data-current="2" bindtap="switchOrder">
+            {{channelIndex === 2 ? '待收货' : '已付款'}}
+        </view>
+        <view class="tab-item {{orderTypeIndex === 3 ? 'active' : ''}}" data-current="3" bindtap="switchOrder">
+            已完成
+        </view>
+    </view>
+    <view class="tab-content">
+        <scroll-view scroll-y="true" class="tab-list-content" bindscrolltolower="getIncomeList">
+            <block wx:for="{{orderList}}" wx:key="index">
+                <view class="tab-list-item" data-id="{{item.id}}" bindtap="toOrderDetail">
+                    <view class="order-header">
+                        <image class="img-channel" src="../../assets/images/common/img-jd.png" wx:if="{{channelIndex === 0}}"></image>
+                        <image class="img-channel" src="../../assets/images/common/img-pdd.png" wx:if="{{channelIndex === 1}}"></image>
+                        <image class="img-channel" src="../../assets/images/common/img-jfs.png" wx:if="{{channelIndex === 2}}"></image>
+                        <view class="order-no"><text>订单编码: {{item.orderSn}}</text><text class="copy" data-sn="{{item.orderSn}}" catchtap="copySn">复制</text></view>
+                        <view class="order-status" wx:if="{{channelIndex === 2 && item.status === 1}}">待支付</view>
+                        <view class="order-status" wx:if="{{channelIndex === 2 && item.status === 2}}">待发货</view>
+                        <view class="order-status" wx:if="{{channelIndex === 2 && item.status === 3}}">已发货</view>
+                        <view class="order-status" wx:if="{{channelIndex !== 2 && item.status === 1}}">其他</view>
+                        <view class="order-status" wx:if="{{channelIndex !== 2 && item.status === 2}}">待付款</view>
+                        <view class="order-status" wx:if="{{channelIndex !== 2 && item.status === 3}}">已付款</view>
+                        <view class="order-status" wx:if="{{item.status === 4}}">已完成</view>
+                        <view class="order-status" wx:if="{{item.status === 5}}">无效</view>
+                    </view>
+                    <view class="order-content">
+                        <view class="order-left">
+                            <image-loader default-image='../../assets/images/common/img-default.png' original-image='{{item.goodsImgUrl}}' width="180rpx" height="180rpx"/>
+                        </view>
+                        <view class="order-right">
+                            <view class="goods-detail two-ellipsis">
+                                {{item.goodsName}}
+                            </view>
+                            <view class="order-time">{{channelIndex === 2 ? item.createTime : item.orderTime}}</view>
+                            <view class="order-pay">
+                                <text class="text">实付金额:</text>
+                                <text class="money">￥{{item.payAmount}}</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-empty" wx:if="{{pageTotal === 0}}">
+                <image class="img-empty" src="../../assets/images/common/order-empty.png"></image>
+                <view class="empty-text">暂无相关订单，快去逛逛吧</view>
+                <view class="btn-home" bindtap="goHome">去首页逛逛</view>
+            </view>
+            <template is="hasNoData" data="{{hasLoadingOver}}"></template>
+            <template is="loadingMore" data="{{isLoading}}"></template>
+        </scroll-view>
+    </view>
+</view>

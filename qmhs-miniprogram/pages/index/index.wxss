@@ -1,0 +1,282 @@
+/**index.wxss**/
+.index-container {
+  position: relative;
+  padding-bottom: 100rpx;
+}
+
+.background-block {
+  background-color: #fff;
+}
+
+.search-bar {
+  display: flex;
+  width: 690rpx;
+  height: 60rpx;
+  background: #F6F6F6;
+  border-radius: 8rpx;
+  margin: 14rpx 30rpx 24rpx;
+}
+
+.search-icon {
+  width: 28rpx;
+  height: 28rpx;
+  margin: 16rpx 14rpx 16rpx 30rpx;
+}
+
+.search-text {
+  flex: 1;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 60rpx;
+}
+
+.search-btn {
+  float: right;
+  background: #FD4073;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #fff;
+  line-height: 24rpx;
+  padding: 8rpx 10rpx;
+  margin: 10rpx;
+}
+
+.index-banner {
+  position: relative;
+}
+
+.banner-theme {
+  width: 690rpx;
+  height: 296rpx;
+  border-radius: 10rpx;
+  margin: 0 30rpx;
+}
+
+.banner-img {
+  width: 690rpx;
+  height: 296rpx;
+  border-radius: 10rpx;
+}
+
+.banner-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  width: 12rpx;
+  height: 6rpx;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 6rpx;
+  margin: 0 5rpx;
+  transition: all .6s;
+}
+
+.active {
+  width: 18rpx;
+  background: rgba(255, 255, 255, 1);
+}
+
+.service-grids {
+  width: 690rpx;
+  margin: 16rpx 30rpx 40rpx;
+  display: flex;
+}
+
+.grids-item {
+  position: relative;
+  display: flex;
+  flex: 1;
+  font-size: 22rpx;
+  font-weight: 400;
+  color: #999;
+  line-height: 22rpx;
+}
+
+.item-img {
+  width: 22rpx;
+  height: 22rpx;
+  margin: 0 4rpx 0 30rpx;
+}
+
+.recommend-grids {
+  margin: 0 30rpx;
+}
+
+.recommend-item {
+  display: inline-block;
+  width: 96rpx;
+  margin: 0 50rpx 40rpx 0;
+  text-align: center;
+}
+
+.recommend-item:nth-of-type(5n) {
+  margin-right: 0;
+}
+
+.recommend-img {
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.recommend-title {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #333333;
+  line-height: 24rpx;
+  margin-top: 16rpx;
+}
+
+.ad-banner {
+  text-align: center;
+  margin: 0 0 10rpx;
+}
+
+.ad-banner-img {
+  width: 690rpx;
+  height: 160rpx;
+}
+
+.recommend-ad {
+  display: flex;
+  height: 136rpx;
+  padding: 30rpx 20rpx 40rpx;
+}
+
+.ad-item {
+  width: 345px;
+  display: flex;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 8px 0px rgba(240, 241, 245, 1);
+  border-radius: 8px;
+}
+
+.ad-item:first-child {
+  margin-right: 20rpx;
+}
+
+/* .ad-text {
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.text-tip {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  line-height: 32rpx;
+  padding: 29rpx 0 20rpx;
+}
+
+.text-con {
+  font-size: 24rpx;
+  font-weight: 400;
+  color: #FD4073;
+  line-height: 24rpx;
+}
+
+.text-go {
+  margin-left: 6rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #fff;
+  line-height: 20rpx;
+  background-color: #FD4073;
+  padding: 2rpx;
+  border-radius: 8rpx;
+} */
+
+.ad-img {
+  width: 345rpx;
+  height: 136rpx;
+}
+
+.category-fixed {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100rpx;
+  background-color: #fff;
+  z-index: 2;
+}
+.category{
+  width: 100%;
+  height: 80rpx;
+}
+.category-scroll {
+  white-space: nowrap;
+  display: flex;
+}
+.commodity-contain{
+  min-height: calc(100vh - 100rpx);
+}
+/*隐藏滚动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.category-type {
+  display: inline-block;
+  position: relative;
+  width: 112rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  font-weight: 400;
+  color: #999999;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.category-active {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.tab-line {
+  position: absolute;
+  top: 76rpx;
+  left: 44rpx;
+  width: 28rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, rgba(253, 64, 115, 1) 0%, rgba(255, 59, 96, 1) 100%);
+  border-radius: 2rpx;
+}
+
+.footer-loading {
+  height: 88rpx;
+  margin: 30rpx 0;
+  text-align: center;
+}
+
+.loading-more {
+  width: 88rpx;
+  height: 88rpx;
+}
+
+.footer {
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 20rpx;
+  font-weight: 400;
+  color: #ccc;
+  text-align: center;
+}
+
+.line {
+  display: inline-block;
+  width: 20rpx;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  top: -5rpx;
+  margin: 0 10rpx;
+}
