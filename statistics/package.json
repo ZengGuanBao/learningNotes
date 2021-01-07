@@ -1,0 +1,31 @@
+{
+  "name": "statistics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "cross-env node config/server.js --progress",
+    "server:test": "cross-env RUN_ENV=dev_test  node config/server.js --progress --host 0.0.0.0",
+    "build": "cross-env RUN_ENV=build_prod  webpack --config config/webpack.prod.js --progress",
+    "build:test": "cross-env RUN_ENV=build_test webpack --config config/webpack.prod.js --progress",
+    "builds": "rollup --config config/rollup.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "axios": "^0.19.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.2",
+    "cross-env": "^6.0.3",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^3.2.0",
+    "rollup": "^1.29.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
+  }
+}
