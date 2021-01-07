@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>产品介绍 - 全民钱包</title>
+    <meta name="keywords" content="全民钱包,全民钱包官网,消费金融,消费分期,普惠金融">
+    <meta name="description" content="全民钱包是集信用风险评估与管理、信用数据整合服务、小额贷款咨询服务为一体的综合性金融服务公司">
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/stylesheets/comm.css" />
+    <link rel="stylesheet" href="/stylesheets/jquery.fullPage.css" />
+    <link rel="stylesheet" href="/stylesheets/animate.css">
+    <link rel="stylesheet" href="/stylesheets/productIntro.css">
+    <script src="/lib/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <%- include('./template/header') -%>
+    <div id="menu" class="menu">
+        <div class="scroll"></div>
+        <span class="prev"></span>
+        <ul>
+            <li data-menuanchor="page1" class="active"><a href="#page1">01</a></li>
+            <li data-menuanchor="page2"><a href="#page2">02</a></li>
+            <li data-menuanchor="page3"><a href="#page3">03</a></li>
+            <span class="slide"></span>
+        </ul>
+        <span class="next"></span>
+    </div>
+    <span id="goTop"></span>
+    <div class="scroll-box">
+        <div id="fullpage" class="product_intro">
+            <div class="section page1">
+                <div class="w_1160">
+                    <div class="page1_content">
+                        <h3>全民钱包分期商城</h3>
+                        <p class="subtitle">品质生活 轻松畅享</p>
+                        <p class="desc">一站式消费金融服务平台，汇集多品类、高品质的商品，提供便<br>利的分期消费服务，让广大消费者随时随地畅享品质生活。</p>
+                        <img class="wx_code" src="/images/product/pic_wx.png" />
+                    </div>
+                </div>
+                <img class="mouse_swipe" src="/images/product/icon_mouse_swipe.gif" />
+            </div>
+            <div class="section page2">
+                <div class="w_1160">
+                    <div class="page2_content">
+                        <h3>严选商品</h3>
+                        <p class="subtitle">汇集知名品牌，正品保证</p>
+                        <p class="desc">为消费者提供好价格、好商品和好服务的优质体验，强调高<br>品质、高安全、高颜值，提升消费者的认可度。</p>
+                    </div>
+                </div>
+                <img class="mouse_swipe" src="/images/product/icon_mouse_swipe.gif" />
+            </div>
+            <div class="section page3">
+                <div class="w_1160">
+                    <div class="page3_content">
+                        <h3>轻松分期</h3>
+                        <div class="desc-1">
+                            <p class="subtitle">操作便捷</p>
+                            <p class="desc">线上5分钟申请，极速审批</p>
+                        </div>
+                        <div class="desc-2">
+                            <p class="subtitle">额度充足</p>
+                            <p class="desc">信用额度从5千到5万</p>
+                        </div>
+                        <div class="desc-3">
+                            <p class="subtitle">期限灵活</p>
+                            <p class="desc">多种还款周期供自由选择</p>
+                        </div>
+                    </div>
+                </div>
+                <img class="mouse_swipe" src="/images/product/icon_mouse_swipe.gif" />
+            </div>
+            <div class="section page4 fp-auto-height">
+                <div class="theme_title">
+                    <p class="en_title">FINANCIAL SERVICE</p>
+                    <p class="cn_title">全民钱包，以传达幸福为己任</p>
+                    <i class="title-down-line"></i>
+                </div>
+                <%- include('./template/footer') -%>
+            </div>
+        </div>
+    </div>
+
+    <script src="/lib/jquery.fullPage.min.js"></script>
+    <script>
+        $(function(){
+            // 全屏滚动
+            $('#fullpage').fullpage({
+                menu: "#menu",
+                navigation: false,
+                verticalCentered:true,
+                anchors: ['page1', 'page2', 'page3', 'page4'],
+                afterLoad:function (anchorLink, index) {
+                    if(index=='4'){
+                        $("#menu").hide();
+                        $("#goTop").show();
+                    }else{
+                        $("#menu").show();
+                        $("#goTop").hide();
+                        $('.slide').animate({top: $('#menu li').eq(index-1).position().top})
+                    }
+                    $(anchorLink).addClass("curr");
+                }
+            });
+            // 向上
+            $('.prev').on('click',function () {
+                $('#fullpage').fullpage.moveSectionUp();
+            })
+            // 向下
+            $('.next').on('click',function () {
+                $('#fullpage').fullpage.moveSectionDown();
+            })
+            // 返回顶部
+            $("#goTop").on('click',function () {
+                $('#fullpage').fullpage.moveTo(1,0);
+            })
+        })
+    </script>
+</body>
+</html>

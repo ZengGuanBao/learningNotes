@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>全民自由消费分期平台 - 全民钱包</title>
+    <meta name="keywords" content="全民钱包,全民钱包官网,消费金融,消费分期,普惠金融">
+    <meta name="description" content="全民钱包是集信用风险评估与管理、信用数据整合服务、小额贷款咨询服务为一体的综合性金融服务公司">
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/stylesheets/comm.css" />
+    <link rel="stylesheet" href="/lib/swiper4/swiper-4.3.3.min.css">
+    <link rel="stylesheet" href="/stylesheets/index.css?" />
+    <script src="/lib/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <%- include('./template/header') -%>
+    <div class="banner-box swiper-container">
+        <div class="banner-wrap swiper-wrapper">
+        </div>
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="company-profile screen-1085">
+        <div class="common-title">
+            <div class="title-gray">INTRODUCTION</div>
+            <div class="title-content">公司简介</div>
+            <i class="title-down-line"></i>
+        </div>
+        <div class="company-desc">
+            全民钱包成立于2017年7月，是通过消费场景连接消费者与金融服务的金融科技公司。全民钱包旗下的分期商城是一个提供分期消费的金融服务平台，旨在解决广大用户小额高频的消费分期需求，坚持以大数据和人工智能等创新科技提高营销获客能力及风险管理能力，促使用户与金融机构进行高效对接，优化金融资源配置，助力金融机构实现快速引流并提升经营效率。
+        </div>
+        <a class="jump-btn" target="_blank" href="/aboutUs.html">
+            了解更多
+            <i></i>
+        </a>
+        <div class="company-composition clear">
+            <div class="company-item company-item-img item1" onmouseover="showMouseoverGif(this)"
+                 onmouseout="showMouseoutGif(this)">
+                <img id="companyItemImg" src="/images/index/company-item-icon1.png">
+                <img class="hide" src="/images/index/company-item-icon1.gif">
+                <div class="company-composition-title">智能风控</div>
+                <div class="company-composition-desc">基于海量数据建立的评分模型，可通过反撸分和观星分对用户的风险水平进行量化管理</div>
+            </div>
+            <div class="company-item company-item-img item2" onmouseover="showMouseoverGif(this)"
+                 onmouseout="showMouseoutGif(this)">
+                <img src="/images/index/company-item-icon2.png">
+                <img class="hide" src="/images/index/company-item-icon2.gif">
+                <div class="company-composition-title">数据安全</div>
+                <div class="company-composition-desc">审慎的数据处理流程与数据合作，全方位保护用户隐私信息</div>
+            </div>
+            <div class="company-item company-item-img item3" onmouseover="showMouseoverGif(this)"
+                 onmouseout="showMouseoutGif(this)">
+                <img src="/images/index/company-item-icon3.png">
+                <img class="hide" src="/images/index/company-item-icon3.gif">
+                <div class="company-composition-title">优质团队</div>
+                <div class="company-composition-desc">风控团队成员来自银行、互金、小贷等领域，拥有丰富的实操经验和技术储备</div>
+            </div>
+        </div>
+    </div>
+    <div class="product-desc">
+        <div class="common-title">
+            <div class="title-gray">PRODUCT</div>
+            <div class="title-content">产品介绍</div>
+            <i class="title-down-line"></i>
+        </div>
+        <div class="product-content screen-1085 clear">
+            <div class="product-desc-l">
+                <div class="title">全民钱包分期商城</div>
+                <div class="desc">一站式消费金融服务平台，汇集多品类、高品质的商品，提供便利的分期消费服务，让广大消费者随时随地畅享品质生活。</div>
+                <a class="jump-btn" href="productIntroduction.html" target="_blank">
+                    了解更多
+                    <i></i>
+                </a>
+            </div>
+            <div class="product-desc-r">
+                <img src="/images/index/product-desc-img.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="product-advantages">
+        <a class="product-advantages-bg" href="javascript:void(0)"></a>
+        <div class="common-title">
+            <div class="title-gray">ADVANTAGE</div>
+            <div class="title-content">产品优势</div>
+            <i class="title-down-line"></i>
+        </div>
+        <div class="product-advantages-content">
+            <div class="screen-1085 clear">
+                <div class="advantages-item" onmouseover="showMouseoverGif(this)" onmouseout="showMouseoutGif(this)">
+                    <img class="advantages-item-img" id="advantagesItemImg"
+                         src="/images/index/advantages-item-icon1.png">
+                    <img class="hide" src="/images/index/advantages-item-icon1.gif">
+                    <div class="title">严选商品</div>
+                    <div class="desc">汇集知名品牌，正品保证</div>
+                </div>
+                <div class="advantages-item" onmouseover="showMouseoverGif(this)" onmouseout="showMouseoutGif(this)">
+                    <img class="advantages-item-img" src="/images/index/advantages-item-icon2.png">
+                    <img class="hide" src="/images/index/advantages-item-icon2.gif">
+                    <div class="title">操作便捷</div>
+                    <div class="desc">线上5分钟申请，极速审批</div>
+                </div>
+                <div class="advantages-item" onmouseover="showMouseoverGif(this)" onmouseout="showMouseoutGif(this)">
+                    <img class="advantages-item-img" src="/images/index/advantages-item-icon3.png">
+                    <img class="hide" src="/images/index/advantages-item-icon3.gif">
+                    <div class="title">额度充足</div>
+                    <div class="desc">信用额度从5千到5万</div>
+                </div>
+                <div class="advantages-item" onmouseover="showMouseoverGif(this)" onmouseout="showMouseoutGif(this)">
+                    <img class="advantages-item-img" src="/images/index/advantages-item-icon4.png">
+                    <img class="hide" src="/images/index/advantages-item-icon4.gif">
+                    <div class="title">期限灵活</div>
+                    <div class="desc">多种还款周期供自由选择</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="latest-news clear">
+        <div class="latest-news-bg-l"></div>
+        <div class="latest-news-bg-r"></div>
+        <div class="screen-1085 clear ">
+            <div class="latest-news-l clear">
+                <div class="content">
+                    <div class="common-title">
+                        <div class="title-gray">INFORMATION</div>
+                        <div class="title-content">最新动态<i class="title-down-line"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="latest-news-r clear">
+                <div class="content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="partner screen-1085">
+        <div class="common-title">
+            <div class="title-gray">INTRODUCTION</div>
+            <div class="title-content">合作伙伴</div>
+            <i class="title-down-line"></i>
+        </div>
+        <div class="partner-content clear">
+            <img class="item" src="/images/index/partner-icon1.png">
+            <img class="item" src="/images/index/partner-icon2.png">
+            <img class="item" src="/images/index/partner-icon3.png">
+            <img class="item" src="/images/index/partner-icon4.png">
+            <img class="item" src="/images/index/partner-icon5.png">
+            <img class="item" src="/images/index/partner-icon6.png">
+        </div>
+    </div>
+    <%- include('./template/footer') -%>
+    <script src="/lib/swiper4/swiper-4.3.3.min.js"></script>
+    <script src="/lib/swiper4/swiper.animate1.0.3.min.js"></script>
+    <script src="/js/comm.js"></script>
+
+    <script>
+        $(function () {
+            $('.header').addClass('border-white');
+            $('.placeholder').hide()
+            scroll();
+            //返回顶部滚动
+            $(window).on('scroll', function () {
+                scroll();
+            });
+
+            function scroll() {
+                var scrollTop = $(document).scrollTop();
+                if (scrollTop >= 200) {
+                    $('.header').css('background', '#ffffff');
+                } else {
+                    $('.header').css('background', 'rgba(255,255,255,' + scrollTop / 200 * 1 + ')');
+                }
+
+                if (scrollTop >= 100) {
+                    $('.header .tabs a').css('color', '#333');
+                    $('.header .logo').removeClass('logo-white');
+                } else {
+                    $('.header .logo').addClass('logo-white');
+                    $('.header .tabs a').css('color', '#ffffff');
+                }
+
+                // 给公司简介图片添加动画
+                if (getLabelHeight('#companyItemImg')) {
+                    for (var index = 0; index < $('.company-item-img').length; index++) {
+                        $('.company-item-img').eq(index).addClass('animate__fadeInDown' + index);
+                        $('.company-item-img').eq(index).css('opacity', '1')
+                    }
+                }
+                // 给产品优势设置动画
+                if (getLabelHeight('#advantagesItemImg')) {
+                    for (var index = 0; index < $('.advantages-item-img').length; index++) {
+                        $('.advantages-item-img').eq(index).addClass('animate__fadeInDown' + index);
+                        $('.advantages-item-img').eq(index).css('opacity', '1')
+                    }
+                }
+            }
+            //  元素顶部到窗口底部的距离,并判断距离是不已经距离底部超过200px
+            function getLabelHeight(id) {
+                return $(window).height() - ($(id).offset().top - $(document).scrollTop()) > 150
+            }
+            getBanner();
+            getArticle();
+            //请求banner数据
+            function getBanner() {
+                $.get("/qmwallet-app/pc/index/bannerList", function (result) {
+                    setBanner(result);
+                });
+            }
+
+            //设置轮播
+            function setBanner(result) {
+                var bannerStr = '';
+                for (var i = 0; i < result.length; i++) {
+                    bannerStr += '<div class="swiper-slide">\n' +
+                        '            <a class="link-banner" href="' + result[i].url +
+                        '" style="background-image:url(' + result[i].adImageUrl + ')" target="_blank">\n' +
+                        '            </a>\n' +
+                        '        </div>'
+                }
+                $('.banner-wrap').html(bannerStr);
+                if (result.length > 1) {
+                    swiper = new Swiper('.banner-box.swiper-container', {
+                        speed: 1000,
+                        loop: true,
+                        autoplay: {
+                            delay: 6000,
+                            disableOnInteraction: false,
+                        },
+                        pagination: {
+                            el: '.swiper-pagination',
+                            clickable: true,
+                        },
+                    });
+                }
+            }
+
+            //请求最新资讯
+            function getArticle() {
+                $.ajax({
+                    type: 'POST',
+                    url: '/qmwallet-app/article/list',
+                    headers: {
+                        'Content-Type': 'application/json;charset=UTF-8;'
+                    },
+                    data: JSON.stringify({
+                        pageNo: 1,
+                        pageSize: 7
+                    }),
+                    dataType: 'JSON',
+                    async: true, //异步
+                    success: function (result) {
+                        setArticle(result.data.records);
+                    },
+                });
+            }
+
+            //设置最新资讯
+            function setArticle(result) {
+
+                // 左边展示第一条公司动态
+                if (result && result.length > 0) var dataFirst = result[0];
+                var strL = '<div class="content-bottom"><div class="news-bg"><img src="' + dataFirst.coverImageUrl +
+                    '"></div>' +
+                    '<div class="time">' + commonJs.formatTime(dataFirst.showTime) + '</div>' +
+                    '<a target="_blank"  href="./companyDynamics/detail/'+dataFirst.id+'.html" class="content-title two-ellipsis">' + dataFirst.title + '</a>' +
+                    '<div class="content-desc three-ellipsis">' + dataFirst.description + '</div>' +
+                    '<a class="jump-btn" target="_blank" href="./companyDynamics/index.html"> 更多动态 <i></i></a></div>';
+                $('.latest-news-l .common-title').after(strL);
+                // 右边列表动态
+                var str = '';
+                if (result && result.length > 1) result.shift();
+                for (var i = 0; i < result.length; i++) {
+                    str += '<a class="content-item" target="_blank" href="./companyDynamics/detail/'+result[i].id+'.html">' +
+                        '<div class="time">' + commonJs.formatTime(result[i].showTime) + '</div>' +
+                        '<div class="title one-ellipsis">' + result[i].title + '</div>' +
+                        '</a>';
+                }
+                $('.latest-news-r .content').html(str);
+            }
+        });
+
+        function showMouseoverGif(obj) {
+            $(obj).find('img').eq(0).css({
+                'display': 'none'
+            });
+            // 清除动画效果
+            $(obj).find('img').eq(0).removeClass();
+            $(obj).find('img').eq(1).css({
+                'display': 'block'
+            });
+        }
+
+        function showMouseoutGif(obj) {
+            $(obj).find('img').eq(1).css({
+                'display': 'none'
+            });
+            // 清除动画效果
+            $(obj).find('img').eq(1).removeClass();
+            $(obj).find('img').eq(0).css({
+                'display': 'block'
+            });
+        }
+    </script>
+</body>
+</html>
+

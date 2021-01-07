@@ -1,0 +1,91 @@
+* {}
+
+body {
+    background: #ffffff;
+}
+
+.company-bg {
+    min-width: 1085px;
+    height: 180px;
+}
+
+.company-bg a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/companyDynamics/company-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+}
+.company-tabs {
+    font-size: 16px;
+    line-height: 18px;
+    text-align: center;
+    border-bottom: 1px solid #F7F8FA;
+}
+
+.company-tabs .tab {
+    position: relative;
+    cursor: pointer;
+    padding: 44px 0 27px;
+    margin: 0 32px;
+    display: inline-block;
+}
+
+.company-tabs .active {
+    position: relative;
+    font-weight: bold;
+}
+
+.company-tabs .tab:before {
+    content: ' ';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: #FF722C;
+    opacity: 0;
+    transform: scaleX(0);
+    -webkit-transform: scaleX(0);
+        -ms-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transition: all .5s cubic-bezier(0.18, 0.89, 0.17, 0.88), opacity .25s ease;
+    -o-transition: all .5s cubic-bezier(0.18, 0.89, 0.17, 0.88), opacity .25s ease;
+    transition: all .5s cubic-bezier(0.18, 0.89, 0.17, 0.88), opacity .25s ease;
+}
+
+.company-tabs .tab:hover::before, .company-tabs .active:before {
+    opacity: 1;
+    -webkit-transform: scaleX(1);
+    -ms-transform: scaleX(1);
+    transform: scaleX(1);
+  }
+
+.tab-content-item:not(:first-child) {
+    display: none;
+}
+.page-main {
+    padding-top: 67px;
+}
+
+.info-list .item {
+    margin-bottom: 42px;
+}
+
+.info-list .item .fl {
+    font-size: 16px;
+    line-height: 16px;
+    max-width: 950px;
+}
+
+.info-list .item .fl:hover {
+    font-weight: 600;
+}
+
+.info-list .item .fr {
+    font-size: 14px;
+    color: #999999;
+    line-height: 18px;
+}

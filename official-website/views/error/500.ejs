@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>500 - 全民钱包</title>
+    <meta name="keywords" content="全民钱包,全民钱包官网,消费金融,消费分期,普惠金融">
+    <meta name="description" content="全民钱包是集信用风险评估与管理、信用数据整合服务、小额贷款咨询服务为一体的综合性金融服务公司">
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/stylesheets/comm.css" />
+    <script src="/lib/jquery-1.9.1.min.js"></script>
+    <style>
+        .header{
+            border-bottom: 1px solid #F7F8FA;
+        }
+    </style>
+</head>
+<body>
+    <%- include('../template/header') -%>
+    <div class="error-content">
+        <div class="wrap">
+            <img class="img-error" src="/images/common/500.png" alt>
+            <div class="error-text">糟糕～服务器好像出错了，您可以尝试：</div>
+            <a class="jump-btn" href="javascript: void(0);" onclick="goHome()">
+                返回首页
+                <i></i>
+            </a>
+        </div>
+    </div>
+    <script>
+        function goHome() {
+            location.href = location.origin
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+*{
+}
+body{
+    background:#F6F7F9;
+}
+.bread-crumb{
+    padding:23px 0;
+    color: #999999;
+}
+.path-title,.path-link,.path-split{
+    display:inline-block;
+    font-size: 13px;
+}
+.bread-crumb .article-title {
+    color:#333;
+}
+.path-link,.path-split{
+    margin-left:3px;
+    color: #999999;
+}
+.article-content{
+    padding:54px 50px 45px;
+    margin-bottom:37px;
+    background:#fff;
+    border-radius:2px;
+}
+.article-title,.article-info{
+    text-align: center;
+}
+.article-content .article-title{
+    color:#333;
+    font-size:20px;
+    font-weight: bold;
+}
+.line{
+    height:1px;
+    background: #F7F8FA;
+}
+.header-line{
+    margin:37px 0 19px 0;
+}
+.footer-line{
+    margin:50px 0 26px 0;
+}
+.article-info span{
+    display:inline-block;
+    color: #999999;
+}
+.article-info .time,.article-info .watch-times{
+    margin-right:50px;
+}
+.article-text{
+    margin-top:22px;
+}
+.pre-article,.next-article{
+    font-size:13px;
+    color:#666;
+}
+.pre-article:hover,.next-article:hover{
+    color:#333;
+}
+.page-footer{
+    padding:64px;
+    background:#141624;
+}
+.company-other-info .contact-text-title{
+    font-size:16px;
+    color:#BABBCA;
+    margin-bottom:24px;
+}
+
+.ql-editor {
+    line-height: 1.8;
+    color: #666666;
+}

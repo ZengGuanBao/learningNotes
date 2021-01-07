@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'din';
+    src: url('./font/din.eot');
+    src: local('din'), url('./font/din.woff') format('woff'), url('./font/din.ttf') format('truetype');
+}
+.scroll-box{ position: absolute; top:0px; right:0; left:0; bottom:0;}
+.product_intro { color: #fff; }
+.section { background-repeat: no-repeat;  background-position: center center; background-size: cover; }
+.page1 { background-image: url("../images/product/pic_product_1.jpg"); }
+.page2 { background-image: url("../images/product/pic_product_2.jpg"); }
+.page3 { background-image: url("../images/product/pic_product_3.jpg"); }
+
+.w_1160 { width: 1160px; margin: 0 auto; height: 100%; }
+.section h3 { line-height: 60px; font-size: 48px; }
+.section .subtitle { margin: 50px 0 20px; line-height: 50px; font-size: 32px; }
+.section .desc { line-height: 30px; font-size: 16px; color: rgba(255,255,255,.7); }
+.page1_content { padding: 240px 0 0 626px; }
+.page1_content .wx_code { display: block; width: 150px; height: 172px; margin-top: 72px; }
+.active .page1_content h3 { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.3s;}
+.active .page1_content .subtitle { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.9s; }
+.active .page1_content .desc { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1.1s; }
+.active .page1_content .wx_code { animation-name: fadeInUp; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1.3s; }
+.page2_content { padding: 312px 0 0 120px; }
+.active .page2_content h3 { animation-name: fadeInLeft; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.3s;}
+.active .page2_content .subtitle { animation-name: fadeInLeft; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.9s; }
+.active .page2_content .desc { animation-name: fadeInLeft; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1.1s; }
+.page3_content { padding: 268px 0 0 702px; }
+.page3_content .subtitle:first-child { margin: 50px 0 7px; }
+.page3_content .subtitle { margin: 38px 0 7px; }
+.active .page3_content h3 { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.3s;}
+.active .page3_content .desc-1 { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 0.9s; }
+.active .page3_content .desc-2 { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1.1s; }
+.active .page3_content .desc-3 { animation-name: fadeInRight; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1.3s; }
+.mouse_swipe { position: absolute; bottom: 25px; left: 50%; width: 110px; height: 36px; margin: 0 -55px; }
+
+.theme_title { height: 320px; padding-top: 84px; background: url("../images/product/bg_footer_banner.jpg") no-repeat center center; background-size: cover; text-align: center; }
+.theme_title .en_title { line-height: 60px; font-size: 44px; color: rgba(51,51,51,.04); }
+.theme_title .cn_title { margin-top: -28px; line-height: 50px; font-size: 36px; color: #333; font-weight: bold; }
+.theme_title .title-down-line { display: block; width: 24px; height: 8px; background-color: #ff722c; margin: 15px auto 0; }
+
+.menu { position: fixed; top: 50%; right: 100px; width: 48px; height: 230px; margin: -115px 0; z-index: 3; }
+.menu .scroll { position: absolute; top: 14px; left: 6px; width: 1px; height: 202px; background-color: rgba(255,255,255,.2); }
+.menu .prev,
+.menu .next { display: block; width: 13px; height: 13px; background-repeat: no-repeat; background-size: cover; cursor: pointer; }
+.menu .prev { background-image: url("../images/product/icon_arrow_up.png"); }
+.menu .next { background-image: url("../images/product/icon_arrow_down.png"); }
+.menu ul { width: 48px; height: 202px; margin: 1px 0; padding-top: 30px; }
+.menu ul li { position: relative; display: block; height: 24px; margin-bottom: 30px; line-height: 24px; cursor: pointer; font-size: 16px; }
+.menu ul li a { width: 20px; margin-left: 28px; text-align: center; color: #fff; opacity: .3; font-family: 'din'; }
+.menu ul li.active a { animation-name: fontChange; transition: all .5s ease; animation-duration: 1s; animation-fill-mode: both; animation-delay: 1s; }
+.menu ul .slide { position: absolute; top: 0; left: 3px; width: 7px; height: 24px; background-color: #fff; }
+#goTop { display: none; position: fixed; right: 125px;  bottom: 314px; width: 40px; height: 40px; background: url("../images/common/go-top.png") no-repeat; background-size: contain; z-index: 2; cursor: pointer; }
+
+@keyframes fontChange {
+    0% {
+        opacity: 0.3;
+        font-size: 16px;
+    }
+    to {
+        opacity: 1;
+        font-size: 20px;
+        color: #fff;
+    }
+}

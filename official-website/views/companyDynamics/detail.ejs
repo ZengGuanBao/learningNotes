@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title><%= articleDetail.title %> - 全民钱包</title>
+    <meta name="keywords" content="全民钱包,全民钱包官网,消费金融,消费分期,普惠金融">
+    <meta name="description" content="全民钱包是集信用风险评估与管理、信用数据整合服务、小额贷款咨询服务为一体的综合性金融服务公司">
+    <link href="/images/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="/stylesheets/comm.css" />
+    <link rel="stylesheet" href="/stylesheets/quill.bubble.css" />
+    <link rel="stylesheet" href="/stylesheets/quill.core.css" />
+    <link rel="stylesheet" href="/stylesheets/quill.snow.css" />
+    <link rel="stylesheet" href="/stylesheets/companyDynamics/detail.css" />
+    <script src="/lib/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+    <%- include('../template/header') -%>
+    <div class="page-main screen-1085">
+        <div class="bread-crumb">
+            <span class="path-title">您所在的位置：</span>
+            <a class="path-link" href="../../../index.html">首页</a>
+            <span class="path-split">&gt;</span>
+            <a class="path-link" href="../../index.html">公司动态</a>
+            <span class="path-split">&gt;</span>
+            <a class="path-link article-title" href="javascript:void(0)"><%= articleDetail.title %></a>
+        </div>
+        <div class="article-content">
+            <div class="article-title"><%= articleDetail.title %></div>
+            <div class="header-line line"></div>
+            <div class="article-info">
+                <span class="time"><%= articleDetail.showTime %></span>
+                <span class="watch-times">已被浏览<%= articleDetail.views %>次</span>
+            </div>
+            <div class="article-text ql-container ql-editor"><%- articleDetail.text %></div>
+            <div class="footer-line line"></div>
+            <div class="article-recommend clear">
+                <% if(articleDetail.preArticle){%>
+                    <a class="pre-article fl" href="<%= preArticleUrl %>">上一篇：<%= articleDetail.preArticle.title %></a>
+                <%} else{ %>
+                    <a class="pre-article fl" style="color:#CBCBCB;" href="javascript:void(0)">上一篇：无</a>
+                <%} %>
+                <% if(articleDetail.nextArticle){ %>
+                    <a class="pre-article fr" href="<%= nextArticleUrl %>">下一篇：<%= articleDetail.nextArticle.title %></a>
+                <%} else{ %>
+                    <a class="pre-article fr" style="color:#CBCBCB;" href="javascript:void(0)">下一篇：无</a>
+                <%} %>
+            </div>
+        </div>
+    </div>
+    <%- include('../template/footer') -%>
+</body>
+</html>

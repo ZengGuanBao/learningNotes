@@ -1,0 +1,95 @@
+<div class="tab-content-item">
+    <div style="margin: 68px 0">
+        <div id="social-info"></div>
+        <div class="page-main screen-1085" style="margin: 0 0 134px 0">
+                <div id="kkpager" style="width: 600px;margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var totalPage;
+        var totalRecords;
+        var pageNo = 1;
+        var pageSize = 5;
+        $('.company-tabs .tab').on('click', function () {
+            $('.company-tabs .tab').removeClass('active');
+            $(this).addClass('active');
+            kkpager.selectPage(pageNo);
+            getSocialList();
+        })
+
+        function initKkpager() {
+            kkpager.generPageHtml({
+                pno: pageNo,
+                //总页码
+                total: totalPage,
+                //总数据条数
+                totalRecords: totalRecords,
+                isGoPage: false,
+                isShowTotalPage: false,
+                isShowTotalRecords: false,
+                mode: 'click',
+                click: function (n) {
+                    pageNo = n;
+                    getSocialList();
+                    this.selectPage(n);
+                    return false;
+                }
+            }, true);
+        }
+
+        getSocialList();
+
+        //请求-社会责任列表
+        function getSocialList() {
+            $.ajax({
+                type: 'POST',
+                url: '/qmwallet-app/article/list',
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8;'
+                },
+                data: JSON.stringify({
+                    pageNo: pageNo,
+                    pageSize: pageSize,
+                    type: 3
+                }),
+                dataType: 'JSON',
+                async: true,
+                success: function (result) {
+                    totalPage = result.data.pages;
+                    totalRecords = result.data.total;
+                    initKkpager();
+                    setSocialList(result.data.records);
+                },
+            });
+        }
+
+        //请求渲染-社会责任列表
+        function setSocialList(result) {
+            var str = '';
+            for (var i = 0; i < result.length; i++) {
+                var f
+                if (i%2 === 0) {
+                    f = "float-left"
+                } else {
+                    f = "float-right"
+                }
+                str += '<div class="social-info '+f+' screen-1085 clear">'+
+                    '<div class="social-info-left">'+
+                    '<img src='+ result[i].coverImageUrl +' alt="">'+
+                    '</div>'+
+                    '<div class="social-info-right">'+
+                    '<h5>'+ result[i].title +'</h5>'+
+                    '<p>'+ result[i].description +'</p>'+
+                    '<a href="./companyDynamics/detail/3/' + result[i].id + '.html" target="_blank">'+
+                    '<span>查看详情 →</span>'+
+                    '</a>'+
+                    '</div>'+
+                    '</div>';
+                }
+                $('#social-info').html(str);
+        }
+    });
+</script>

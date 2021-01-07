@@ -1,0 +1,69 @@
+<div class="header-container">
+  <div class="header">
+    <div class="header-wrap screen-1085">
+      <a href="/index.html" class="logo"></a>
+      <img class="wx-logo" src="/images/logo.png">
+      <div class="tabs">
+        <a href="/index.html" class="tab">首页</a>
+        <a href="/productIntroduction.html" class="tab">产品介绍</a>
+        <a href="/companyDynamics/index.html" class="tab">公司动态</a>
+        <a href="/aboutUs.html" class="tab">关于我们</a>
+      </div>
+    </div>
+  </div>
+  <div class="go-top">
+      <img class="img-go" src="/images/common/go-top.png" alt>
+  </div>
+  <div class="placeholder"></div>
+</div>
+<script>
+  $(function () {
+    var headerHref = window.location.href
+    if (headerHref.indexOf('/productIntroduction') > 0) {
+      $('.tabs .tab').eq(1).addClass('active')
+    } else if (headerHref.indexOf('/companyDynamics') > 0) {
+      $('.tabs .tab').eq(2).addClass('active')
+    } else if (headerHref.indexOf('/aboutUs') > 0) {
+      $('.tabs .tab').eq(3).addClass('active')
+    } else {
+      $('.tabs .tab').eq(0).addClass('active')
+    }
+    headerScroll()
+    // 滚动监听
+    $(window).on('scroll', function () {
+      headerScroll()
+    });
+    var isTop = true;
+    var goTopTime = null;
+    function headerScroll () {
+      var scrollTopComm = $(document).scrollTop();
+      if (scrollTopComm > 200) {
+        $('.header').addClass('border-b');
+      } else {
+        $('.header').removeClass('border-b')
+      }
+      // 显示向上滚动的箭头
+      if (scrollTopComm > 500) {
+        $('.go-top').show();
+      } else {
+        $('.go-top').hide();
+      }
+      if(!isTop)//条件为真时执行清除定时器操作
+      clearInterval(goTopTime);
+      isTop = false;
+    }
+
+    $('.go-top').on('click', function () {
+      goTopTime = setInterval(function(){
+            //获取滚动条距离顶部的高度
+            var osTop=document.documentElement.scrollTop|| document.body.scrollTop;
+            var isPeed=Math.floor(-osTop / 5);
+            isTop = true;
+            $(document).scrollTop(osTop+isPeed)
+            if(osTop==0){
+                clearInterval(goTopTime);
+            }
+        },30);
+    })
+  })
+</script>
