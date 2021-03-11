@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cognition/cognition",
+    "pages/myPage/myPage"
+  ],
+  "subpackages": [
+    {
+      "root": "Adminpackage",
+      "name": "AdminPacket",
+      "pages":[
+        "managerHome/managerHome"
+      ]
+    },
+    {
+      "root": "CalculatorPackage",
+      "name": "CalculatorPacket",
+      "pages":[
+        "calculator/calculator",
+        "calculatorlast/calculatorlast",
+        "rate/rate"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "东风智慧轻生活",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#B0B0B0",
+    "selectedColor": "#000000",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "轻生活"
+      },
+      {
+        "pagePath": "pages/cognition/cognition",
+        "text": "认知"
+      },
+      {
+        "pagePath": "pages/myPage/myPage",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
