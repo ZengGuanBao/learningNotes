@@ -97,15 +97,9 @@ const p1 = new Promise((resolve) => {
  * finally不管Promise的状态是resolved还是rejected都会执行，且它的回调函数是没有参数的(类似3.10)
  */
 
- async function asyncl() {
+async function asyncl() {
   console.log('asyncl start')
   await async2()
-  new Promise(function(resolve) {
-    console.log('promise3')
-    resolve()
-  }).then(function() {
-    console.log('promise4')
-  })
   console.log('asyncl end')
 }
 async function async2() {
@@ -127,6 +121,12 @@ new Promise(function(resolve) {
   console.log('promise2')
 }).then(function() {
   console.log('promise3')
+}).then(function() {
+  console.log('promise4')
+}).then(function() {
+  console.log('promise5')
+}).then(function() {
+  console.log('promise6')
 })
 console.log('script end')
 
