@@ -39,6 +39,29 @@ Page({
     // 初始化towerSwiper 传已有的数组名即可
     this.initHomeBarner()
   },
+  onShow() {
+    // this.initWatch()
+  },
+  onHide() {
+    // this.data.watchFunc.close()
+  },
+  initWatch() {
+    const that = this
+    const watchFunc = wx.cloud.database().collection('HomeBarner').limit(4).watch({
+      onChange: function(snapshot) {
+        console.log('docs\'s changed events', snapshot.docChanges)
+        console.log('query result snapshot after the event', snapshot.docs)
+        console.log('is init data', snapshot.type === 'init')
+        that.initHomeBarner()
+      },
+      onError: function(err) {
+        console.error('the watch closed because of error', err)
+      }
+    })
+    this.setData({
+      watchFunc: watchFunc
+    })
+  },
   initHomeBarner() {
     wx.cloud.callFunction({
       name: 'HomeSetting',
