@@ -6,6 +6,29 @@
 </swiper>
 <view class="cu-bar bg-white solid-bottom margin-top">
   <view class="action">
+    <text class="cuIcon-titles text-orange "></text> 在线充值
+    <text class="text-sm text-red">话费慢充 1-72小时到账 请耐心等待</text>
+  </view>
+</view>
+<view class="cu-bar input padding-left-lg solid-bottom">
+  <input class="text-xxxl" maxlength="11" placeholder="输入号码自动匹配" />
+</view>
+<view class="cu-list grid col-3">
+  <view class="cu-item">
+    <view class="text-xxl text-red">50</view>
+    <text>售价 46.5元</text>
+  </view>
+  <view class="cu-item">
+    <view class="text-xxl text-red">100</view>
+    <text>售价 93元</text>
+  </view>
+  <view class="cu-item">
+    <view class="text-xxl text-red">200 </view>
+    <text>售价 186元</text>
+  </view>
+</view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
     <text class="cuIcon-titles text-orange "></text> 推荐服务
   </view>
 </view>
