@@ -1,4 +1,4 @@
-ES6（2015）
+## ES6（2015）
 1. 类（class）
 class Man {
   constructor(name) {
