@@ -1,1 +1,36 @@
-<view class="container"></view>
+<view class="cu-card bg-white">
+  <view class="cu-bar">
+    <view class="action">
+      <text class="cuIcon-titles text-orange "></text> 期货合约：螺纹钢2010
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="text-xl margin-right text-red">操作价格</view>
+    <input class="text-cus" type="number" bindinput="bindKeyInput" placeholder="输入操作价格" />
+  </view>
+  <view class="flex padding">
+    <button class="cu-btn bg-red round">加多</button>
+    <button class="cu-btn bg-green round">锁仓</button>
+    <button class="cu-btn bg-black round">平仓</button>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">2021-5-27</view>
+        <view class="cu-tag line-cyan">10:00</view>
+      </view>
+      <view class="margin-top">期货合约：螺纹钢2010<text class="margin-left-sm text-black">1699平仓10手</text></view>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">2021-5-27</view>
+        <view class="cu-tag line-cyan">10:00</view>
+      </view>
+      <view class="margin-top">期货合约：螺纹钢2010<text class="margin-left-sm text-red">1699加多10手</text></view>
+    </view>
+  </view>
+</view>

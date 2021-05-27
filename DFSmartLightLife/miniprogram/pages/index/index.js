@@ -1,3 +1,7 @@
+
+import webapi from '../../utils/webapi'
+import auth from './../../utils/auth'
+const app = getApp()
 Page({
   data: {
     cardCur: 0,
@@ -32,7 +36,25 @@ Page({
       color: 'blue',
       badge: 0,
       name: '皮肤'
-    }]
+    }],
+    isShow: false,
+    mobileInfo: {},
+    rechList: [{
+      rechDiscount: 0.93,
+      rechPar: 50
+    },{
+      rechDiscount: 0.93,
+      rechPar: 100
+    },{
+      rechDiscount: 0.93,
+      rechPar: 200
+    }],
+    showModal: false,
+    modalData: {
+      mobile: '',
+      rechPar: 0,
+      rechDiscount: 0
+    }
   },
   onLoad() {
     this.towerSwiper('swiperList');
@@ -40,12 +62,85 @@ Page({
     this.initHomeBarner()
   },
   onShow() {
-    // 号码归属地查询
-    // https://tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=18520506195 
     // this.initWatch()
   },
   onHide() {
     // this.data.watchFunc.close()
+  },
+  bindKeyInput(e) {
+    if (e.detail.value.length === 11) {
+      webapi.getMobileLocal(e.detail.value).then(res => {
+        let data = res.split('= ')[1].replace(/\s*/g,"")
+        if (data !== '{}') {
+          data = data.replaceAll("{", "{\"")
+          data = data.replaceAll(":", "\":")
+          data = data.replaceAll(",", ",\"")
+          data = data.replaceAll("\'", "\"")
+          this.setData({
+            isShow: true,
+            mobileInfo: JSON.parse(data)
+          })
+        } else {
+          this.setData({
+            isShow: false,
+            mobileInfo: {}
+          })
+          wx.showToast({
+            title: '您输入的号码有误，请重新输入',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+      }).catch(function (err) {
+        console.log(err)
+      })
+    } else {
+      this.setData({
+        isShow: false,
+        mobileInfo: {}
+      })
+    }
+  },
+  goRechMobile(e) {
+    const rechPar = e.currentTarget.dataset.rechpar
+    const rechDiscount = e.currentTarget.dataset.rechdiscount
+    if (this.data.mobileInfo.telString) {
+      this.setData({
+        modalData: {
+          mobile: this.data.mobileInfo.telString,
+          rechPar: rechPar,
+          rechDiscount: rechDiscount
+        }
+      })
+      this.setModal()
+    } else {
+      wx.showToast({
+        title: '请输入正确的号码',
+        icon: 'none',
+        duration: 2000
+      })
+    }
+  },
+  setModal() {
+    this.setData({
+      showModal: !this.data.showModal
+    })
+  },
+  submit() {
+    if (app.globalData.userLogin === true) {
+      this.setModal()
+    } else {
+      wx.showToast({
+        title: '请先前往授权登录',
+        icon: 'none',
+        duration: 1000
+      })
+      setTimeout(() => {
+        wx.switchTab({
+          url: '/pages/myPage/myPage'
+        })
+      }, 1000);
+    }
   },
   initWatch() {
     const that = this

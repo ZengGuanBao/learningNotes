@@ -22,3 +22,13 @@
 .switch-music::before {
   content: "\e6db";
 }
+
+.text-cus{
+  font-size:x-large;
+}
+.cu-tag.badge{
+  top: auto;
+}
+.chagesize{
+  transform: scale(.6);
+}

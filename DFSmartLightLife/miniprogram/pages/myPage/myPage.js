@@ -3,18 +3,35 @@ Page({
   data: {
     avatarUrl: '/images/user-unlogin.png',
     userInfo: {},
-    logged: false,
-    starCount: 0,
-    forksCount: 0,
-    visitTotal: 0,
+    logged: false
   },
   onLoad: function() {
-    let userStorageInfo = wx.getStorageSync('userStorageInfo');
-    if (userStorageInfo.nickName) {
+    const userInfo = wx.getStorageSync('userStorageInfo')
+    if (useInfo._id) {
       this.setData({
         logged: true,
-        avatarUrl: userStorageInfo.avatarUrl,
-        userInfo: userStorageInfo
+        avatarUrl: userInfo.avatarUrl,
+        userInfo: userInfo
+      })
+      app.globalData.userInfo = userInfo
+      app.globalData.userLogin = true
+    } else {
+      wx.cloud.callFunction({
+        name: 'InitInfo',
+        data: {
+          type: 'GETUSERINFO'
+        },success: res => {
+          this.setData({
+            logged: true,
+            avatarUrl: res.result.data[0].avatarUrl,
+            userInfo: res.result.data[0]
+          })
+          app.globalData.userInfo = res.result.data[0]
+          app.globalData.userLogin = true
+          wx.setStorageSync('userStorageInfo', res.result.data[0])
+        },fail: err => {
+          console.log('err', err)
+        }
       })
     }
   },
@@ -28,10 +45,20 @@ Page({
       app.globalData.userInfo = e.detail.userInfo
       app.globalData.userLogin = true
       wx.setStorageSync('userStorageInfo', e.detail.userInfo)
+      wx.cloud.callFunction({
+        name: 'InitInfo',
+        data: {
+          type: 'ADDUSERINFO',
+          data: e.detail.userInfo
+        },success: res => {
+          console.log('suc', res)
+        },fail: err => {
+          console.log('err', err)
+        }
+      })
     }
   },
   loginAdminManager() {
-    console.log(this.data.userInfo)
     if (this.data.userInfo.nickName) {
       wx.navigateTo({
         url: "../../Adminpackage/managerHome/managerHome?id=" + this.data.userInfo.nickName,
