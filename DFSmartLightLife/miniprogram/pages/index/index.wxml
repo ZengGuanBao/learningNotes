@@ -31,12 +31,6 @@
     </view>
   </block>
 </view>
-<view class="cu-bar bg-white solid-bottom margin-top">
-  <view class='action'>
-    <text class='cuIcon-titles text-orange '></text> 操作记录
-  </view>
-</view>
-
 <!-- <view class="cu-bar bg-white solid-bottom margin-top">
   <view class="action">
     <text class="cuIcon-titles text-orange "></text> 推荐服务

@@ -1,36 +1,38 @@
 <view class="cu-card bg-white">
-  <view class="cu-bar">
-    <view class="action">
-      <text class="cuIcon-titles text-orange "></text> 期货合约：螺纹钢2010
-    </view>
+  <view class="cu-form-group margin-top">
+    <view class="title text-xl">期货合约：</view>
+    <picker bindchange="pickerChange" value="{{curIndex}}" range="{{picker}}">
+      <view class="picker">
+        {{curIndex?picker[curIndex]:'请选择操作品种'}}
+      </view>
+    </picker>
   </view>
   <view class="cu-form-group">
-    <view class="text-xl margin-right text-red">操作价格</view>
-    <input class="text-cus" type="number" bindinput="bindKeyInput" placeholder="输入操作价格" />
+    <view class="title text-xl margin-right text-red">操作价格</view>
+    <input type="number" bindinput="bindKeyInput" value="{{curPrice}}" placeholder="输入操作价格" />
+  </view>
+  <view class="cu-form-group">
+    <view class="title text-xl margin-right text-red">操作数量</view>
+    <view class="text-red">
+      <text class="cuIcon-move" bindtap="updateCount"></text>
+      <text class="text-xl text-red margin-left margin-right">{{curCount}}</text>
+      <text class="cuIcon-add" bindtap="updateCount" data-mode="add"></text>
+    </view>
   </view>
   <view class="flex padding">
-    <button class="cu-btn bg-red round">加多</button>
-    <button class="cu-btn bg-green round">锁仓</button>
-    <button class="cu-btn bg-black round">平仓</button>
+    <button class="cu-btn bg-red round" bindtap="operaMode" data-mode="加多">加多</button>
+    <button class="cu-btn bg-green round" bindtap="operaMode" data-mode="锁仓">锁仓</button>
+    <button class="cu-btn bg-black round" bindtap="operaMode" data-mode="平仓">平仓</button>
   </view>
 </view>
 <view class="cu-timeline">
-  <view class="cu-item">
+  <view class="cu-item" wx:for="{{recordData}}" wx:key="index">
     <view class="content">
       <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">2021-5-27</view>
-        <view class="cu-tag line-cyan">10:00</view>
+        <view class="cu-tag bg-cyan">{{item.date}}</view>
+        <view class="cu-tag line-cyan">{{item.time}}</view>
       </view>
-      <view class="margin-top">期货合约：螺纹钢2010<text class="margin-left-sm text-black">1699平仓10手</text></view>
-    </view>
-  </view>
-  <view class="cu-item">
-    <view class="content">
-      <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">2021-5-27</view>
-        <view class="cu-tag line-cyan">10:00</view>
-      </view>
-      <view class="margin-top">期货合约：螺纹钢2010<text class="margin-left-sm text-red">1699加多10手</text></view>
+      <view class="margin-top">期货合约：{{item.contractType}}<text class="margin-left-sm text-black">{{item.price}}{{item.mode}}{{item.count}}手</text></view>
     </view>
   </view>
 </view>
