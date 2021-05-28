@@ -7,7 +7,7 @@ Page({
   },
   onLoad: function() {
     const userInfo = wx.getStorageSync('userStorageInfo')
-    if (useInfo._id) {
+    if (userInfo._id) {
       this.setData({
         logged: true,
         avatarUrl: userInfo.avatarUrl,
