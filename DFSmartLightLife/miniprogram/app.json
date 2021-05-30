@@ -20,6 +20,13 @@
         "calculatorlast/calculatorlast",
         "rate/rate"
       ]
+    },
+    {
+      "root": "FuturesContractPackage",
+      "name": "FuturesContractPacket",
+      "pages":[
+        "futuresContract/futuresContract"
+      ]
     }
   ],
   "window": {

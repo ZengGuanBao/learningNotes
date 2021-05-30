@@ -1,38 +1,22 @@
-<view class="cu-card bg-white">
-  <view class="cu-form-group margin-top">
-    <view class="title text-xl">期货合约：</view>
-    <picker bindchange="pickerChange" value="{{curIndex}}" range="{{picker}}">
-      <view class="picker">
-        {{curIndex?picker[curIndex]:'请选择操作品种'}}
-      </view>
-    </picker>
-  </view>
-  <view class="cu-form-group">
-    <view class="title text-xl margin-right text-red">操作价格</view>
-    <input type="number" bindinput="bindKeyInput" value="{{curPrice}}" placeholder="输入操作价格" />
-  </view>
-  <view class="cu-form-group">
-    <view class="title text-xl margin-right text-red">操作数量</view>
-    <view class="text-red">
-      <text class="cuIcon-move" bindtap="updateCount"></text>
-      <text class="text-xl text-red margin-left margin-right">{{curCount}}</text>
-      <text class="cuIcon-add" bindtap="updateCount" data-mode="add"></text>
-    </view>
-  </view>
-  <view class="flex padding">
-    <button class="cu-btn bg-red round" bindtap="operaMode" data-mode="加多">加多</button>
-    <button class="cu-btn bg-green round" bindtap="operaMode" data-mode="锁仓">锁仓</button>
-    <button class="cu-btn bg-black round" bindtap="operaMode" data-mode="平仓">平仓</button>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange '></text> 推荐阅读
   </view>
 </view>
-<view class="cu-timeline">
-  <view class="cu-item" wx:for="{{recordData}}" wx:key="index">
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title">
+      <view class="text-cut">赞赏票新华网反包涨停！5倍的“海控”不停涨，今晚买这个明天必涨！——妖精复盘</view>
+    </view>
     <view class="content">
-      <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">{{item.date}}</view>
-        <view class="cu-tag line-cyan">{{item.time}}</view>
+      <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+      <view class="desc">
+        <view class="text-content"> 折磨生出苦难，苦难又会加剧折磨，凡间这无穷的循环，将有我来终结！真正的恩典因不完整而美丽，因情感而真诚，因脆弱而自由！</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">正义天使</view>
+          <view class="cu-tag bg-green light sm round">史诗</view>
+        </view>
       </view>
-      <view class="margin-top">期货合约：{{item.contractType}}<text class="margin-left-sm text-black">{{item.price}}{{item.mode}}{{item.count}}手</text></view>
     </view>
   </view>
 </view>

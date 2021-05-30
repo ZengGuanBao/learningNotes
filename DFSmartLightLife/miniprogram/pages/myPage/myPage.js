@@ -59,16 +59,23 @@ Page({
     }
   },
   loginAdminManager() {
-    if (this.data.userInfo.nickName) {
-      wx.navigateTo({
-        url: "../../Adminpackage/managerHome/managerHome?id=" + this.data.userInfo.nickName,
-      })
-    }
+    wx.cloud.callFunction({
+      name: 'InitInfo',
+      data: {
+        type: 'ADMIN'
+      },success: res => {
+        if (res.result.total > 0) {
+          wx.navigateTo({
+            url: "../../Adminpackage/managerHome/managerHome?id=" + this.data.userInfo.nickName,
+          })
+        }
+      }
+    })
   },
   showQrcode() {
     // wx.previewImage({
     //   urls: ['https://image.weilanwl.com/color2.0/zanCode.jpg'],
-    //   current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接      
+    //   current: 'https://image.weilanwl.com/color2.0/zanCode.jpg' // 当前显示图片的http链接
     // })
   },
   onShareAppMessage(e) {

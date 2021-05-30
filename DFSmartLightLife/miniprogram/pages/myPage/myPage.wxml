@@ -9,10 +9,10 @@
   </view>
   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
-      <view class="content">
-        <text class="cuIcon-github text-grey"></text>
-        <text class="text-grey">GitHub</text>
-      </view>
+      <navigator class="content" url="../../FuturesContractPackage/futuresContract/futuresContract" hover-class="none">
+        <image src="/images/futuresContract-home.jpg" class="png" mode="aspectFit"></image>
+        <text class="text-grey">期货操作记录</text>
+      </navigator>
     </view>
     <view class="cu-item arrow">
       <navigator class="content" url="../../CalculatorPackage/calculator/calculator" hover-class="none">
