@@ -4,7 +4,7 @@
   "main": "service.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "http": "^0.0.0",
     "nodemon": "^1.18.11",
     "ws": "^6.2.1"
